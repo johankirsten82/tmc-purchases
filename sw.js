@@ -1,4 +1,4 @@
-const C="pp-v8",F=["./","index.html","manifest.json","icons/icon-192.png","icons/icon-512.png","icons/apple-touch-icon.png","icons/favicon-32.png","icons/icon.svg","icons/icon-maskable-512.png","icons/qr.png"];
+const C="pp-v9",F=["./","index.html","manifest.json","icons/icon-192.png","icons/icon-512.png","icons/apple-touch-icon.png","icons/favicon-32.png","icons/icon.svg","icons/icon-maskable-512.png","icons/qr.png"];
 self.addEventListener("install",e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(F.map(u=>new Request(u,{cache:"reload"}))).then(()=>c.add("https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js").catch(()=>{}))));self.skipWaiting()});
 self.addEventListener("message",e=>{if(e.data==="skip")self.skipWaiting()});
 const CL=()=>caches.keys().then(k=>Promise.all(k.filter(x=>x!==C&&/^pp-/.test(x)).map(x=>caches.delete(x))));let CLd=0;self.addEventListener("activate",e=>{e.waitUntil(CL());e.waitUntil(self.clients.claim())});

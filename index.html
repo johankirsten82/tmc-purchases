@@ -6,7 +6,7 @@
  "APP_ID": "pa",
  "NAME": "TMC Sahara Purchases",
  "SHORT": "TMC Purchases",
- "VER": 100,
+ "VER": 101,
  "CACHE_PREFIX": "pp",
  "COLOR": "#0f766e",
  "REPORT_COLOR": "#1B7F3B",
@@ -184,6 +184,7 @@ body.hasNc{padding-top:0}
 <div class="card" id="clist"></div><div class="card"><label><input type="checkbox" id="autosave" style="width:auto;min-height:auto"> <span data-t="autoLbl"></span></label><button type="button" id="impBtn" data-t="imp"></button><input type="file" id="impFile" accept=".csv,.xlsx,.xls,.ods" style="display:none"><button type="button" class="sec" id="resetCat" data-t="resetCat"></button><button type="button" class="sec" id="back" data-t="back"></button></div></div>
 <div id="hist" style="display:none"><div class="card" id="hList"></div><div class="card"><button type="button" id="hCsvAll" data-t="exportAll" style="margin-top:0"></button><button type="button" class="sec" id="hUndo" data-t="undoLast" style="color:#b91c1c"></button><button type="button" class="sec" id="hBack" data-t="back"></button></div></div>
 <div id="mainv">
+<div id="hoCard"></div>
 <div class="card cashm" id="cashCard" style="display:none"><div class="cmrow"><b>💵 <span data-t="cashT"></span></b><span class="cmbtns"><button type="button" class="sec mini cmg" id="cGive" data-t="cGive"></button><button type="button" class="sec mini cmg" id="cRet" data-t="cRet"></button></span></div><div id="cmBody"></div></div>
 <div class="card"><form id="f">
 <label data-t="item"></label><div class="pick"><input id="name" required autocomplete="off"><div class="sug" id="sug"></div></div><div style="display:flex;justify-content:space-between;align-items:center;gap:6px"><small id="lastHint" style="color:#666"></small></div>
@@ -207,7 +208,7 @@ body.hasNc{padding-top:0}
 <div class="card"><label data-t="currency"></label><input id="cur" data-nospell>
 <button type="button" id="csv" data-t="export"></button></div>
 </div></div>
-<div id="tabH" style="display:none"><div id="hoCard"></div><div class="card hhero" id="hHero"><img src="icons/icon-192.png?v=pp10" alt="" width="64" height="64"><div><h2 data-t="title"></h2><div id="hDate"></div><div class="hhi" id="hHello" style="display:none"></div></div></div><button type="button" class="sec lobtn" id="hOut" data-t="logout" style="display:none"></button><div class="tiles"><button type="button" class="tile htile" data-tab="S" data-go="S"><b class="ticon">🛒</b><span class="tlab" data-t="tabS"></span><b id="hcS"></b><small id="hsS"></small></button><button type="button" class="tile htile" data-tab="P" data-go="P"><b class="ticon">🧾</b><span class="tlab" data-t="tabP"></span><b id="hcP"></b><small id="hsP"></small></button><button type="button" class="tile htile" data-tab="O" data-go="O"><b class="ticon">📋</b><span class="tlab" data-t="tabO"></span><b id="hcO"></b><small id="hsO"></small></button><button type="button" class="tile htile" data-tab="R" data-go="R"><b class="ticon">📊</b><span class="tlab" data-t="tabR"></span><b id="hcR"></b><small id="hsR"></small></button><button type="button" class="tile htile" data-tab="G" data-go="G"><b class="ticon">⚙️</b><span class="tlab" data-t="tabG"></span></button></div></div><div id="tabS" style="display:none"><div class="card"><h3 data-t="outT"></h3><div class="hbox" data-hk="sHelp"><button type="button" class="hbar"><span>ℹ️ <span data-t="howT"></span></span><span class="hmin" aria-hidden="true"></span></button><small class="htxt" data-t="sHelp"></small></div><input id="sQ" type="search" autocomplete="off" style="margin-top:8px"><label for="sOrd" data-t="oPickL" style="display:block;margin-top:8px"></label><select id="sOrd" class="opsel"></select></div><div id="sList"></div><div id="sDoneW"><button type="button" id="sDone" disabled></button></div><div class="card" id="sBar"><button type="button" class="sec" id="outCsv" style="margin-top:0" data-t="outCsv"></button></div></div>
+<div id="tabH" style="display:none"><div class="card hhero" id="hHero"><img src="icons/icon-192.png?v=pp10" alt="" width="64" height="64"><div><h2 data-t="title"></h2><div id="hDate"></div><div class="hhi" id="hHello" style="display:none"></div></div></div><button type="button" class="sec lobtn" id="hOut" data-t="logout" style="display:none"></button><div class="tiles"><button type="button" class="tile htile" data-tab="S" data-go="S"><b class="ticon">🛒</b><span class="tlab" data-t="tabS"></span><b id="hcS"></b><small id="hsS"></small></button><button type="button" class="tile htile" data-tab="P" data-go="P"><b class="ticon">🧾</b><span class="tlab" data-t="tabP"></span><b id="hcP"></b><small id="hsP"></small></button><button type="button" class="tile htile" data-tab="O" data-go="O"><b class="ticon">📋</b><span class="tlab" data-t="tabO"></span><b id="hcO"></b><small id="hsO"></small></button><button type="button" class="tile htile" data-tab="R" data-go="R"><b class="ticon">📊</b><span class="tlab" data-t="tabR"></span><b id="hcR"></b><small id="hsR"></small></button><button type="button" class="tile htile" data-tab="G" data-go="G"><b class="ticon">⚙️</b><span class="tlab" data-t="tabG"></span></button></div></div><div id="tabS" style="display:none"><div class="card"><h3 data-t="outT"></h3><div class="hbox" data-hk="sHelp"><button type="button" class="hbar"><span>ℹ️ <span data-t="howT"></span></span><span class="hmin" aria-hidden="true"></span></button><small class="htxt" data-t="sHelp"></small></div><input id="sQ" type="search" autocomplete="off" style="margin-top:8px"><label for="sOrd" data-t="oPickL" style="display:block;margin-top:8px"></label><select id="sOrd" class="opsel"></select></div><div id="sList"></div><div id="sDoneW"><button type="button" id="sDone" disabled></button></div><div class="card" id="sBar"><button type="button" class="sec" id="outCsv" style="margin-top:0" data-t="outCsv"></button></div></div>
 <div id="tabO" style="display:none">
 <div id="oList"><div class="card opick"><label for="oPick" data-t="oPickL"></label><select id="oPick"></select></div><div class="card"><button type="button" id="oNew" data-t="newOrder" style="margin-top:0"></button><label data-t="status"></label><select id="oFilter"></select></div><div class="card lst" id="oItems"></div><div class="card" id="outCard"><button type="button" class="sec" id="goS" style="margin-top:0"></button></div><div class="card"><button type="button" class="sec" id="oCsv" data-t="exportOrders" style="margin-top:0"></button></div></div>
 <div id="oForm" style="display:none"><div class="card"><form id="of">
@@ -690,7 +691,7 @@ $("oCsv").onclick=()=>{const q=v=>`"${String(v??"").replace(/"/g,'""')}"`;const 
 orders.forEach(o=>o.lines.forEach((l,i)=>{const r=AL.lines[o.id+"|"+i]||{};rows.push([o.no,o.sup,o.status,o.placed,o.expected,l.name,l.size,l.qty,l.unit,l.price,lt(Object.assign({cur:cur},l)),oTot(o),cur,o.notes,o.reqBy||"",r.b||0,r.rem||0,l.st||r.st||""])}));
 const b=new Blob(["\ufeff"+rows.map(r=>r.map(q).join(",")).join("\r\n")],{type:"text/csv"});const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="orders-"+today()+".csv";a.click();markExport()};
 applyLang();reset();
-(function(){var APP=window.APP_VER=100,REG=null,READY=false,LATEST=+localStorage.pa_latest||APP,_rl=false,CHK=0;
+(function(){var APP=window.APP_VER=101,REG=null,READY=false,LATEST=+localStorage.pa_latest||APP,_rl=false,CHK=0;
 /* ---------------- Auto-update (pp10, from TMC Base VER 11) ----------------
    When a new version is found the app saves open work, locks saves (save()/delLines() refuse), shows a full-screen
    "Updating… please wait", activates the new worker and reloads. Offline / check fails: nothing happens, retry next open.
@@ -1494,7 +1495,7 @@ var W=4+cur.length;for(var rr=0;rr<=n+1;rr++)for(var c=0;c<W;c++){var a=XLSX.uti
 XLSX.writeFile(wb,"TMC-Sahara-Purchases-report-"+r[0]+"_"+r[1]+".xlsx")};
 try{applyLang()}catch(e){}
 })();</script>
-<script>/* pp12 HANDOVER BLIND COUNT (Money → Purchases). Own key pa_ho only; ho_list / ho_count / ho_set (server v17).
+<script>/* pp12a HANDOVER BLIND COUNT (Money → Purchases). Card at TOP of Purchases (above Cash), not Home. Own key pa_ho only; ho_list / ho_count / ho_set (server v17).
    Card for 'sent' shows NO amount. Confirm compares counted CFA + Dinar on the server. Match → CFA cash + pa_lyd.
    ONE wrong count → status mismatch (Admin note). No recount. Offline Confirm → Needs signal to confirm, try again (keep typed numbers).
    Never sends users, PINs or other data. */

@@ -6,7 +6,8 @@
  "APP_ID": "pa",
  "NAME": "TMC Sahara Purchases",
  "SHORT": "TMC Purchases",
- "VER": 97,
+ "VER": 100,
+ "CACHE_PREFIX": "pp",
  "COLOR": "#0f766e",
  "REPORT_COLOR": "#1B7F3B",
  "COLOR_DARK": "#115e59",
@@ -89,7 +90,7 @@ body:has(> #gate) > :not(#gate):not(script){visibility:hidden!important}
 #shDlg .row{max-width:440px;margin:8px auto}#shDlg .wa{display:block;max-width:440px;margin:8px auto;padding:12px;border-radius:10px;background:#16a34a;color:#fff;font-weight:700;text-decoration:none;font-size:17px}
 #shClose{position:absolute;top:max(8px,env(safe-area-inset-top));inset-inline-end:8px;width:48px;min-height:56px;margin:0;padding:0;background:#e2e8f0;color:#0f172a;font-size:22px;border-radius:50%}
 #sOrd,.opick select{width:100%;max-width:100%;min-width:0;min-height:56px;font-size:16px;text-overflow:ellipsis}.opick label{margin-top:0}
-.cmblk+.cmblk{margin-top:10px;padding-top:10px;border-top:1px dashed #cbd5e1}.cmcur{font-weight:700;font-size:14px;margin-bottom:4px}.cmblk.red .cmrem b{color:#b91c1c}.cmblk.amber .cmrem b{color:#b45309}.cret{margin-top:6px!important}.lydtag{font-size:11px;background:#fef3c7;color:#92400e;border-radius:6px;padding:1px 5px}.mtl{margin-top:8px}
+.cmblk+.cmblk{margin-top:10px;padding-top:10px;border-top:1px dashed #cbd5e1}.cmcur{font-weight:700;font-size:14px;margin-bottom:4px}.cmblk.red .cmrem b{color:#b91c1c}.cmblk.amber .cmrem b{color:#b45309}.cret{margin-top:6px!important}.lydtag{font-size:11px;background:#fef3c7;color:#92400e;border-radius:6px;padding:1px 5px}.mtl{margin-top:8px}.curPick{display:flex;gap:10px;margin:6px 0 2px}.curBig{flex:1;min-height:64px!important;font-size:22px!important;font-weight:800;background:#e2e8f0;color:#0f172a;border:3px solid #cbd5e1;margin-top:0}.curBig.on{background:#0f766e;color:#fff;border-color:#0f766e}.cmlyd .cmref{display:block;color:#64748b;font-size:13px;margin-top:4px}.hoCur{display:flex;gap:10px;margin:8px 0}.hoCur .curBig{margin:0}
 .oaddb{background:#15803d!important;color:#fff!important;border:0}.oarow{padding:8px 0;border-bottom:1px dashed #cbd5e1}.oarow .row{gap:6px}.oarow .row>*{min-width:0}.oaQ{width:100%}
 .owk{font-size:13px;color:#0f766e;margin-top:3px;font-weight:600}.owk.cl{color:#b45309}
 .sldlg{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:120;display:flex;align-items:flex-start;justify-content:center;overflow-y:auto;padding:max(12px,env(safe-area-inset-top)) 0 max(12px,env(safe-area-inset-bottom))}.sldlg .card{width:min(400px,92vw);margin:auto;box-sizing:border-box}
@@ -191,7 +192,7 @@ body.hasNc{padding-top:0}
 <input id="cunit" style="display:none;margin-top:8px">
 <label data-t="size"></label><input id="size" autocomplete="off">
 <select id="forOrd" style="display:none" aria-hidden="true"></select><small id="ordHint" style="display:block;color:#0f766e;font-weight:600;margin-top:4px"></small>
-<div class="row"><div style="flex:2"><label data-t="price"></label><input id="price" type="number" step="any" min="0" inputmode="decimal" required></div><div style="flex:1.2"><label data-t="curL"></label><select id="ecur"><option value="FCFA">FCFA</option><option value="LYD">LYD</option></select></div></div><div class="pwarn" id="pWarn" style="display:none"></div>
+<div class="row"><div style="flex:2"><label data-t="price"></label><input id="price" type="number" step="any" min="0" inputmode="decimal" required></div></div><label data-t="curL"></label><div class="curPick" id="ecurPick"><button type="button" class="curBig on" data-cur="FCFA" id="ecurCfa">FCFA</button><button type="button" class="curBig" data-cur="LYD" id="ecurLyd">LYD</button></div><input type="hidden" id="ecur" value="FCFA"><div class="pwarn" id="pWarn" style="display:none"></div>
 <div class="tot"><span data-t="line"></span><b id="line">0</b></div>
 <button id="save" data-t="add"></button><button type="button" class="sec" id="cancel" style="display:none" data-t="cancel"></button>
 </form></div>
@@ -201,7 +202,7 @@ body.hasNc{padding-top:0}
 <div class="tot"><span data-t="all"></span><span class="big" id="tAll"></span></div>
 </div>
 <div class="card"><div class="row"><button type="button" id="paidBtn" data-t="paid" style="margin-top:0;background:#b45309"></button><button type="button" class="sec" id="histBtn" data-t="hist" style="margin-top:0"></button><button type="button" class="sec" id="missBtn" data-t="missBtn" style="margin-top:0;display:none"></button></div>
-<div id="paidForm" style="display:none"><label data-t="paidBy"></label><input id="pBy" list="pByList" autocomplete="off"><datalist id="pByList"></datalist><label data-t="paidNote"></label><input id="pNote"><div class="row"><button type="button" id="pOk" data-t="paidOk"></button><button type="button" class="sec" id="pCancel" data-t="cancel"></button></div></div><div id="missForm" style="display:none;border-top:1px solid #e5e7eb;margin-top:10px;padding-top:6px"><h3 data-t="missT" style="margin:4px 0;font-size:16px"></h3><small data-t="missHelp" style="display:block;color:#555"></small><label data-t="missDate"></label><input id="mDate" type="date"><label data-t="missItem"></label><input id="mItem" list="catList" autocomplete="off"><label data-t="size"></label><input id="mSize" autocomplete="off"><div class="row"><div><label data-t="qty"></label><input id="mQty" type="number" step="any" min="0" inputmode="decimal"></div><div><label data-t="unit"></label><input id="mUnit" list="unitList" autocomplete="off"></div></div><div class="row"><div style="flex:2"><label data-t="price"></label><input id="mPrice" type="number" step="any" min="0" inputmode="decimal"></div><div style="flex:1.2"><label data-t="curL"></label><select id="mCur"><option value="FCFA">FCFA</option><option value="LYD">LYD</option></select></div></div><label data-t="missBy"></label><input id="mBy" list="pByList" autocomplete="off"><label data-t="missNote"></label><input id="mNote"><div class="row"><button type="button" id="mOk" data-t="missSave"></button><button type="button" class="sec" id="mCancel" data-t="cancel"></button></div></div></div>
+<div id="paidForm" style="display:none"><label data-t="paidBy"></label><input id="pBy" list="pByList" autocomplete="off"><datalist id="pByList"></datalist><label data-t="paidNote"></label><input id="pNote"><div class="row"><button type="button" id="pOk" data-t="paidOk"></button><button type="button" class="sec" id="pCancel" data-t="cancel"></button></div></div><div id="missForm" style="display:none;border-top:1px solid #e5e7eb;margin-top:10px;padding-top:6px"><h3 data-t="missT" style="margin:4px 0;font-size:16px"></h3><small data-t="missHelp" style="display:block;color:#555"></small><label data-t="missDate"></label><input id="mDate" type="date"><label data-t="missItem"></label><input id="mItem" list="catList" autocomplete="off"><label data-t="size"></label><input id="mSize" autocomplete="off"><div class="row"><div><label data-t="qty"></label><input id="mQty" type="number" step="any" min="0" inputmode="decimal"></div><div><label data-t="unit"></label><input id="mUnit" list="unitList" autocomplete="off"></div></div><div class="row"><div style="flex:2"><label data-t="price"></label><input id="mPrice" type="number" step="any" min="0" inputmode="decimal"></div></div><label data-t="curL"></label><div class="curPick" id="mCurPick"><button type="button" class="curBig on" data-cur="FCFA" id="mCurCfa">FCFA</button><button type="button" class="curBig" data-cur="LYD" id="mCurLyd">LYD</button></div><input type="hidden" id="mCur" value="FCFA"><label data-t="missBy"></label><input id="mBy" list="pByList" autocomplete="off"><label data-t="missNote"></label><input id="mNote"><div class="row"><button type="button" id="mOk" data-t="missSave"></button><button type="button" class="sec" id="mCancel" data-t="cancel"></button></div></div></div>
 <div class="card" id="list"></div>
 <div class="card"><label data-t="currency"></label><input id="cur" data-nospell>
 <button type="button" id="csv" data-t="export"></button></div>
@@ -264,7 +265,7 @@ Object.assign(T.fr,{"shBtn":"📲 Partager l'app","shT":"Scannez pour ouvrir TMC
 Object.assign(T.af,{"shBtn": "📲 Deel app", "shT": "Skandeer om TMC Sahara Purchases oop te maak", "shS1": "Skandeer die QR-kode met die foon se kamera, of maak die skakel oop in Chrome (Android) of Safari (iPhone).", "shS2": "Android: tik ⋮ kieslys → Installeer app / Voeg by tuisskerm. iPhone: tik Deel → Voeg by tuisskerm.", "shS3": "Maak die app oop van die tuisskerm, tik jou naam een keer, en wag dat die Admin jou goedkeur.", "shCopy": "📋 Kopieer skakel", "shShare": "📤 Deel", "shWa": "WhatsApp", "shCopied": "Skakel gekopieer", "shMsg": "Installeer die TMC Sahara Purchases-app:"});
 Object.assign(T.en,{"oPickL":"Show order","oPickAll":"All orders","oOpenL":"Open","oDoneL":"Done"});Object.assign(T.fr,{"oPickL":"Afficher la commande","oPickAll":"Toutes les commandes","oOpenL":"Ouverte","oDoneL":"Terminée"});Object.assign(T.af,{"oPickL": "Wys bestelling", "oPickAll": "Alle bestellings", "oOpenL": "Oop", "oDoneL": "Klaar"});
 Object.assign(T.en,{"trEdit":"Item name translations","trKey":"Main name (kept for records)","trNone":"no translation yet","trMiss":"Items used but not translated"});Object.assign(T.fr,{"trEdit":"Traductions du nom de l'article","trKey":"Nom principal (conservé dans les données)","trNone":"pas encore traduit","trMiss":"Articles utilisés non traduits"});Object.assign(T.af,{"trEdit": "Item-name in ander tale", "trKey": "Hoofnaam (bly in die rekords)", "trNone": "nog nie vertaal nie", "trMiss": "Items gebruik maar nie vertaal nie"});
-Object.assign(T.en,{"curL":"Currency","curLYD":"Libyan dinar (LYD)","cRetB":"Mark returned","lydTr":"LYD by month"});Object.assign(T.fr,{"curL":"Devise","curLYD":"Dinar libyen (LYD)","cRetB":"Marquer rendu","lydTr":"LYD par mois"});Object.assign(T.af,{"curL": "Geldeenheid", "curLYD": "Libiese dinar (LYD)", "cRetB": "Merk teruggegee", "lydTr": "LYD per maand"});
+Object.assign(T.en,{"curCfa":"CFA","curLydBtn":"Libyan Dinar","lydBal":"Dinar balance","lydRef":"≈ %x CFA (rate)","hoSent2":"Money sent you %a","hoSentCfa":"%x CFA","hoSentLyd":"%y Dinar","hoDone2":"✅ Accepted: %a added","hoGot2":"Received %a · trip %t","hoRetAmt2":"Change to give back","hoRetOk2":"↩️ Change returned: %a","hoBad2":"Enter the change (0 or more, not more than %x)","hoPickCur":"Currency"});Object.assign(T.fr,{"curCfa":"CFA","curLydBtn":"Dinar libyen","lydBal":"Solde dinar","lydRef":"≈ %x CFA (taux)","hoSent2":"Money vous a envoyé %a","hoSentCfa":"%x CFA","hoSentLyd":"%y dinars","hoDone2":"✅ Accepté : %a ajoutés","hoGot2":"Reçu %a · voyage %t","hoRetAmt2":"Monnaie à rendre","hoRetOk2":"↩️ Monnaie rendue : %a","hoBad2":"Entrez la monnaie (0 ou plus, pas plus de %x)","hoPickCur":"Devise"});Object.assign(T.af,{"curCfa":"CFA","curLydBtn":"Libiese dinar","lydBal":"Dinar-balans","lydRef":"≈ %x CFA (koers)","hoSent2":"Money het vir jou %a gestuur","hoSentCfa":"%x CFA","hoSentLyd":"%y dinar","hoDone2":"✅ Aanvaar: %a bygevoeg","hoGot2":"Ontvang %a · rit %t","hoRetAmt2":"Kleingeld om terug te gee","hoRetOk2":"↩️ Kleingeld teruggegee: %a","hoBad2":"Tik die kleingeld in (0 of meer, nie meer as %x nie)","hoPickCur":"Geldeenheid"});Object.assign(T.en,{"curL":"Currency","curLYD":"Libyan dinar (LYD)","cRetB":"Mark returned","lydTr":"LYD by month"});Object.assign(T.fr,{"curL":"Devise","curLYD":"Dinar libyen (LYD)","cRetB":"Marquer rendu","lydTr":"LYD par mois"});Object.assign(T.af,{"curL": "Geldeenheid", "curLYD": "Libiese dinar (LYD)", "cRetB": "Merk teruggegee", "lydTr": "LYD per maand"});
 Object.assign(T.en,{"oAdd":"Add items","oAddLine":"Another line","oAddSave":"Add to order","oAddDone":"%n line(s) added to %o"});Object.assign(T.fr,{"oAdd":"Ajouter des articles","oAddLine":"Autre ligne","oAddSave":"Ajouter à la commande","oAddDone":"%n ligne(s) ajoutée(s) à %o"});Object.assign(T.af,{"oAdd": "Voeg items by", "oAddLine": "Nog 'n lyn", "oAddSave": "Voeg by bestelling", "oAddDone": "%n lyn(e) by %o gevoeg"});
 Object.assign(T.en,{"wkL":"Order week","wkClosed":"Closed Sat 05:00","wkCloses":"Closes Sat 05:00","wkReop":"Reopened by admin","wkNoEdit":"lines can't be changed; it can still be bought","wkAsk":"You already have an open order for this week (%o). Add items to it instead?","wkReopenB":"🔓 Reopen for ordering","wkCloseB":"🔒 Close again"});Object.assign(T.fr,{"wkL":"Semaine","wkClosed":"Clôturée sam. 05:00","wkCloses":"Clôture sam. 05:00","wkReop":"Rouverte par l'admin","wkNoEdit":"les lignes ne peuvent plus être modifiées ; on peut encore acheter","wkAsk":"Vous avez déjà une commande ouverte cette semaine (%o). Y ajouter des articles ?","wkReopenB":"🔓 Rouvrir aux commandes","wkCloseB":"🔒 Clôturer à nouveau"});Object.assign(T.af,{"wkL": "Bestelweek", "wkClosed": "Toe Sa 05:00", "wkCloses": "Gaan toe Sa 05:00", "wkReop": "Deur Admin weer oopgemaak", "wkNoEdit": "lyne kan nie verander nie; dit kan nog gekoop word", "wkAsk": "Jy het klaar 'n oop bestelling vir hierdie week (%o). Voeg eerder items daarby?", "wkReopenB": "🔓 Maak weer oop vir bestel", "wkCloseB": "🔒 Maak weer toe"});
 Object.assign(T.en,{"syncDef":"↺ Reset to default","syncDefAsk":"Reset the sync link and team code to the TMC default?","gConnT":"Connecting to your team…","gConnH":"Getting the team list from the server. This needs internet the first time."});Object.assign(T.fr,{"syncDef":"↺ Rétablir par défaut","syncDefAsk":"Rétablir le lien de synchro et le code d'équipe par défaut de TMC ?","gConnT":"Connexion à votre équipe…","gConnH":"Récupération de la liste de l'équipe. Internet est nécessaire la première fois."});Object.assign(T.af,{"syncDef": "↺ Sit terug na gewoon", "syncDefAsk": "Sit die sync-skakel en spankode terug na die TMC-gewone?", "gConnT": "Koppel aan jou span…", "gConnH": "Kry die spanlys van die bediener af. Dit het die eerste keer internet nodig."});
@@ -320,7 +321,9 @@ const fmt=(n,c)=>window.NOPRICE?"—":fmtRaw(n,c);
 const retTag=()=>' <span class="pdu rett">↩ '+esc(t("retTag"))+"</span>";const shTag=()=>' <span class="pdu shrt">⚠ '+esc(t("shortTag"))+"</span>";const lt=window.lt=e=>{const v=(+(e&&e.qty)||0)*(+(e&&e.price)||0);return e&&CUR(e)==="LYD"?Math.round(v*1000)/1000:Math.round(v)};
 const sumM=(L,f)=>{const o={FCFA:0,LYD:0};(L||[]).forEach(e=>{if(e)o[CUR(e)]+=f?f(e):lt(e)});o.FCFA=Math.round(o.FCFA);o.LYD=Math.round(o.LYD*1000)/1000;return o};
 const fmtM=o=>{if(window.NOPRICE)return"—";const P=[];if(o.FCFA||!o.LYD)P.push(fmtRaw(o.FCFA,"FCFA"));if(o.LYD)P.push(fmtRaw(o.LYD,"LYD"));return P.join(" · ")};
-window.ecurLbl=()=>{try{const o=$("ecur").options[1];o.textContent=lang==="af"?"LYD (Libiese dinar)":lang==="fr"?"LYD (dinar libyen)":"LYD (Libyan dinar)";$("ecur").options[0].textContent=cur}catch(e){}};window.CUR=CUR;window.fmtM=fmtM;window.sumM=sumM;window.ecur=ecur;
+window.ecurLbl=()=>{try{const c=$("ecurCfa"),l=$("ecurLyd");if(c)c.textContent=t("curCfa")||"CFA";if(l)l.textContent=t("curLydBtn")||"LYD";const mc=$("mCurCfa"),ml=$("mCurLyd");if(mc)mc.textContent=t("curCfa")||"CFA";if(ml)ml.textContent=t("curLydBtn")||"LYD"}catch(e){}};
+window.setEcur=(v,src)=>{v=v==="LYD"?"LYD":"FCFA";const h=$(src||"ecur");if(h)h.value=v;const pick=$(src==="mCur"?"mCurPick":"ecurPick");if(pick)pick.querySelectorAll(".curBig").forEach(b=>b.classList.toggle("on",b.dataset.cur===v));if(!src||src==="ecur"){if(!editId)localStorage.pa_ecur=v}};
+window.bindCurPick=(pickId,hid,cb)=>{const p=$(pickId);if(!p||p._bound)return;p._bound=1;p.querySelectorAll(".curBig").forEach(b=>b.onclick=()=>{setEcur(b.dataset.cur,hid);if(cb)cb()})};window.CUR=CUR;window.fmtM=fmtM;window.sumM=sumM;window.ecur=ecur;
 window.fmtC=(n,c)=>fmtRaw(n,c);
 const today=()=>new Date(Date.now()-new Date().getTimezoneOffset()*6e4).toISOString().slice(0,10);
 function save(){if(window.TMC&&TMC.updLock&&TMC.updLock()&&!window._updFlush){data=LJ("pa_data",[]);try{sToast(t("updGo"))}catch(e){}return false}localStorage.pa_data=JSON.stringify(data);checkBackup();if(window.syncMark)syncMark()}
@@ -368,7 +371,7 @@ $("mbtn").onclick=()=>{showTab("P");showMgr(1)};$("back").onclick=()=>showMgr(0)
 $("name").onfocus=$("name").oninput=showSug;$("name").onblur=()=>setTimeout(()=>$("sug").style.display="none",200);
 $("sug").onmousedown=ev=>{const d=ev.target.closest("[data-n]");if(d){ev.preventDefault();pickItem(d.dataset.n)}};
 $("name").onchange=()=>pickItem($("name").value);
-window.edit=id=>{const e=data.find(x=>x.id===id);editId=id;$("name").value=tn(e.name);$("ecur").value=CUR(e);$("qty").value=e.qty;$("size").value=e.size||"";window._pmask=pMask(e);$("price").value=window._pmask?"":e.price;$("price").placeholder=window._pmask?"🔒":"";
+window.edit=id=>{const e=data.find(x=>x.id===id);editId=id;$("name").value=tn(e.name);setEcur(CUR(e));$("qty").value=e.qty;$("size").value=e.size||"";window._pmask=pMask(e);$("price").value=window._pmask?"":e.price;$("price").placeholder=window._pmask?"🔒":"";
 setUnit(e.unit);fillFor(e.forOrder||"");
 $("save").textContent=t("update");$("cancel").style.display="";calc();scrollTo(0,0)};
 function priceCheck(name,size,price,qty,exId,pc){pc=pc==="LYD"?"LYD":"FCFA";if(window.NOPRICE)return"";const N=x=>String(canonName(x)||"").trim().replace(/\s+/g," ").toLowerCase(),NS=x=>String(x||"").toLowerCase().replace(/\s+/g,"").replace(/,/g,".");const n=N(name);price=+price;if(!n||!(price>0))return"";
@@ -396,7 +399,7 @@ reset();render()};
 $("cancel").onclick=reset;$("qty").oninput=$("price").oninput=calc;
 $("unit").onchange=()=>{$("cunit").style.display=$("unit").value==="__c"?"":"none"};
 $("lang").onchange=()=>{lang=$("lang").value;if(!Object.prototype.hasOwnProperty.call(T,lang))lang="en";localStorage.pa_lang=lang;try{localStorage.setItem(((window.CONFIG&&CONFIG.APP_ID)||"pa")+"_lang",lang)}catch(e){}applyLang()};
-ecurLbl();$("ecur").value=ecur();$("ecur").onchange=()=>{if(!editId)localStorage.pa_ecur=$("ecur").value;calc();try{formPW();lastFill()}catch(_){}try{updBulk()}catch(_){}};$("cur").value=cur;$("cur").oninput=()=>{cur=$("cur").value.trim()||"FCFA";localStorage.pa_cur=cur;render();calc()};
+ecurLbl();setEcur(ecur());bindCurPick("ecurPick","ecur",()=>{calc();try{formPW();lastFill()}catch(_){}try{updBulk()}catch(_){}});bindCurPick("mCurPick","mCur",()=>{});$("cur").value=cur;$("cur").oninput=()=>{cur=$("cur").value.trim()||"FCFA";localStorage.pa_cur=cur;render();calc()};
 $("csv").onclick=()=>{const q=v=>`"${String(v).replace(/"/g,'""')}"`;const rows=[["Date","Time","Item","Size","Qty","Unit","Unit price","Total","Currency"]].concat(data.map(e=>[e.date,(e.at||"").slice(11,16),e.name,e.size||"",e.qty,e.unit,e.price,lt(e),curLbl(CUR(e))]));
 const b=new Blob(["\ufeff"+rows.map(r=>r.map(q).join(",")).join("\r\n")],{type:"text/csv"});const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="purchases-"+today()+".csv";a.click();markExport()};
 
@@ -551,7 +554,7 @@ window.spCheck=async function(){var K=spKnown(),asked={},ch=0;for(var i=0;i<data
 /* ---- v65 missed purchase (admin) ---- */
 let missB=null;
 function missUI(){const a=!!(window.PERM||{}).admin;const x=$("missBtn");if(x)x.style.display=a?"":"none";if(!a&&$("missForm"))$("missForm").style.display="none"}
-function missOpen(b){if(!(window.PERM||{}).admin)return;if(b&&!canFix()){fixOnlyMsg();return}missB=b||null;const e=b?b.entries[0]:null;$("mDate").max=today();$("mDate").value=e?e.date:today();$("mItem").value=e?tn(e.name):"";$("mSize").value=e?(e.size||""):"";$("mQty").value=e?e.qty:"";$("mUnit").value=e?e.unit:"pcs";$("mPrice").value=e?e.price:"";$("mCur").value=e?CUR(e):ecur();$("mBy").value=b?(b.paidBy||""):(localStorage.pa_user||"");$("mNote").value=b?(b.note||""):"";if(b){curB=null;showHist(0)}$("paidForm").style.display="none";$("missForm").style.display="block";$("missForm").scrollIntoView({block:"start"})}
+function missOpen(b){if(!(window.PERM||{}).admin)return;if(b&&!canFix()){fixOnlyMsg();return}missB=b||null;const e=b?b.entries[0]:null;$("mDate").max=today();$("mDate").value=e?e.date:today();$("mItem").value=e?tn(e.name):"";$("mSize").value=e?(e.size||""):"";$("mQty").value=e?e.qty:"";$("mUnit").value=e?e.unit:"pcs";$("mPrice").value=e?e.price:"";setEcur(e?CUR(e):ecur(),"mCur");$("mBy").value=b?(b.paidBy||""):(localStorage.pa_user||"");$("mNote").value=b?(b.note||""):"";if(b){curB=null;showHist(0)}$("paidForm").style.display="none";$("missForm").style.display="block";$("missForm").scrollIntoView({block:"start"})}
 function missSave(){const d=$("mDate").value||today(),nm=$("mItem").value.trim(),q=+$("mQty").value,p=+$("mPrice").value,c=$("mCur").value==="LYD"?"LYD":"FCFA";if(!nm||!(q>0)||!(p>=0)||$("mPrice").value===""){alert(t("missBad"));return}if(d>today()){alert(t("missFuture"));return}
 const at=d===today()?nowLocal():d+"T12:00:00";const old=missB;const id=old?old.entries[0].id:Date.now();const e={id:id,name:tkey(nm),qty:q,unit:$("mUnit").value.trim()||"pcs",size:$("mSize").value.trim(),price:p,cur:c,date:d,at:at,missed:1};const TM=sumM([e]);
 const bid=old?old.id:Date.now()+1;const b={id:bid,paidAt:at,paidBy:$("mBy").value.trim(),note:$("mNote").value.trim(),missed:1,entries:[e],count:1,total:TM.FCFA};if(TM.LYD)b.totalL=TM.LYD;
@@ -566,7 +569,7 @@ $("missBtn").onclick=()=>missOpen(null);$("mOk").onclick=missSave;$("mCancel").o
 /* ---- export tracking + backup ---- */
 function markExport(){localStorage.pa_lastExport=Date.now();checkBackup()}
 function checkBackup(){const has=data.length||batches.length||orders.length,l=+localStorage.pa_lastExport||0;$("bkBanner").style.display=has&&Date.now()-l>7*864e5?"":"none"}
-const KEYS=["pa_data","pa_cat","pa_batches","pa_orders","pa_cur","pa_lang","pa_auto","pa_users","pa_cash","pa_pins","pa_tr","pa_ecur","pa_slips"];
+const KEYS=["pa_data","pa_cat","pa_batches","pa_orders","pa_cur","pa_lang","pa_auto","pa_users","pa_cash","pa_lyd","pa_pins","pa_tr","pa_ecur","pa_slips","pa_ho"];
 async function fullBackup(){const ls={};KEYS.forEach(k=>{if(localStorage[k]!=null)ls[k]=localStorage[k]});let slipsB=null;try{if(window.slipDump)slipsB=await slipDump()}catch(e){}const blob=new Blob([JSON.stringify({app:"TMC Sahara Purchases",format:1,exportedAt:nowLocal(),localStorage:ls,...(slipsB?{slips:slipsB}:{})})],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="tmc-backup-"+today()+".json";a.click();markExport()}
 $("bkNow").onclick=$("bkFull").onclick=fullBackup;
 /* v90: restore MERGES (adds or updates by id), never wipes. A backup with no users / data keeps the current ones. */
@@ -687,7 +690,7 @@ $("oCsv").onclick=()=>{const q=v=>`"${String(v??"").replace(/"/g,'""')}"`;const 
 orders.forEach(o=>o.lines.forEach((l,i)=>{const r=AL.lines[o.id+"|"+i]||{};rows.push([o.no,o.sup,o.status,o.placed,o.expected,l.name,l.size,l.qty,l.unit,l.price,lt(Object.assign({cur:cur},l)),oTot(o),cur,o.notes,o.reqBy||"",r.b||0,r.rem||0,l.st||r.st||""])}));
 const b=new Blob(["\ufeff"+rows.map(r=>r.map(q).join(",")).join("\r\n")],{type:"text/csv"});const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="orders-"+today()+".csv";a.click();markExport()};
 applyLang();reset();
-(function(){var APP=window.APP_VER=99,REG=null,READY=false,LATEST=+localStorage.pa_latest||APP,_rl=false,CHK=0;
+(function(){var APP=window.APP_VER=100,REG=null,READY=false,LATEST=+localStorage.pa_latest||APP,_rl=false,CHK=0;
 /* ---------------- Auto-update (pp10, from TMC Base VER 11) ----------------
    When a new version is found the app saves open work, locks saves (save()/delLines() refuse), shows a full-screen
    "Updating… please wait", activates the new worker and reloads. Offline / check fails: nothing happens, retry next open.
@@ -1144,7 +1147,7 @@ const openMv=(c="FCFA")=>{if(c==="LYD")return[];const lb=lastCB(c),lt=lb?effT(lb
 const rnd=(v,c)=>c==="LYD"?Math.round(v*1000)/1000:Math.round(v);
 function state(spent,c="FCFA"){const G=openMv(c).reduce((a,m)=>a+(+m.amount||0),0),B=G>0?0:bf(c),F=B+G;return{B,G,F,S:spent,R:rnd(F-spent,c)}}
 const spentNow=c=>sumM(data)[c||"FCFA"];
-window.cashPay=function(bid,TM){if(typeof TM==="number")TM={FCFA:TM,LYD:0};const out={};["FCFA"].forEach(c=>{const tot=+TM[c]||0,st=state(tot,c),mv=openMv(c);if(!st.F&&!mv.length&&!st.B)return;mv.forEach(m=>m.bid=bid);out[CK(c)]={bf:st.B,given:st.G,float:st.F,spent:rnd(tot,c),bal:st.R}});if(Object.keys(out).length)saveC();return out};
+window.cashPay=function(bid,TM){if(typeof TM==="number")TM={FCFA:TM,LYD:0};const out={};["FCFA"].forEach(c=>{const tot=+TM[c]||0,st=state(tot,c),mv=openMv(c);if(!st.F&&!mv.length&&!st.B)return;mv.forEach(m=>m.bid=bid);out[CK(c)]={bf:st.B,given:st.G,float:st.F,spent:rnd(tot,c),bal:st.R}});if(+TM.LYD){const tot=rnd(+TM.LYD,"LYD");out.cashL={bf:0,given:window.lydGiven(),float:window.lydGiven(),spent:tot,bal:rnd(window.lydGiven()-tot,"LYD")};lydCash.forEach(m=>{if(m&&m.type==="give"&&!m.bid)m.bid=bid});saveLyd()}if(Object.keys(out).length)saveC();return out};
 function pots(){const a=cbSort("FCFA"),P=[],gv=cash.filter(m=>m&&m.type==="give"&&mvC(m)==="FCFA");let cur=null,pr=null;
 a.forEach(x=>{const c=x.b.cash;if(!cur||(+c.given||0)>0||(pr&&pr.returned)){cur={at:x.t,first:x.b.id,given:+c.given||0,float:+c.float||0,spent:0,n:0,left:0,ret:null,gives:[]};P.push(cur)}cur.spent+=+c.spent||0;cur.n++;cur.last=x.b.id;cur.left=+c.bal||0;cur.ret=c.returned||null;pr=c});
 P.forEach(p=>{p.gives=gv.filter(m=>String(m.bid)===String(p.first));if(p.gives.length)p.at=String(p.gives[0].at||p.at)});
@@ -1154,15 +1157,23 @@ window.cashPots=pots;
 function potLbl(p){return fdate(String(p.at).slice(0,10))+(p.note?" · "+p.note:"")}
 function oldLine(P,mg){const O=P.slice(0,-1).filter(p=>!p.ret&&Math.round(p.left)!==0);if(!O.length)return "";return `<div class="cmold">${esc(t("pOld"))}: `+O.map(p=>`<span class="${p.left<0?"pS":"pL"}">${esc(potLbl(p))}: ${esc(p.left<0?t("pShort"):t("pLeft"))} <b>${fmtC(Math.abs(p.left),"FCFA")}</b></span>`).join("")+`</div>`}
 window.cashOldLine=()=>oldLine(pots());
-function curActive(c){if(c==="FCFA")return true;return false;return !!(bf("LYD")||openMv("LYD").length||lastCB("LYD")||data.some(e=>CUR(e)==="LYD")||ecur()==="LYD")}
+function lydRate(){/* CFA per 1 LYD: prefer market pa_rmkt when set, else official pa_rate */try{var M=JSON.parse(localStorage.pa_rmkt||"null");if(M&&+M.v>0)return +M.v}catch(e){}try{var R=JSON.parse(localStorage.pa_rate||"null");if(R&&+R.v>0)return +R.v}catch(e){}return 0}
+window.lydRate=lydRate;window.lydToCfa=n=>{var r=lydRate();return r?(Math.round((+n||0)*r)):null};
+let lydCash=LJ("pa_lyd",[]);const saveLyd=()=>{localStorage.pa_lyd=JSON.stringify(lydCash);if(window.syncMark)syncMark()};window.lydCash=lydCash;window.saveLyd=saveLyd;window.lydReload=()=>{lydCash=LJ("pa_lyd",[]);window.lydCash=lydCash};
+window.lydGiven=()=>lydCash.filter(m=>m&&m.type==="give").reduce((a,m)=>a+(+m.amount||0),0);
+window.lydReturned=()=>lydCash.filter(m=>m&&m.type==="ret").reduce((a,m)=>a+(+m.amount||0),0);
+window.lydSpentOpen=()=>{let s=spentNow("LYD");batches.forEach(b=>{if(b&&b.cashL)s+=+(b.cashL.spent)||0});return Math.round(s*1000)/1000};
+window.lydRem=()=>{const g=window.lydGiven(),s=window.lydSpentOpen(),r=window.lydReturned();return Math.round((g-s-r)*1000)/1000};
+function curActive(c){if(c==="FCFA")return true;return !!(window.lydGiven()||data.some(e=>CUR(e)==="LYD")||ecur()==="LYD"||(LJ("pa_ho",{}).rows||[]).some(r=>(+r.amount_lyd||0)>0))}
 function meter(sp){const c=$("cashCard");if(!c)return;const P=window.PERM||{};const mgr=P.mcash||P.admin;const SP=sp||{FCFA:spentNow("FCFA"),LYD:spentNow("LYD")};
 const blocks=["FCFA","LYD"].filter(curActive).map(k=>({k,st:state(SP[k]||0,k)})).filter(x=>x.k==="FCFA"?(x.st.F||x.st.B||mgr||openMv("FCFA").length):true);
 const show=(P.cash||mgr)&&blocks.length;c.style.display=show?"":"none";if(!show)return;
 $("cRet").style.display="none";let anyRed=false,anyAmb=false;const full=!window.NOPRICE;
 const PO=pots(),CP=PO.length?PO[PO.length-1]:null,live=CP&&!CP.ret?CP:null;
-$("cmBody").innerHTML=blocks.map(({k,st})=>{if(k==="FCFA"){const sd=SP.FCFA||0;st={...st,F:live?rnd(live.float,k):0,S:rnd((live?live.spent:0)+sd,k)};st.R=rnd(st.F-st.S,k)}const pct=st.F>0?st.R/st.F:0;const cls=st.R<0?"red":(st.F>0&&pct<0.2?"amber":"");if(cls==="red")anyRed=true;if(cls==="amber")anyAmb=true;
+$("cmBody").innerHTML=blocks.map(({k,st})=>{if(k==="FCFA"){const sd=SP.FCFA||0;st={...st,F:live?rnd(live.float,k):0,S:rnd((live?live.spent:0)+sd,k)};st.R=rnd(st.F-st.S,k)}else if(k==="LYD"){const G=window.lydGiven(),S=rnd(window.lydSpentOpen()+window.lydReturned(),"LYD");st={B:0,G,F:G,S,R:rnd(G-S,"LYD")}}const pct=st.F>0?st.R/st.F:0;const cls=st.R<0?"red":(st.F>0&&pct<0.2?"amber":"");if(cls==="red")anyRed=true;if(cls==="amber")anyAmb=true;
 const rem=st.R<0?t("cOver").replace("%x",fmtC(-st.R,k)):fmtC(st.R,k);
-return `<div class="cmblk ${cls}" data-cur="${k}">`+(k==="FCFA"&&live?`<div class="cmpot">🏦 ${esc(t("pCur"))}: <b>${esc(potLbl(live))}</b></div>`:"")+`${blocks.length>1?`<div class="cmcur">${k==="LYD"?"🇱🇾 "+esc(t("curLYD")):"🇹🇩 FCFA"}</div>`:""}`+(full?`<div class="cmeq"><div>${esc(t("pGiven"))}<b>${fmtC(st.F,k)}</b></div><div>−</div><div>${esc(t("cSpent"))}<b>${fmtC(st.S,k)}</b></div><div>=</div><div class="cmrem">${esc(t("cRem"))}<b>${esc(rem)}</b></div></div>`:`<div class="cmeq"><div class="cmrem" style="flex:1">${esc(t("cRem"))}<b>${esc(rem)}</b></div></div>`)+`<div class="cmbar"><div style="width:${st.F>0?Math.max(0,Math.min(100,pct*100)):0}%"></div></div>`+(full&&k==="FCFA"?oldLine(PO):"")+(mgr&&lastCB(k)&&((st.B&&!lastCB(k)[CK(k)].returned)||(k==="FCFA"&&oldOpen().length))?`<button type="button" class="sec mini cret" data-ret="${k}">↩ ${esc(t("cRetB"))}</button>`:"")+`</div>`}).join("");
+const cref=k==="LYD"&&lydRate()?(function(){var x=window.lydToCfa(st.R);return x==null?"":`<span class="cmref">${esc(t("lydRef").replace("%x",fmtC(x,"FCFA")))}</span>`})():"";
+return `<div class="cmblk ${k==="LYD"?"cmlyd":""} ${cls}" data-cur="${k}">`+(k==="FCFA"&&live?`<div class="cmpot">🏦 ${esc(t("pCur"))}: <b>${esc(potLbl(live))}</b></div>`:"")+`${blocks.length>1||k==="LYD"?`<div class="cmcur">${k==="LYD"?"🇱🇾 "+esc(t("curLYD")):"🇹🇩 FCFA"}</div>`:""}`+(full?`<div class="cmeq"><div>${esc(t("pGiven"))}<b>${fmtC(st.F,k)}</b></div><div>−</div><div>${esc(t("cSpent"))}<b>${fmtC(st.S,k)}</b></div><div>=</div><div class="cmrem">${esc(t("cRem"))}<b>${esc(rem)}</b>${cref}</div></div>`:`<div class="cmeq"><div class="cmrem" style="flex:1">${esc(t("cRem"))}<b>${esc(rem)}</b>${cref}</div></div>`)+`<div class="cmbar"><div style="width:${st.F>0?Math.max(0,Math.min(100,pct*100)):0}%"></div></div>`+(full&&k==="FCFA"?oldLine(PO):"")+(mgr&&k==="FCFA"&&lastCB(k)&&((st.B&&!lastCB(k)[CK(k)].returned)||oldOpen().length)?`<button type="button" class="sec mini cret" data-ret="${k}">↩ ${esc(t("cRetB"))}</button>`:"")+`</div>`}).join("");
 c.classList.toggle("red",anyRed);c.classList.toggle("amber",!anyRed&&anyAmb)}
 window.cashMeter=meter;window.cashRecalc=function(){if(window._cRc)return;window._cRc=1;try{["FCFA"].forEach(cu=>{const K=CK(cu),a=cbSort(cu);let prev=null,pt=null,cc=0;const gv=cash.filter(m=>m&&m.type==="give"&&mvC(m)===cu);const bind={};
 a.forEach(x=>{const b=x.b,c=b[K];let g=0;gv.forEach(m=>{const at=String(m.at||"");if((pt===null||at>pt)&&at<=x.t){g+=+m.amount||0;bind[m.id]=b.id}});
@@ -1483,46 +1494,150 @@ var W=4+cur.length;for(var rr=0;rr<=n+1;rr++)for(var c=0;c<W;c++){var a=XLSX.uti
 XLSX.writeFile(wb,"TMC-Sahara-Purchases-report-"+r[0]+"_"+r[1]+".xlsx")};
 try{applyLang()}catch(e){}
 })();</script>
-<script>/* pp10 HANDOVER (Money → Purchases). Own key pa_ho only; reads/writes ONLY handover rows through ho_list / ho_set (server v17).
-   Accept = one Cash given movement tagged with the trip no. Return change = the change amount back to the handover row. Never sends users, PINs or other data. */
+<script>/* pp12 HANDOVER BLIND COUNT (Money → Purchases). Own key pa_ho only; ho_list / ho_count / ho_set (server v17).
+   Card for 'sent' shows NO amount. Confirm compares counted CFA + Dinar on the server. Match → CFA cash + pa_lyd.
+   ONE wrong count → status mismatch (Admin note). No recount. Offline Confirm → Needs signal to confirm, try again (keep typed numbers).
+   Never sends users, PINs or other data. */
 (function(){
-Object.assign(T.en,{hoSent:"Money sent you %x CFA",hoAcc:"✅ Accept",hoTrip:"Trip %t",hoFrom:"From %f",hoDone:"✅ Accepted: %x CFA added to Cash given",hoGot:"Received %x CFA · trip %t",hoRet:"↩️ Return change",hoRetT:"Return change – trip %t",hoRetAmt:"Change to give back (CFA)",hoRetOk:"↩️ Change returned: %x CFA",hoBad:"Enter the change (0 or more, not more than %x)",hoSave:"Send",hoCancel:"Cancel",hoWait:"Handover saved on this phone – it is sent at the next sync"});
-Object.assign(T.fr,{hoSent:"Money vous a envoyé %x CFA",hoAcc:"✅ Accepter",hoTrip:"Voyage %t",hoFrom:"De %f",hoDone:"✅ Accepté : %x CFA ajoutés aux espèces données",hoGot:"Reçu %x CFA · voyage %t",hoRet:"↩️ Rendre la monnaie",hoRetT:"Rendre la monnaie – voyage %t",hoRetAmt:"Monnaie à rendre (CFA)",hoRetOk:"↩️ Monnaie rendue : %x CFA",hoBad:"Entrez la monnaie (0 ou plus, pas plus de %x)",hoSave:"Envoyer",hoCancel:"Annuler",hoWait:"Remise enregistrée sur ce téléphone – envoyée à la prochaine synchro"});
-Object.assign(T.af,{hoSent:"Money het vir jou %x CFA gestuur",hoAcc:"✅ Aanvaar",hoTrip:"Rit %t",hoFrom:"Van %f",hoDone:"✅ Aanvaar: %x CFA by Kontant gegee gevoeg",hoGot:"Ontvang %x CFA · rit %t",hoRet:"↩️ Gee kleingeld terug",hoRetT:"Gee kleingeld terug – rit %t",hoRetAmt:"Kleingeld om terug te gee (CFA)",hoRetOk:"↩️ Kleingeld teruggegee: %x CFA",hoBad:"Tik die kleingeld in (0 of meer, nie meer as %x nie)",hoSave:"Stuur",hoCancel:"Kanselleer",hoWait:"Oorhandiging op dié foon gestoor – dit word met die volgende sinkronisasie gestuur"});
-var F=["id","trip","date","from","to","amount","status","change","updated"];
-function pick(o){var r={};F.forEach(function(k){r[k]=o&&o[k]!=null?o[k]:""});r.id=String(r.id);r.trip=String(r.trip);r.amount=+r.amount||0;return r}
-function ld(){var h=LJ("pa_ho",null);if(!h||typeof h!=="object")h={};if(!Array.isArray(h.rows))h.rows=[];if(!h.q||typeof h.q!=="object")h.q={};if(!h.done||typeof h.done!=="object")h.done={};return h}
+Object.assign(T.en,{
+  hoSentBlind:"Money sent you cash – count it",
+  hoCountT:"Count the cash",hoCountCfa:"CFA counted",hoCountLyd:"Dinar counted",
+  hoConfirm:"✅ Confirm",hoMis:"Amounts do not match – Admin has been notified",
+  hoMisFinal:"Amounts do not match – Admin has been notified",
+  hoNeedNet:"Needs signal to confirm, try again",
+  hoTrip:"Trip %t",hoFrom:"From %f",
+  hoDone2:"✅ Accepted: %a added",hoGot2:"Received %a · trip %t",
+  hoSentCfa:"%x CFA",hoSentLyd:"%y Dinar",
+  hoRet:"↩️ Return change",hoRetT:"Return change – trip %t",
+  hoRetAmtCfa:"Change to give back (CFA)",hoRetAmtLyd:"Change to give back (Dinar)",
+  hoRetOk2:"↩️ Change returned: %a",hoBad2:"Enter 0 or more, not more than %x",
+  hoSave:"Send",hoCancel:"Cancel",
+  hoWait:"Handover saved on this phone – it is sent at the next sync",
+  hoAdmMis:"⚠ Mismatch: %f → %to · trip %t · sent %a · counted %c"
+});
+Object.assign(T.fr,{
+  hoSentBlind:"Money vous a envoyé de l'argent – comptez-le",
+  hoCountT:"Comptez l'argent",hoCountCfa:"CFA comptés",hoCountLyd:"Dinars comptés",
+  hoConfirm:"✅ Confirmer",hoMis:"Les montants ne correspondent pas – l'Admin a été informé",
+  hoMisFinal:"Les montants ne correspondent pas – l'Admin a été informé",
+  hoNeedNet:"Il faut un signal pour confirmer, réessayez",
+  hoTrip:"Voyage %t",hoFrom:"De %f",
+  hoDone2:"✅ Accepté : %a ajoutés",hoGot2:"Reçu %a · voyage %t",
+  hoSentCfa:"%x CFA",hoSentLyd:"%y dinars",
+  hoRet:"↩️ Rendre la monnaie",hoRetT:"Rendre la monnaie – voyage %t",
+  hoRetAmtCfa:"Monnaie à rendre (CFA)",hoRetAmtLyd:"Monnaie à rendre (dinars)",
+  hoRetOk2:"↩️ Monnaie rendue : %a",hoBad2:"Entrez 0 ou plus, pas plus de %x",
+  hoSave:"Envoyer",hoCancel:"Annuler",
+  hoWait:"Remise enregistrée sur ce téléphone – envoyée à la prochaine synchro",
+  hoAdmMis:"⚠ Écart : %f → %to · voyage %t · envoyé %a · compté %c"
+});
+Object.assign(T.af,{
+  hoSentBlind:"Money het kontant gestuur – tel dit",
+  hoCountT:"Tel die kontant",hoCountCfa:"CFA getel",hoCountLyd:"Dinar getel",
+  hoConfirm:"✅ Bevestig",hoMis:"Bedrae pas nie – Admin is in kennis gestel",
+  hoMisFinal:"Bedrae pas nie – Admin is in kennis gestel",
+  hoNeedNet:"Sein nodig om te bevestig, probeer weer",
+  hoTrip:"Rit %t",hoFrom:"Van %f",
+  hoDone2:"✅ Aanvaar: %a bygevoeg",hoGot2:"Ontvang %a · rit %t",
+  hoSentCfa:"%x CFA",hoSentLyd:"%y Dinar",
+  hoRet:"↩️ Gee kleingeld terug",hoRetT:"Gee kleingeld terug – rit %t",
+  hoRetAmtCfa:"Kleingeld om terug te gee (CFA)",hoRetAmtLyd:"Kleingeld om terug te gee (Dinar)",
+  hoRetOk2:"↩️ Kleingeld teruggegee: %a",hoBad2:"Tik 0 of meer in, nie meer as %x nie",
+  hoSave:"Stuur",hoCancel:"Kanselleer",
+  hoWait:"Oorhandiging op dié foon gestoor – dit word met die volgende sinkronisasie gestuur",
+  hoAdmMis:"⚠ Wanpassing: %f → %to · rit %t · gestuur %a · getel %c"
+});
+var F=["id","trip","date","from","to","amount_cfa","amount_lyd","status","change_cfa","change_lyd","updated","counted_cfa","counted_lyd","counted_change_cfa","counted_change_lyd"];
+function pick(o){var r={};F.forEach(function(k){r[k]=o&&o[k]!=null?o[k]:""});r.id=String(r.id);r.trip=String(r.trip);r.amount_cfa=+r.amount_cfa||0;r.amount_lyd=+r.amount_lyd||0;r.change_cfa=+r.change_cfa||0;r.change_lyd=+r.change_lyd||0;r.counted_cfa=+r.counted_cfa||0;r.counted_lyd=+r.counted_lyd||0;return r}
+function ld(){var h=LJ("pa_ho",null);if(!h||typeof h!=="object")h={};if(!Array.isArray(h.rows))h.rows=[];if(!h.q||typeof h.q!=="object")h.q={};if(!h.done||typeof h.done!=="object")h.done={};if(!h.try||typeof h.try!=="object")h.try={};return h}
 function sv(h){localStorage.pa_ho=JSON.stringify(h)}
 function n0(n){return String(Math.round(+n||0)).replace(/\B(?=(\d{3})+(?!\d))/g,"\u00a0")}
+function nL(n){n=+n||0;var s=(Math.round(n*1000)/1000).toFixed(3);return s.replace(/\.?0+$/,"").replace(/\B(?=(\d{3})+(?!\d))/g,"\u00a0")}
+function amtTxt(cfa,lyd){var P=[];if(+cfa)P.push(t("hoSentCfa").replace("%x",n0(cfa)));if(+lyd)P.push(t("hoSentLyd").replace("%y",nL(lyd)));return P.join(" + ")||t("hoSentCfa").replace("%x","0")}
 function locked(){return !!(window.TMC&&TMC.updLock&&TMC.updLock())}
+function isAdm(){return !!(window.PERM&&window.PERM.admin)}
+function online(){return navigator.onLine!==false}
 async function call(b){var url=(localStorage.pa_syurl||"").trim();if(!url||!localStorage.pa_tok)throw new Error("off");
-  var o={action:b.action,token:localStorage.pa_tok};if(b.id!=null)o.id=b.id;if(b.status!=null)o.status=b.status;if(b.change!=null)o.change=b.change;
+  var o={action:b.action,token:localStorage.pa_tok};if(b.id!=null)o.id=b.id;if(b.status!=null)o.status=b.status;
+  if(b.change_cfa!=null)o.change_cfa=b.change_cfa;if(b.change_lyd!=null)o.change_lyd=b.change_lyd;
+  if(b.counted_cfa!=null)o.counted_cfa=b.counted_cfa;if(b.counted_lyd!=null)o.counted_lyd=b.counted_lyd;
   var r=await fetch(url,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(o)});var j=JSON.parse(await r.text());if(!j||typeof j!=="object")throw new Error("bad");return j}
-window.hoRender=function(){var el=$("hoCard");if(!el)return;var h=ld();if(h.on===0){el.innerHTML="";return}var H="";
+function applyCash(id,cfa,lyd,from,trip){
+  if(+cfa&&!cash.some(function(m){return m&&String(m.ho)===id})){cash.push({id:Date.now(),type:"give",at:nowLocal(),amount:+cfa,to:localStorage.pa_user||"",by:from||"Money",note:t("hoTrip").replace("%t",trip||""),trip:trip||"",ho:id});saveC()}
+  if(+lyd&&!(window.lydCash||[]).some(function(m){return m&&String(m.ho)===id})){(window.lydCash||(window.lydCash=[])).push({id:Date.now()+1,type:"give",at:nowLocal(),amount:+lyd,to:localStorage.pa_user||"",by:from||"Money",note:t("hoTrip").replace("%t",trip||""),trip:trip||"",ho:id});(window.saveLyd||function(){localStorage.pa_lyd=JSON.stringify(window.lydCash)})()}
+  try{if(window.cashMeter)cashMeter()}catch(e){}try{if(window.renderCL)renderCL()}catch(e){}
+}
+window.hoRender=function(){var el=$("hoCard");if(!el)return;var h=ld();if(h.on===0){el.innerHTML="";hoAdmNote();return}var H="";
   h.rows.forEach(function(r){var st=h.done[r.id]||r.status;var sub=esc(t("hoTrip").replace("%t",r.trip||"—"))+(r.from?" · "+esc(t("hoFrom").replace("%f",r.from)):"")+(r.date?" · "+esc(r.date):"");
-    if(st==="sent")H+='<div class="card hoc" data-ho="'+esc(r.id)+'"><div class="hoT">💵 '+esc(t("hoSent").replace("%x",n0(r.amount)))+'</div><div class="hoS">'+sub+'</div><button type="button" class="hoBig" data-ho-acc="'+esc(r.id)+'">'+esc(t("hoAcc"))+'</button></div>';
-    else if(st==="accepted")H+='<div class="card hoc hor" data-ho="'+esc(r.id)+'"><div class="hoS"><b>'+esc(t("hoGot").replace("%x",n0(r.amount)).replace("%t",r.trip||"—"))+'</b></div><button type="button" class="hoBig hoRetB" data-ho-ret="'+esc(r.id)+'">'+esc(t("hoRet"))+'</button></div>'});
-  el.innerHTML=H;
-  el.querySelectorAll("[data-ho-acc]").forEach(function(b){b.onclick=function(){hoAccept(b.dataset.hoAcc)}});
+    if(st==="sent")H+='<div class="card hoc" data-ho="'+esc(r.id)+'"><div class="hoT">💵 '+esc(t("hoSentBlind"))+'</div><div class="hoS">'+sub+'</div><button type="button" class="hoBig" data-ho-cnt="'+esc(r.id)+'">'+esc(t("hoCountT"))+'</button></div>';
+    else if(st==="accepted"){var ax=amtTxt(r.amount_cfa,r.amount_lyd);H+='<div class="card hoc hor" data-ho="'+esc(r.id)+'"><div class="hoS"><b>'+esc(t("hoGot2").replace("%a",ax).replace("%t",r.trip||"—"))+'</b></div><button type="button" class="hoBig hoRetB" data-ho-ret="'+esc(r.id)+'">'+esc(t("hoRet"))+'</button></div>'}
+    else if(st==="mismatch"&&isAdm()){var ax2=amtTxt(r.amount_cfa,r.amount_lyd),cx=amtTxt(r.counted_cfa,r.counted_lyd);
+      H+='<div class="card hoc homis" data-ho="'+esc(r.id)+'"><div class="hoT">'+esc(t("hoAdmMis").replace("%f",r.from||"—").replace("%to",r.to||"—").replace("%t",r.trip||"—").replace("%a",ax2).replace("%c",cx))+'</div></div>'}});
+  el.innerHTML=H;hoAdmNote();
+  el.querySelectorAll("[data-ho-cnt]").forEach(function(b){b.onclick=function(){hoCountDlg(b.dataset.hoCnt)}});
   el.querySelectorAll("[data-ho-ret]").forEach(function(b){b.onclick=function(){hoRetDlg(b.dataset.hoRet)}})};
+function hoAdmNote(){var el=$("hoAdm");if(!el){el=document.createElement("div");el.id="hoAdm";var host=$("hoCard");if(host&&host.parentNode)host.parentNode.insertBefore(el,host.nextSibling);else return}
+  if(!isAdm()){el.innerHTML="";return}var h=ld(),M=h.rows.filter(function(r){return (h.done[r.id]||r.status)==="mismatch"});
+  if(!M.length){el.innerHTML="";var rr=$("hoRpNote");if(rr)rr.innerHTML="";return}
+  var html=M.map(function(r){return '<div class="card hoc homis"><div class="hoT">'+esc(t("hoAdmMis").replace("%f",r.from||"—").replace("%to",r.to||"—").replace("%t",r.trip||"—").replace("%a",amtTxt(r.amount_cfa,r.amount_lyd)).replace("%c",amtTxt(r.counted_cfa,r.counted_lyd)))+'</div></div>'}).join("");
+  el.innerHTML=html;
+  var rp=$("hoRpNote");if(!rp){var tab=$("tabR");if(tab){rp=document.createElement("div");rp.id="hoRpNote";tab.insertBefore(rp,tab.firstChild)}}
+  if(rp)rp.innerHTML=html}
 window.hoFlush=async function(){if(locked())return;var h=ld(),ids=Object.keys(h.q);for(var i=0;i<ids.length;i++){var id=ids[i],q=h.q[id];
-  try{var j=await call({action:"ho_set",id:id,status:q.s,change:q.s==="change returned"?q.c:null});h=ld();
+  try{var j=await call({action:"ho_set",id:id,status:q.s,change_cfa:q.s==="change returned"?(+q.cc||0):null,change_lyd:q.s==="change returned"?(+q.cl||0):null});h=ld();
     if(j.ok||j.error==="bad_status"||j.error==="not_found"||j.error==="not_yours"||j.error==="bad_change"){delete h.q[id];if(!j.ok)delete h.done[id];sv(h)}}catch(e){return}}};
 window.hoPull=async function(){if(locked())return;try{await hoFlush();var j=await call({action:"ho_list"});if(!j||!j.ok||!Array.isArray(j.handover))return;var h=ld();
   h.rows=j.handover.map(pick);var live={};h.rows.forEach(function(r){live[r.id]=1});Object.keys(h.done).forEach(function(id){if(!live[id]&&!h.q[id])delete h.done[id]});
-  h.rows.forEach(function(r){if(h.done[r.id]===r.status&&!h.q[r.id])delete h.done[r.id]});h.on=1;sv(h);hoRender()}catch(e){}};
+  h.rows.forEach(function(r){if(h.done[r.id]===r.status&&!h.q[r.id])delete h.done[r.id]});h.on=1;sv(h);hoRender();try{if(window.cashMeter)cashMeter()}catch(e){}}catch(e){}};
 window.hoSeen=function(on){var h=ld();if(!on){if(h.on!==0){h.on=0;sv(h);hoRender()}return}if(h.on!==1){h.on=1;sv(h)}setTimeout(function(){hoPull()},0)};
-window.hoAccept=function(id){if(locked())return;var h=ld(),r=h.rows.filter(function(x){return x.id===id})[0];if(!r)return;
-  if(!cash.some(function(m){return m&&String(m.ho)===id})){var m={id:Date.now(),type:"give",at:nowLocal(),amount:r.amount,to:localStorage.pa_user||r.to||"",by:r.from||"Money",note:t("hoTrip").replace("%t",r.trip),trip:r.trip,ho:id};cash.push(m);saveC();try{if(window.cashMeter)cashMeter()}catch(e){}try{if(window.renderCL)renderCL()}catch(e){}}
-  h=ld();h.done[id]="accepted";h.q[id]={s:"accepted"};sv(h);hoRender();sToast(t("hoDone").replace("%x",n0(r.amount)));hoFlush().then(function(){if(ld().q[id])sToast(t("hoWait"))})};
-window.hoRetDlg=function(id){if(locked())return;var h=ld(),r=h.rows.filter(function(x){return x.id===id})[0];if(!r)return;var old=$("hoDlg");if(old)old.remove();
-  var P=[];try{P=window.cashPots?cashPots():[]}catch(e){}var lp=P.length?P[P.length-1]:null,pre=lp?Math.max(0,Math.min(r.amount,Math.round(+lp.left||0))):0;
+window.hoCountDlg=function(id){if(locked())return;var h=ld(),r=h.rows.filter(function(x){return x.id===id})[0];if(!r)return;var old=$("hoDlg");if(old)old.remove();
   var d=document.createElement("div");d.id="hoDlg";d.style.cssText="position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;z-index:9000;padding:12px";
-  d.innerHTML='<div class="card" style="max-width:460px;width:100%"><h3 style="margin-top:0">'+esc(t("hoRetT").replace("%t",r.trip||"—"))+'</h3><div class="hoS">'+esc(t("hoGot").replace("%x",n0(r.amount)).replace("%t",r.trip||"—"))+'</div><label>'+esc(t("hoRetAmt"))+'</label><input id="hoAmt" type="number" inputmode="numeric" min="0" step="any" value="'+pre+'" style="font-size:24px;min-height:56px"><div id="hoErr" class="err" style="display:none;color:#b00020">'+esc(t("hoBad").replace("%x",n0(r.amount)))+'</div><div style="display:flex;gap:10px;margin-top:12px"><button type="button" class="sec hoBig" id="hoNo">'+esc(t("hoCancel"))+'</button><button type="button" class="hoBig" id="hoOk">'+esc(t("hoSave"))+'</button></div></div>';
-  document.body.appendChild(d);$("hoAmt").oninput=function(){$("hoErr").style.display="none"};$("hoNo").onclick=function(){d.remove()};
-  $("hoOk").onclick=function(){var v=$("hoAmt").value.trim(),c=+v;if(v===""||!isFinite(c)||c<0||c>r.amount){$("hoErr").style.display="block";return}
-    var h2=ld();h2.done[id]="change returned";h2.q[id]={s:"change returned",c:c};sv(h2);d.remove();hoRender();sToast(t("hoRetOk").replace("%x",n0(c)));hoFlush().then(function(){if(ld().q[id])sToast(t("hoWait"))})}};
+  d.innerHTML='<div class="card" style="max-width:460px;width:100%"><h3 style="margin-top:0;font-size:28px">'+esc(t("hoCountT"))+'</h3><div class="hoS">'+esc(t("hoTrip").replace("%t",r.trip||"—"))+(r.from?" · "+esc(t("hoFrom").replace("%f",r.from)):"")+'</div><label style="font-size:20px;font-weight:700">'+esc(t("hoCountCfa"))+'</label><input id="hoCntC" type="number" inputmode="numeric" min="0" step="1" value="" style="font-size:28px;min-height:64px;width:100%;box-sizing:border-box;margin-bottom:12px"><label style="font-size:20px;font-weight:700">'+esc(t("hoCountLyd"))+'</label><input id="hoCntL" type="number" inputmode="decimal" min="0" step="any" value="" style="font-size:28px;min-height:64px;width:100%;box-sizing:border-box"><div id="hoErr" class="err" style="display:none;color:#b00020;font-size:20px;font-weight:700;margin-top:10px"></div><div style="display:flex;gap:10px;margin-top:14px"><button type="button" class="sec hoBig" id="hoNo">'+esc(t("hoCancel"))+'</button><button type="button" class="hoBig" id="hoOk">'+esc(t("hoConfirm"))+'</button></div></div>';
+  document.body.appendChild(d);
+  $("hoNo").onclick=function(){d.remove()};
+  $("hoOk").onclick=async function(){
+    if(!online()){$("hoErr").textContent=t("hoNeedNet");$("hoErr").style.display="block";return}
+    var vc=$("hoCntC").value.trim(),vl=$("hoCntL").value.trim();
+    var cc=vc===""?0:+vc,cl=vl===""?0:+vl;
+    if(vc!==""&&(!isFinite(cc)||cc<0||Math.round(cc)!==cc)){$("hoErr").textContent=t("hoBad2").replace("%x","…");$("hoErr").style.display="block";return}
+    if(vl!==""&&(!isFinite(cl)||cl<0)){$("hoErr").textContent=t("hoBad2").replace("%x","…");$("hoErr").style.display="block";return}
+    $("hoOk").disabled=true;
+    try{
+      var j=await call({action:"ho_count",id:id,counted_cfa:cc,counted_lyd:cl});
+      if(!j||!j.ok){if(j&&j.error==="need_login"){$("hoErr").textContent=t("hoNeedNet");$("hoErr").style.display="block"}else{$("hoErr").textContent=(j&&j.error)||"err";$("hoErr").style.display="block"}$("hoOk").disabled=false;return}
+      if(j.match){
+        var cfa=+j.amount_cfa||0,lyd=+j.amount_lyd||0;
+        applyCash(id,cfa,lyd,r.from,r.trip);
+        var h0=ld();h0.done[id]="accepted";if(j.row){h0.rows=h0.rows.map(function(x){return x.id===id?pick(j.row):x})}else{h0.rows.forEach(function(x){if(x.id===id){x.status="accepted";x.amount_cfa=cfa;x.amount_lyd=lyd}})}
+        sv(h0);d.remove();hoRender();sToast(t("hoDone2").replace("%a",amtTxt(cfa,lyd)));return}
+      /* ONE try: any non-match is final mismatch — no recount */
+      var h1=ld();h1.done[id]="mismatch";if(j.row){var got=0;h1.rows=h1.rows.map(function(x){if(x.id===id){got=1;return pick(j.row)}return x});if(!got&&isAdm())h1.rows.push(pick(j.row))}
+      sv(h1);$("hoErr").textContent=t("hoMisFinal");$("hoErr").style.display="block";setTimeout(function(){d.remove();hoRender()},1200);
+    }catch(e){$("hoErr").textContent=t("hoNeedNet");$("hoErr").style.display="block";$("hoOk").disabled=false}
+  }};
+window.hoRetDlg=function(id){if(locked())return;var h=ld(),r=h.rows.filter(function(x){return x.id===id})[0];if(!r)return;var old=$("hoDlg");if(old)old.remove();
+  var hasC=+r.amount_cfa>0,hasL=+r.amount_lyd>0;
+  var P=[];try{P=window.cashPots?cashPots():[]}catch(e){}var lp=P.length?P[P.length-1]:null;
+  var preC=hasC?(lp?Math.max(0,Math.min(r.amount_cfa,Math.round(+lp.left||0))):0):0;
+  var preL=hasL?Math.max(0,Math.min(r.amount_lyd,window.lydRem?window.lydRem():r.amount_lyd)):0;
+  var body="";
+  if(hasC)body+='<label>'+esc(t("hoRetAmtCfa"))+'</label><input id="hoAmtC" type="number" inputmode="numeric" min="0" step="1" value="'+preC+'" style="font-size:24px;min-height:56px">';
+  if(hasL)body+='<label>'+esc(t("hoRetAmtLyd"))+'</label><input id="hoAmtL" type="number" inputmode="decimal" min="0" step="any" value="'+preL+'" style="font-size:24px;min-height:56px">';
+  var d=document.createElement("div");d.id="hoDlg";d.style.cssText="position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;z-index:9000;padding:12px";
+  d.innerHTML='<div class="card" style="max-width:460px;width:100%"><h3 style="margin-top:0">'+esc(t("hoRetT").replace("%t",r.trip||"—"))+'</h3><div class="hoS">'+esc(t("hoGot2").replace("%a",amtTxt(r.amount_cfa,r.amount_lyd)).replace("%t",r.trip||"—"))+'</div>'+body+'<div id="hoErr" class="err" style="display:none;color:#b00020"></div><div style="display:flex;gap:10px;margin-top:12px"><button type="button" class="sec hoBig" id="hoNo">'+esc(t("hoCancel"))+'</button><button type="button" class="hoBig" id="hoOk">'+esc(t("hoSave"))+'</button></div></div>';
+  document.body.appendChild(d);
+  function clr(){$("hoErr").style.display="none"}
+  if($("hoAmtC"))$("hoAmtC").oninput=clr;if($("hoAmtL"))$("hoAmtL").oninput=clr;
+  $("hoNo").onclick=function(){d.remove()};
+  $("hoOk").onclick=function(){var cc=0,cl=0;
+    if(hasC){var vc=$("hoAmtC").value.trim();cc=+vc;if(vc===""||!isFinite(cc)||cc<0||cc>r.amount_cfa||Math.round(cc)!==cc){$("hoErr").textContent=t("hoBad2").replace("%x",n0(r.amount_cfa));$("hoErr").style.display="block";return}}
+    if(hasL){var vl=$("hoAmtL").value.trim();cl=+vl;if(vl===""||!isFinite(cl)||cl<0||cl>r.amount_lyd){$("hoErr").textContent=t("hoBad2").replace("%x",nL(r.amount_lyd));$("hoErr").style.display="block";return}}
+    var h2=ld();h2.done[id]="change returned";h2.q[id]={s:"change returned",cc:cc,cl:cl};sv(h2);
+    if(cl>0){(window.lydCash||(window.lydCash=[])).push({id:Date.now(),type:"ret",at:nowLocal(),amount:cl,trip:r.trip,ho:id,note:t("hoRet")});(window.saveLyd||function(){localStorage.pa_lyd=JSON.stringify(window.lydCash)})();try{if(window.cashMeter)cashMeter()}catch(e){}}
+    d.remove();hoRender();sToast(t("hoRetOk2").replace("%a",amtTxt(cc,cl)));hoFlush().then(function(){if(ld().q[id])sToast(t("hoWait"))})}};
 if(typeof applyLang==="function"){var _al=applyLang;applyLang=function(){var x=_al.apply(this,arguments);try{hoRender()}catch(e){}return x}}
-var st=document.createElement("style");st.textContent=".hoc{background:#e9f7ee;border:3px solid #1a7f37;margin-bottom:12px}.hoc.hor{background:#fff7e6;border-color:#b26a00}.hoT{font-size:24px;font-weight:800;line-height:1.25;margin-bottom:4px}.hoS{font-size:16px;margin:4px 0 10px}.hoBig{display:block;width:100%;min-height:64px!important;font-size:22px!important;font-weight:800}";document.head.appendChild(st);
+var _sy=window.syncNow;if(typeof _sy==="function"){window.syncNow=async function(){var r=await _sy.apply(this,arguments);try{await hoFlush();if(ld().on)await hoPull()}catch(e){}return r}}
+document.addEventListener("visibilitychange",function(){if(!document.hidden)try{if(ld().on)hoPull()}catch(e){}});
+var st=document.createElement("style");st.textContent=".hoc{background:#e9f7ee;border:3px solid #1a7f37;margin-bottom:12px}.hoc.hor{background:#fff7e6;border-color:#b26a00}.hoc.homis{background:#fdecea;border-color:#b00020}.hoT{font-size:24px;font-weight:800;line-height:1.25;margin-bottom:4px}.hoS{font-size:16px;margin:4px 0 10px}.hoBig{display:block;width:100%;min-height:64px!important;font-size:22px!important;font-weight:800}";document.head.appendChild(st);
 try{hoRender()}catch(e){}
 })();</script></body></html>

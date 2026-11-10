@@ -6,7 +6,7 @@
  "APP_ID": "pa",
  "NAME": "TMC Sahara Purchases",
  "SHORT": "TMC Purchases",
- "VER": 101,
+ "VER": 102,
  "CACHE_PREFIX": "pp",
  "COLOR": "#0f766e",
  "REPORT_COLOR": "#1B7F3B",
@@ -73,9 +73,8 @@ body{padding-bottom:calc(80px + env(safe-area-inset-bottom))}
 #gate{align-items:flex-start!important;overflow-y:auto;padding-top:max(16px,env(safe-area-inset-top));padding-bottom:max(16px,env(safe-area-inset-bottom))}#gate .card{margin:auto!important}
 html:not(.is-admin) .admin-only,html:not(.is-admin) [data-tab="U"]{display:none!important}
 .tabs{gap:0}.tabs button{flex:1;min-width:0;padding:4px 2px;font-size:11px!important;line-height:1.15;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px}
-.tabs .ticon{font-size:18px;line-height:1}.tabs .tlab{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-@media(max-width:360px){.tabs .tlab{font-size:10px}}
-@media(max-width:340px){.tabs .tlab{display:none}.tabs .ticon{font-size:20px}.tabs button{min-height:56px}}
+.tabs .ticon{font-size:18px;line-height:1}.tabs .tlab{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}nav.tabs button{flex:1;margin:0;border-radius:0;min-width:0;padding:0 1px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;position:relative}nav.tabs .tlab{display:block;width:100%;font-size:12px;line-height:1.2;text-align:center;white-space:nowrap;overflow:hidden;max-width:100%}
+@media(max-width:360px){nav.tabs .tlab{font-size:10px}}
 .usr{display:flex;gap:8px;align-items:flex-start;padding:10px 0;border-bottom:1px solid #e2e8f0}.usr:last-child{border:0}
 .ust{display:inline-block;padding:2px 8px;border-radius:99px;font-size:12px;font-weight:600;margin-inline-start:4px}
 .ust-a{background:#dcfce7;color:#166534}.ust-b{background:#fee2e2;color:#991b1b}.ust-p{background:#fef3c7;color:#92400e}
@@ -90,7 +89,26 @@ body:has(> #gate) > :not(#gate):not(script){visibility:hidden!important}
 #shDlg .row{max-width:440px;margin:8px auto}#shDlg .wa{display:block;max-width:440px;margin:8px auto;padding:12px;border-radius:10px;background:#16a34a;color:#fff;font-weight:700;text-decoration:none;font-size:17px}
 #shClose{position:absolute;top:max(8px,env(safe-area-inset-top));inset-inline-end:8px;width:48px;min-height:56px;margin:0;padding:0;background:#e2e8f0;color:#0f172a;font-size:22px;border-radius:50%}
 #sOrd,.opick select{width:100%;max-width:100%;min-width:0;min-height:56px;font-size:16px;text-overflow:ellipsis}.opick label{margin-top:0}
-.cmblk+.cmblk{margin-top:10px;padding-top:10px;border-top:1px dashed #cbd5e1}.cmcur{font-weight:700;font-size:14px;margin-bottom:4px}.cmblk.red .cmrem b{color:#b91c1c}.cmblk.amber .cmrem b{color:#b45309}.cret{margin-top:6px!important}.lydtag{font-size:11px;background:#fef3c7;color:#92400e;border-radius:6px;padding:1px 5px}.mtl{margin-top:8px}.curPick{display:flex;gap:10px;margin:6px 0 2px}.curBig{flex:1;min-height:64px!important;font-size:22px!important;font-weight:800;background:#e2e8f0;color:#0f172a;border:3px solid #cbd5e1;margin-top:0}.curBig.on{background:#0f766e;color:#fff;border-color:#0f766e}.cmlyd .cmref{display:block;color:#64748b;font-size:13px;margin-top:4px}.hoCur{display:flex;gap:10px;margin:8px 0}.hoCur .curBig{margin:0}
+.cmblk+.cmblk{margin-top:10px;padding-top:10px;border-top:1px dashed #cbd5e1}.cmcur{font-weight:700;font-size:14px;margin-bottom:4px}.cmblk.red .cmrem b{color:#b91c1c}.cmblk.amber .cmrem b{color:#b45309}.cret{margin-top:6px!important}.lydtag{font-size:11px;background:#fef3c7;color:#92400e;border-radius:6px;padding:1px 5px}.mtl{margin-top:8px}.curPick{display:flex;gap:10px;margin:6px 0 2px}.curBig{flex:1;min-height:64px!important;font-size:22px!important;font-weight:800;background:#e2e8f0;color:#0f172a;border:3px solid #cbd5e1;margin-top:0}.curBig.on{background:#0f766e;color:#fff;border-color:#0f766e}.catPick{display:flex;gap:8px;margin:6px 0 2px}.catBig{flex:1;min-height:64px!important;font-size:16px!important;line-height:1.15;font-weight:800;background:#e2e8f0;color:#0f172a;border:3px solid #cbd5e1;margin-top:0;padding:8px 4px}.catBig.on{background:#0f766e;color:#fff;border-color:#0f766e}.catPick.catNeed{outline:3px solid #dc2626;border-radius:12px;padding:4px}
+#lang{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+#langBtn{width:auto;min-width:56px;min-height:56px;margin:0;padding:0 10px;font-size:16px;font-weight:800;border-radius:10px;background:#115e59;color:#fff}
+.langPick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0 0}
+.langBig{min-height:56px!important;font-size:18px!important;font-weight:800;background:#e2e8f0;color:#0f172a;border:3px solid #cbd5e1;margin:0;padding:10px 8px;border-radius:12px}
+.langBig.on{background:#0f766e;color:#fff;border-color:#0f766e}
+#langDlg{position:fixed;inset:0;z-index:400;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;padding:max(12px,env(safe-area-inset-top)) 16px max(12px,env(safe-area-inset-bottom));box-sizing:border-box}
+#langDlg .card{width:min(400px,94vw);margin:auto;box-sizing:border-box}
+#langDlg h3{margin:0 0 8px;font-size:18px}
+html[dir=rtl] input[type=number],html[dir=rtl] input[inputmode=decimal],html[dir=rtl] input[inputmode=tel],html[dir=rtl] input[inputmode=numeric],
+html[dir=rtl] .oamt,html[dir=rtl] .pet,html[dir=rtl] .petot,html[dir=rtl] #line,html[dir=rtl] .tot>b,html[dir=rtl] .tot .big,html[dir=rtl] .big,
+html[dir=rtl] .pno,html[dir=rtl] .sq,html[dir=rtl] .cmrem,html[dir=rtl] .cmamt{direction:ltr;unicode-bidi:isolate}
+html[dir=rtl] #gP1,html[dir=rtl] #gP2,html[dir=rtl] input[type=password]{direction:ltr;unicode-bidi:isolate;text-align:center}
+.catMsg{display:block;color:#b91c1c;font-weight:700;font-size:15px;margin:4px 0 0}
+#oItems .ocard{display:flex;flex-direction:column;align-items:stretch;width:100%;box-sizing:border-box;padding:12px 0;gap:0}
+#oItems .ocard .obody{width:100%;min-width:0}
+#oItems .oamt{display:block;width:100%;box-sizing:border-box;text-align:end;font-size:22px;font-weight:800;margin:8px 0 4px;white-space:nowrap}
+#oItems .ocard button.ocbtn,#oItems .ocard button.nnB,#oItems .ocard button.oaddb{display:block;width:100%;box-sizing:border-box;min-height:56px!important;margin:8px 0 0;padding:12px 14px;font-size:18px;font-weight:700;border-radius:12px}
+#oItems .ocard .obtns{width:100%;margin-top:6px}
+.cmlyd .cmref{display:block;color:#64748b;font-size:13px;margin-top:4px}.hoCur{display:flex;gap:10px;margin:8px 0}.hoCur .curBig{margin:0}
 .oaddb{background:#15803d!important;color:#fff!important;border:0}.oarow{padding:8px 0;border-bottom:1px dashed #cbd5e1}.oarow .row{gap:6px}.oarow .row>*{min-width:0}.oaQ{width:100%}
 .owk{font-size:13px;color:#0f766e;margin-top:3px;font-weight:600}.owk.cl{color:#b45309}
 .sldlg{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:120;display:flex;align-items:flex-start;justify-content:center;overflow-y:auto;padding:max(12px,env(safe-area-inset-top)) 0 max(12px,env(safe-area-inset-bottom))}.sldlg .card{width:min(400px,92vw);margin:auto;box-sizing:border-box}
@@ -150,7 +168,7 @@ table.rep{width:100%;border-collapse:collapse;table-layout:fixed;font-size:14px}
    Not-connected card have the base size, layout, fonts and wording. The app keeps its own colours. */
 #hBand{position:sticky;top:0;z-index:5;margin:0;padding:12px 14px;display:flex;align-items:center;justify-content:flex-start;gap:10px;min-height:56px;flex-wrap:nowrap;font-family:system-ui,sans-serif;font-size:17px;line-height:normal;box-sizing:border-box}
 #hBand>img.hLogo{width:36px;height:36px;border-radius:8px;flex:none;display:block;margin:0}
-#hBand>.t{flex:1;min-width:0;margin:0;font-weight:700;font-size:20px;line-height:normal;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#hBand>.t{flex:1;min-width:0;margin:0;font-weight:700;font-size:20px;line-height:normal;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;direction:ltr;unicode-bidi:isolate}
 #hBand .hS{display:flex;align-items:center;gap:6px;font-size:14px;font-weight:400;white-space:nowrap;direction:ltr;flex:none;width:auto;min-width:0;min-height:56px;height:auto;margin:0;padding:0;border:0;border-radius:0;background:transparent;color:inherit;font-family:inherit;line-height:normal;box-shadow:none;cursor:pointer}
 #hBand .hS::before,#hBand .hS::after{content:none!important;display:none!important}
 #hBand .dot{box-shadow:none;width:14px;height:14px;border-radius:50%;background:#94a3b8;display:inline-block;border:2px solid #fff;box-sizing:border-box;flex:none}
@@ -173,7 +191,16 @@ main>.hsdBar{margin:0 0 12px}
 .hsdBar.ncW button{background:#0f766e!important}.hsdBar.ncW button.sec{background:#0f766e!important}
 body.hasNc{padding-top:0}
 #updW #updBar{position:static!important;transform:none!important;left:auto!important;top:auto!important;max-width:none!important;white-space:normal!important;overflow:visible!important;text-overflow:clip!important;z-index:auto!important}</style></head><body>
-<header id="hBand"><img class="hLogo" src="icons/icon-192.png" alt=""><h1 class="t"><span class="tfull">TMC Purchases</span><span class="tshort">TMC Purchases</span></h1><div class="hdr hSw"><span id="hS" class="hSw"><button type="button" id="syDot" class="hS" style="display:none"></button></span><button type="button" id="mbtn" class="hico" aria-label="">🗂️</button><button type="button" id="uBtn" class="sydot" title="" style="display:none">👤</button><span id="hLang" class="hSw"><select id="lang" class="hLang" aria-label="Language"><option value="en">EN</option><option value="fr">FR</option><option value="af">AF</option></select></span></div></header>
+<header id="hBand"><img class="hLogo" src="icons/icon-192.png" alt=""><h1 class="t"><span class="tfull">TMC Purchases</span><span class="tshort">TMC Purchases</span></h1><div class="hdr hSw"><span id="hS" class="hSw"><button type="button" id="syDot" class="hS" style="display:none"></button></span><button type="button" id="mbtn" class="hico" aria-label="">🗂️</button><button type="button" id="uBtn" class="sydot" title="" style="display:none">👤</button><span id="hLang" class="hSw"><select id="lang" class="hLang" aria-label="Language" hidden><option value="en">EN</option><option value="fr">FR</option><option value="af">AF</option><option value="ar">العربية</option></select><button type="button" id="langBtn" aria-label="Language">EN</button></span></div></header>
+<div id="langDlg" style="display:none" role="dialog" aria-modal="true">
+<div class="card"><h3>🌐 Language</h3>
+<div class="langPick">
+<button type="button" class="langBig" data-lang="en">English</button>
+<button type="button" class="langBig" data-lang="fr">Français</button>
+<button type="button" class="langBig" data-lang="af">Afrikaans</button>
+<button type="button" class="langBig" data-lang="ar">العربية</button>
+</div></div></div>
+
 <main>
 <div id="tabP">
 <div class="banner" id="bkBanner" style="display:none"><span data-t="bkMsg"></span><button type="button" id="bkNow" data-t="bkNow"></button></div>
@@ -195,6 +222,7 @@ body.hasNc{padding-top:0}
 <select id="forOrd" style="display:none" aria-hidden="true"></select><small id="ordHint" style="display:block;color:#0f766e;font-weight:600;margin-top:4px"></small>
 <div class="row"><div style="flex:2"><label data-t="price"></label><input id="price" type="number" step="any" min="0" inputmode="decimal" required></div></div><label data-t="curL"></label><div class="curPick" id="ecurPick"><button type="button" class="curBig on" data-cur="FCFA" id="ecurCfa">FCFA</button><button type="button" class="curBig" data-cur="LYD" id="ecurLyd">LYD</button></div><input type="hidden" id="ecur" value="FCFA"><div class="pwarn" id="pWarn" style="display:none"></div>
 <div class="tot"><span data-t="line"></span><b id="line">0</b></div>
+<label data-t="catL"></label><div class="catPick" id="eCatPick"><button type="button" class="catBig" data-cat="Food" data-t="catFood"></button><button type="button" class="catBig" data-cat="Workshop" data-t="catWorkshop"></button><button type="button" class="catBig" data-cat="Service" data-t="catService"></button></div><input type="hidden" id="eCat" value=""><small id="eCatMsg" class="catMsg" hidden></small>
 <button id="save" data-t="add"></button><button type="button" class="sec" id="cancel" style="display:none" data-t="cancel"></button>
 </form></div>
 <div class="card">
@@ -203,7 +231,8 @@ body.hasNc{padding-top:0}
 <div class="tot"><span data-t="all"></span><span class="big" id="tAll"></span></div>
 </div>
 <div class="card"><div class="row"><button type="button" id="paidBtn" data-t="paid" style="margin-top:0;background:#b45309"></button><button type="button" class="sec" id="histBtn" data-t="hist" style="margin-top:0"></button><button type="button" class="sec" id="missBtn" data-t="missBtn" style="margin-top:0;display:none"></button></div>
-<div id="paidForm" style="display:none"><label data-t="paidBy"></label><input id="pBy" list="pByList" autocomplete="off"><datalist id="pByList"></datalist><label data-t="paidNote"></label><input id="pNote"><div class="row"><button type="button" id="pOk" data-t="paidOk"></button><button type="button" class="sec" id="pCancel" data-t="cancel"></button></div></div><div id="missForm" style="display:none;border-top:1px solid #e5e7eb;margin-top:10px;padding-top:6px"><h3 data-t="missT" style="margin:4px 0;font-size:16px"></h3><small data-t="missHelp" style="display:block;color:#555"></small><label data-t="missDate"></label><input id="mDate" type="date"><label data-t="missItem"></label><input id="mItem" list="catList" autocomplete="off"><label data-t="size"></label><input id="mSize" autocomplete="off"><div class="row"><div><label data-t="qty"></label><input id="mQty" type="number" step="any" min="0" inputmode="decimal"></div><div><label data-t="unit"></label><input id="mUnit" list="unitList" autocomplete="off"></div></div><div class="row"><div style="flex:2"><label data-t="price"></label><input id="mPrice" type="number" step="any" min="0" inputmode="decimal"></div></div><label data-t="curL"></label><div class="curPick" id="mCurPick"><button type="button" class="curBig on" data-cur="FCFA" id="mCurCfa">FCFA</button><button type="button" class="curBig" data-cur="LYD" id="mCurLyd">LYD</button></div><input type="hidden" id="mCur" value="FCFA"><label data-t="missBy"></label><input id="mBy" list="pByList" autocomplete="off"><label data-t="missNote"></label><input id="mNote"><div class="row"><button type="button" id="mOk" data-t="missSave"></button><button type="button" class="sec" id="mCancel" data-t="cancel"></button></div></div></div>
+<div id="paidForm" style="display:none"><label data-t="paidBy"></label><input id="pBy" list="pByList" autocomplete="off"><datalist id="pByList"></datalist><label data-t="paidNote"></label><input id="pNote"><div class="row"><button type="button" id="pOk" data-t="paidOk"></button><button type="button" class="sec" id="pCancel" data-t="cancel"></button></div></div><div id="missForm" style="display:none;border-top:1px solid #e5e7eb;margin-top:10px;padding-top:6px"><h3 data-t="missT" style="margin:4px 0;font-size:16px"></h3><small data-t="missHelp" style="display:block;color:#555"></small><label data-t="missDate"></label><input id="mDate" type="date"><label data-t="missItem"></label><input id="mItem" list="catList" autocomplete="off"><label data-t="size"></label><input id="mSize" autocomplete="off"><div class="row"><div><label data-t="qty"></label><input id="mQty" type="number" step="any" min="0" inputmode="decimal"></div><div><label data-t="unit"></label><input id="mUnit" list="unitList" autocomplete="off"></div></div><div class="row"><div style="flex:2"><label data-t="price"></label><input id="mPrice" type="number" step="any" min="0" inputmode="decimal"></div></div><label data-t="curL"></label><div class="curPick" id="mCurPick"><button type="button" class="curBig on" data-cur="FCFA" id="mCurCfa">FCFA</button><button type="button" class="curBig" data-cur="LYD" id="mCurLyd">LYD</button></div><input type="hidden" id="mCur" value="FCFA"><label data-t="missBy"></label><input id="mBy" list="pByList" autocomplete="off"><label data-t="missNote"></label><input id="mNote"><label data-t="catL"></label><div class="catPick" id="mCatPick"><button type="button" class="catBig" data-cat="Food" data-t="catFood"></button><button type="button" class="catBig" data-cat="Workshop" data-t="catWorkshop"></button><button type="button" class="catBig" data-cat="Service" data-t="catService"></button></div><input type="hidden" id="mCat" value=""><small id="mCatMsg" class="catMsg" hidden></small>
+<div class="row"><button type="button" id="mOk" data-t="missSave"></button><button type="button" class="sec" id="mCancel" data-t="cancel"></button></div></div></div>
 <div class="card" id="list"></div>
 <div class="card"><label data-t="currency"></label><input id="cur" data-nospell>
 <button type="button" id="csv" data-t="export"></button></div>
@@ -250,6 +279,570 @@ const T={en:{retBtn:"↩ Return to To buy",retAsk:"Undo this missed purchase and
 fr:{retBtn:"↩ Remettre dans À acheter",retAsk:"Annuler cet achat oublié et remettre %i dans « À acheter » ? L'argent revient dans la caisse restante.",retDone:"Remis dans « À acheter »",retTag:"Remis",drRest:"📝 Brouillon restauré",drDisc:"Supprimer le brouillon",drAsk:"Supprimer ce que vous avez saisi ?",shortTag:"Livraison incomplète",shortFrom:"depuis l'inventaire alimentaire",spT:"Vérifier l'orthographe",spAsk:"« %a » ressemble à « %b », déjà dans la liste. Vouliez-vous dire %b ?",spUse:"Utiliser %b",spKeep:"Garder tel quel",missBtn:"➕ Achat oublié",missT:"➕ Achat oublié (acheté avant, non saisi)",missHelp:"Enregistré directement dans l'historique payé à sa date. En FCFA, il est déduit de la caisse restante. Ne change pas « À acheter ».",missDate:"Date d'achat",missItem:"Article",missBy:"Acheté par",missNote:"Note (facultatif)",missSave:"Enregistrer l'achat oublié",missTag:"oublié",missEdit:"✏️ Modifier l'achat oublié",missDel:"🗑 Supprimer l'achat oublié",missDelAsk:"Supprimer cet achat oublié ? La caisse restante sera recalculée.",missBad:"Saisissez l'article, la quantité et le prix.",missDone:"Achat oublié enregistré",missFuture:"La date ne peut pas être dans le futur.",reqBy:"Demandé par (facultatif)",reqByS:"Demandé par",paidBy:"Payé par (facultatif)",paidByS:"Payé par",syncT:"☁️ Synchronisation (Google Sheet)",syncUrl:"URL de l'application Web",syncCode:"Code d'équipe",syncNow:"Synchroniser",syncSave:"Enregistrer les réglages",syncOff:"Synchronisation désactivée — cet appareil garde ses propres données",syncNever:"Pas encore synchronisé",syncLast:"Dernière synchro : %d",syncPend:"%n modification(s) en attente",syncBusy:"Synchronisation…",syncErr:"Échec de la synchro : %e",syncBadCode:"Code d'équipe incorrect",syncOffline:"Hors ligne — synchro plus tard",syncOk:"Synchronisé",syncHelp:"Ce téléphone se connecte par défaut à la feuille de l'équipe TMC. L'admin peut choisir une autre feuille ici (👁 affiche les valeurs masquées).",favs:"⭐ Favoris",pin:"Épingler aux favoris",unpin:"Désépingler",lastP:"dernier : %p le %d",mRep:"Rapport mensuel Excel",mrBtn:"Exporter le mois (.xlsx)",mrNone:"Aucune entrée ce mois-ci",sumItem:"Par article",sumBatch:"Par lot payé",noFav:"Vos articles les plus utilisés apparaîtront ici",tabR:"Rapports",search:"Recherche",searchPh:"Rechercher des articles…",fStoreL:"Magasin",fMonthL:"Mois",results:"Résultats",noResults:"Aucune entrée trouvée",summary:"Résumé des dépenses",byMonth:"Par mois (12 derniers)",byWeek:"Par semaine (8 dernières, du samedi 05:00)",topItems:"Top 10 des articles par dépense",noData:"Pas encore de données",bkMsg:"Aucune sauvegarde depuis 7 jours. Enregistrez une copie de vos données.",bkNow:"Sauvegarder maintenant",backup:"Sauvegarde",bkFull:"Télécharger la sauvegarde complète",bkRestore:"Restaurer une sauvegarde",restoreAsk:"Remplacer TOUTES les données de ce téléphone par la sauvegarde ?",restoreDone:"Sauvegarde restaurée",restoreFail:"Impossible de lire ce fichier de sauvegarde",paid:"💰 Payé",paidStore:"Magasin / fournisseur (facultatif)",paidNote:"Note (facultatif)",paidOk:"Confirmer le paiement",paidAsk:"Marquer %n entrées (%t) comme payées et commencer une nouvelle liste ?",paidDone:"Enregistré dans l'historique des paiements",hist:"Historique des paiements",noBatches:"Aucun lot payé",noStore:"(sans magasin)",exportBatch:"Exporter ce lot CSV",exportAll:"Exporter tout l'historique CSV",reopen:"Rouvrir le lot",undoLast:"Annuler le dernier paiement",fixOnly:"Seul l’Admin peut corriger un achat enregistré.",fixRef:"Non enregistré : seul l’Admin peut corriger un achat enregistré.",fixed:"Corrigé par %n",reopenAsk:"Remettre les entrées de ce lot dans la liste ouverte ?",openList:"Liste ouverte",tabP:"Achats",tabO:"Commandes",newOrder:"Nouvelle commande",orderNo:"N° de commande",supplier:"Fournisseur",status:"Statut",st_pending:"En attente",st_received:"Reçue",st_cancelled:"Annulée",fAll:"Toutes",placed:"Date de commande",expected:"Livraison prévue",notes:"Notes",lines:"Lignes",addLine:"Ajouter une ligne",orderTotal:"Total commande",overdue:"En retard",saveOrder:"Enregistrer la commande",delBtn:"Supprimer",delOrder:"Supprimer cette commande ?",logAsk:"Commande reçue. Enregistrer ses articles comme achats ?",logged:"%n articles enregistrés comme achats",noOrders:"Aucune commande",exportOrders:"Exporter commandes CSV",needLine:"Ajoutez au moins une ligne",total:"Total",size:"Taille",sizePh:"ex. 25kg, 50mm, 2L, M10",imp:"Importer CSV/Excel",impDone:"%n articles importés",impNone:"Aucun article trouvé dans le fichier",impFail:"Lecture impossible (SheetJS nécessite Internet la première fois)",resetCat:"Restaurer la liste par défaut",resetAsk:"Remplacer vos articles par la liste par défaut ?",manage:"Gérer les articles",dunit:"Unité par défaut",dprice:"Prix par défaut",saveItem:"Enregistrer l'article",back:"Retour",noItems:"Aucun article enregistré",delItem:"Supprimer cet article du catalogue ?",autoLbl:"Enregistrer automatiquement les nouveaux articles",askSave:"Enregistrer « %s » dans vos articles ?",newItem:"Nouvel article",exists:"Cet article existe déjà",title:"TMC Sahara Purchases",item:"Article",qty:"Qté",unit:"Unité",price:"Prix unitaire",date:"Date",line:"Total ligne",add:"Ajouter l'achat",update:"Mettre à jour",cancel:"Annuler",today:"Aujourd'hui",month:"Ce mois",all:"Total cumulé",currency:"Devise",export:"Exporter CSV",empty:"Aucun achat",del:"Supprimer cette entrée ?",custom:"Autre…",customPh:"Unité personnalisée"},
 
 af:{"retBtn": "↩ Terug na Kooplys", "retAsk": "Maak hierdie vergete aankoop ongedaan en sit %i terug op Kooplys? Die geld kom terug by die kontant oor.", "retDone": "Terug op Kooplys", "retTag": "Teruggesit", "drRest": "📝 Konsep teruggekry", "drDisc": "Gooi konsep weg", "drAsk": "Gooi weg wat jy getik het?", "shortTag": "Kort gelewer", "shortFrom": "van Food Inventory", "spT": "Kyk spelling", "spAsk": "“%a” lyk soos “%b”, wat klaar in die lys is. Bedoel jy %b?", "spUse": "Gebruik %b", "spKeep": "Hou soos getik", "missBtn": "➕ Vergete aankoop", "missT": "➕ Vergete aankoop (vroeër gekoop, nie ingesit nie)", "missHelp": "Gaan reguit na Betaal-geskiedenis op sy datum. FCFA word van die kontant oor afgetrek. Dit verander nie Kooplys nie.", "missDate": "Datum gekoop", "missItem": "Item", "missBy": "Gekoop deur", "missNote": "Nota (as jy wil)", "missSave": "Stoor vergete aankoop", "missTag": "vergeet", "missEdit": "✏️ Verander vergete aankoop", "missDel": "🗑 Vee vergete aankoop uit", "missDelAsk": "Vee hierdie vergete aankoop uit? Die kontant oor word weer uitgewerk.", "missBad": "Tik item, aantal en prys.", "missDone": "Vergete aankoop gestoor", "missFuture": "Die datum kan nie in die toekoms wees nie.", "reqBy": "Gevra deur (as jy wil)", "reqByS": "Gevra deur", "paidBy": "Betaal deur (as jy wil)", "paidByS": "Betaal deur", "syncT": "☁️ Sync (Google Sheet)", "syncUrl": "Web app-skakel", "syncCode": "Spankode", "syncNow": "Sync nou", "syncSave": "Stoor sync-instellings", "syncOff": "Sync is af — hierdie foon hou sy eie data", "syncNever": "Nog nie gesync nie", "syncLast": "Laas gesync: %d", "syncPend": "%n verandering(e) wag vir sync", "syncBusy": "Besig om te sync…", "syncErr": "Sync het misluk: %e", "syncBadCode": "Verkeerde spankode", "syncOffline": "Geen internet — veranderinge sync later", "syncOk": "Sync klaar", "syncHelp": "Hierdie foon koppel gewoonlik aan die TMC-span se Sheet. Die Admin kan hier 'n ander Sheet kies (👁 wys die versteekte waardes).", "favs": "⭐ Gunstelinge", "pin": "Sit by gunstelinge", "unpin": "Haal af", "lastP": "laas: %p op %d", "mRep": "Maandelikse Excel-verslag", "mrBtn": "Laai maand af (.xlsx)", "mrNone": "Niks in hierdie maand nie", "sumItem": "Per item", "sumBatch": "Per betaalde bondel", "noFav": "Jou items wat jy die meeste gebruik, kom hier", "tabR": "Verslae", "search": "Soek", "searchPh": "Soek items…", "fStoreL": "Winkel", "fMonthL": "Maand", "results": "Resultate", "noResults": "Niks gevind nie", "summary": "Uitgawes-opsomming", "byMonth": "Per maand (laaste 12)", "byWeek": "Per week (laaste 8, week begin Sa 05:00)", "topItems": "Top 10 items volgens uitgawe", "noData": "Nog geen data nie", "bkMsg": "Geen rugsteun in die laaste 7 dae nie. Stoor 'n kopie van jou data.", "bkNow": "Maak nou 'n rugsteun", "backup": "Rugsteun", "bkFull": "Laai volle rugsteun af", "bkRestore": "Sit rugsteun terug", "restoreAsk": "Vervang AL die data op hierdie foon met die rugsteun?", "restoreDone": "Rugsteun teruggesit", "restoreFail": "Kan nie hierdie rugsteunlêer lees nie", "paid": "💰 Betaal", "paidStore": "Winkel / verskaffer (as jy wil)", "paidNote": "Nota (as jy wil)", "paidOk": "Bevestig betaal", "paidAsk": "Merk %n inskrywings (%t) as betaal en begin 'n nuwe lys?", "paidDone": "Gestoor in Betaal-geskiedenis", "hist": "Betaal-geskiedenis", "noBatches": "Nog geen betaalde bondels nie", "noStore": "(geen winkel)", "exportBatch": "Laai hierdie bondel af (CSV)", "exportAll": "Laai alle geskiedenis af (CSV)", "reopen": "Maak bondel weer oop", "undoLast": "Maak laaste betaling ongedaan", "fixOnly": "Net die Admin kan iets wat gestoor is regmaak.", "fixRef": "Nie gestoor nie: net die Admin kan iets wat gestoor is regmaak.", "fixed": "Reggemaak deur %n", "reopenAsk": "Skuif hierdie bondel se inskrywings terug na die oop lys?", "openList": "Oop lys", "tabP": "Aankope", "tabO": "Bestel", "newOrder": "Nuwe bestelling", "orderNo": "Bestelnommer", "supplier": "Verskaffer", "status": "Stand", "st_pending": "Wag", "st_received": "Ontvang", "st_cancelled": "Gekanselleer", "fAll": "Almal", "placed": "Datum bestel", "expected": "Verwagte aflewering", "notes": "Notas", "lines": "Lyne", "addLine": "Voeg lyn by", "orderTotal": "Bestelling totaal", "overdue": "Laat", "saveOrder": "Stoor bestelling", "delBtn": "Vee uit", "delOrder": "Vee hierdie bestelling uit?", "logAsk": "Bestelling ontvang. Sit sy items by aankope?", "logged": "%n items by aankope gesit", "noOrders": "Nog geen bestellings nie", "exportOrders": "Laai bestellings af (CSV)", "needLine": "Voeg ten minste een lyn by", "total": "Totaal", "size": "Grootte", "sizePh": "bv. 25kg, 50mm, 2L, M10", "imp": "Haal in uit CSV/Excel", "impDone": "%n items ingehaal", "impNone": "Geen items in die lêer gevind nie", "impFail": "Kan nie die lêer lees nie (SheetJS het die eerste keer internet nodig)", "resetCat": "Sit die gewone lys terug", "resetAsk": "Vervang jou items met die gewone lys?", "manage": "Bestuur items", "dunit": "Gewone eenheid", "dprice": "Gewone prys", "saveItem": "Stoor item", "back": "Terug", "noItems": "Geen gestoorde items nie", "delItem": "Vee hierdie item uit die lys uit?", "autoLbl": "Stoor nuwe items vanself in die lys", "askSave": "Stoor \"%s\" by jou items?", "newItem": "Nuwe item", "exists": "Item bestaan klaar", "title": "TMC Sahara Purchases", "item": "Item se naam", "qty": "Getal", "unit": "Eenheid", "price": "Prys per eenheid", "date": "Datum", "line": "Lyn totaal", "add": "Voeg aankoop by", "update": "Stoor verandering", "cancel": "Kanselleer", "today": "Vandag", "month": "Hierdie maand", "all": "Lopende totaal", "currency": "Geldeenheid", "export": "Laai af (CSV)", "empty": "Nog geen aankope nie", "del": "Vee hierdie inskrywing uit?", "custom": "Ander…", "customPh": "Eie eenheid"}};
+Object.assign(T.ar||(T.ar={}), {
+  "retBtn": "↩ إعادة إلى قائمة الشراء",
+  "retAsk": "إلغاء هذه المشتريات المنسية وإعادة %i إلى قائمة الشراء؟ يعود المبلغ إلى النقد المتبقي.",
+  "retDone": "أُعيد إلى قائمة الشراء",
+  "retTag": "مُعاد",
+  "drRest": "📝 تمت استعادة المسودة",
+  "drDisc": "تجاهل المسودة",
+  "drAsk": "تجاهل ما كتبته؟",
+  "shortTag": "توريد ناقص",
+  "shortFrom": "من مخزون الطعام",
+  "spT": "تدقيق الإملاء",
+  "spAsk": "«%a» يشبه «%b» الموجود في القائمة. هل تقصد %b؟",
+  "spUse": "استخدم %b",
+  "spKeep": "أبقِه كما كُتب",
+  "missBtn": "➕ مشتريات منسية",
+  "missT": "➕ مشتريات منسية (اشتُريت سابقاً ولم تُسجَّل)",
+  "missHelp": "تُحفظ مباشرة في سجل المدفوعات بتاريخها. بالفرنك تُخصم من النقد المتبقي. لا تغيّر قائمة «للشراء».",
+  "missDate": "تاريخ الشراء",
+  "missItem": "الصنف",
+  "missBy": "اشتراها",
+  "missNote": "ملاحظة (اختياري)",
+  "missSave": "حفظ المشتريات المنسية",
+  "missTag": "منسية",
+  "missEdit": "✏️ تعديل المشتريات المنسية",
+  "missDel": "🗑 حذف المشتريات المنسية",
+  "missDelAsk": "حذف هذه المشتريات المنسية؟ سيُعاد حساب النقد المتبقي.",
+  "missBad": "أدخل الصنف والكمية والسعر.",
+  "missDone": "تم حفظ المشتريات المنسية",
+  "missFuture": "لا يمكن أن يكون التاريخ في المستقبل.",
+  "reqBy": "طلب بواسطة (اختياري)",
+  "reqByS": "طلب بواسطة",
+  "paidBy": "دفع بواسطة (اختياري)",
+  "paidByS": "دفع بواسطة",
+  "syncT": "☁️ المزامنة (Google Sheet)",
+  "syncUrl": "رابط تطبيق الويب",
+  "syncCode": "رمز الفريق",
+  "syncNow": "🔄 مزامنة الآن",
+  "syncSave": "حفظ إعدادات المزامنة",
+  "syncOff": "المزامنة متوقفة — يحتفظ هذا الجهاز ببياناته الخاصة",
+  "syncNever": "لم تتم المزامنة بعد",
+  "syncLast": "آخر مزامنة: %d",
+  "syncPend": "%n تغيير(ات) بانتظار المزامنة",
+  "syncBusy": "جارٍ المزامنة…",
+  "syncErr": "فشلت المزامنة: %e",
+  "syncBadCode": "رمز الفريق غير صحيح",
+  "syncOffline": "غير متصل — ستتم المزامنة لاحقاً",
+  "syncOk": "تمت المزامنة",
+  "syncHelp": "يتصل هذا الهاتف افتراضياً بجدول فريق TMC. يمكن للمسؤول اختيار جدول آخر هنا (👁 يُظهر القيم المخفية).",
+  "favs": "⭐ المفضلة",
+  "pin": "تثبيت في المفضلة",
+  "unpin": "إلغاء التثبيت",
+  "lastP": "آخر سعر: %p في %d",
+  "mRep": "تقرير Excel الشهري",
+  "mrBtn": "تصدير الشهر (.xlsx)",
+  "mrNone": "لا توجد إدخالات في هذا الشهر",
+  "sumItem": "حسب الصنف",
+  "sumBatch": "حسب الدفعة المدفوعة",
+  "noFav": "ستظهر هنا الأصناف الأكثر استخداماً",
+  "tabR": "التقارير",
+  "search": "بحث",
+  "searchPh": "ابحث عن الأصناف…",
+  "fStoreL": "المتجر",
+  "fMonthL": "الشهر",
+  "results": "النتائج",
+  "noResults": "لا توجد إدخالات مطابقة",
+  "summary": "ملخص الإنفاق",
+  "byMonth": "حسب الشهر (آخر 12)",
+  "byWeek": "حسب الأسبوع (آخر 8، يبدأ السبت 05:00)",
+  "topItems": "أعلى 10 أصناف إنفاقاً",
+  "noData": "لا توجد بيانات بعد",
+  "bkMsg": "لا توجد نسخة احتياطية منذ 7 أيام. احفظ نسخة من بياناتك.",
+  "bkNow": "تصدير نسخة احتياطية الآن",
+  "backup": "النسخ الاحتياطي",
+  "bkFull": "تنزيل نسخة احتياطية كاملة",
+  "bkRestore": "استعادة من نسخة احتياطية",
+  "restoreAsk": "استبدال جميع البيانات على هذا الهاتف بالنسخة الاحتياطية؟",
+  "restoreDone": "تمت استعادة النسخة الاحتياطية",
+  "restoreFail": "تعذرت قراءة ملف النسخة الاحتياطية",
+  "paid": "💰 تم الدفع",
+  "paidStore": "المتجر / المورد (اختياري)",
+  "paidNote": "ملاحظة (اختياري)",
+  "paidOk": "تأكيد الدفع",
+  "paidAsk": "تعليم %n إدخالات (%t) كمدفوعة وبدء قائمة جديدة؟",
+  "paidDone": "تم الحفظ في سجل المدفوعات",
+  "hist": "سجل المدفوعات",
+  "noBatches": "لا توجد دفعات بعد",
+  "noStore": "(بدون متجر)",
+  "exportBatch": "تصدير هذه الدفعة CSV",
+  "exportAll": "تصدير كل السجل CSV",
+  "reopen": "إعادة فتح الدفعة",
+  "undoLast": "التراجع عن آخر دفع",
+  "fixOnly": "المدير فقط يمكنه تصحيح سجل محفوظ.",
+  "fixRef": "لم يُحفظ: المدير فقط يمكنه تصحيح سجل محفوظ.",
+  "fixed": "صحّحه %n",
+  "reopenAsk": "إعادة إدخالات هذه الدفعة إلى القائمة المفتوحة؟",
+  "openList": "القائمة المفتوحة",
+  "tabP": "المشتريات",
+  "tabO": "الطلبات",
+  "newOrder": "طلب جديد",
+  "orderNo": "رقم الطلب",
+  "supplier": "المورد",
+  "status": "الحالة",
+  "st_pending": "قيد الانتظار",
+  "st_received": "تم الاستلام",
+  "st_cancelled": "ملغى",
+  "fAll": "الكل",
+  "placed": "تاريخ الطلب",
+  "expected": "التسليم المتوقع",
+  "notes": "ملاحظات",
+  "lines": "بنود الطلب",
+  "addLine": "إضافة بند",
+  "orderTotal": "إجمالي الطلب",
+  "overdue": "متأخر",
+  "saveOrder": "حفظ الطلب",
+  "delBtn": "حذف",
+  "delOrder": "حذف هذا الطلب؟",
+  "logAsk": "تم استلام الطلب. تسجيل بنوده كمشتريات؟",
+  "logged": "تم تسجيل %n بند كمشتريات",
+  "noOrders": "لا توجد طلبات",
+  "exportOrders": "تصدير الطلبات CSV",
+  "needLine": "أضف بنداً واحداً على الأقل",
+  "total": "المجموع",
+  "size": "المقاس",
+  "sizePh": "مثال: 25kg، 50mm، 2L، M10",
+  "imp": "استيراد من CSV/Excel",
+  "impDone": "تم استيراد %n صنف",
+  "impNone": "لم يتم العثور على أصناف في الملف",
+  "impFail": "تعذرت قراءة الملف (يحتاج SheetJS إلى الإنترنت أول مرة)",
+  "resetCat": "استعادة القائمة الافتراضية",
+  "resetAsk": "استبدال أصنافك بالقائمة الافتراضية؟",
+  "manage": "إدارة الأصناف",
+  "dunit": "الوحدة الافتراضية",
+  "dprice": "السعر الافتراضي",
+  "saveItem": "حفظ الصنف",
+  "back": "رجوع",
+  "noItems": "لا توجد أصناف محفوظة",
+  "delItem": "حذف هذا الصنف من القائمة؟",
+  "autoLbl": "حفظ الأصناف الجديدة تلقائياً",
+  "askSave": "حفظ \"%s\" في أصنافك؟",
+  "newItem": "صنف جديد",
+  "exists": "الصنف موجود بالفعل",
+  "title": "TMC Sahara Purchases",
+  "item": "اسم الصنف",
+  "qty": "كمية",
+  "unit": "الوحدة",
+  "price": "سعر الوحدة",
+  "date": "التاريخ",
+  "line": "المجموع",
+  "add": "إضافة شراء",
+  "update": "تحديث",
+  "cancel": "إلغاء",
+  "today": "اليوم",
+  "month": "هذا الشهر",
+  "all": "الإجمالي",
+  "currency": "العملة",
+  "export": "تصدير CSV",
+  "empty": "لا توجد مشتريات",
+  "del": "حذف هذا الإدخال؟",
+  "custom": "أخرى…",
+  "customPh": "وحدة مخصصة",
+  "catL": "الفئة",
+  "catFood": "طعام",
+  "catWorkshop": "ورشة",
+  "catService": "خدمة",
+  "catNeed": "اختر طعام أو ورشة أو خدمة",
+  "pm_items": "إدارة الأصناف (القائمة)",
+  "bkNever": "لا توجد نسخة احتياطية بعد",
+  "bkDays": "آخر نسخة احتياطية: قبل %n يوم",
+  "pSettle": "صُفِّر المال القديم",
+  "pm_cash": "رؤية رصيد النقد",
+  "pm_mcash": "إدارة النقد (تسليم / إرجاع)",
+  "cashT": "النقد",
+  "cGive": "💵 تسليم نقد",
+  "cRet": "↩ تم الإرجاع",
+  "cFloat": "المبلغ المتاح",
+  "cSpent": "المصروف",
+  "cRem": "المتبقي",
+  "cBal": "الرصيد",
+  "cOver": "تجاوز بمقدار %x",
+  "cBF": "رصيد مُرحّل",
+  "cGiven": "المُسلَّم",
+  "cRetd": "مُرجَع",
+  "cAmt": "المبلغ (FCFA)",
+  "cTo": "سُلِّم إلى",
+  "cNote": "ملاحظة (اختياري)",
+  "cSave": "حفظ",
+  "cBad": "أدخل مبلغاً أكبر من 0",
+  "cRetOld": "سيُصفَّر المال القديم أيضاً (يُعلَّم كمُرجَع): %x",
+  "cRetAsk": "تسجيل الرصيد %x كمُرجَع؟ لن يُرحّل بعد الآن.",
+  "cGivenT": "تم تسليم %x إلى %n",
+  "clT": "💵 سجل النقد",
+  "clDate": "التاريخ",
+  "clType": "النوع",
+  "clBy": "بواسطة / إلى",
+  "clNone": "لا توجد حركات نقدية",
+  "tGive": "تسليم",
+  "tTrip": "دفع مشتريات",
+  "tRet": "إرجاع",
+  "rqT": "طلبات الوصول",
+  "rqN": "%n طلب وصول بانتظار الموافقة",
+  "rqNew": "طلب وصول جديد من %n",
+  "rqOk": "موافقة",
+  "rqNo": "رفض",
+  "rqRej": "مرفوض",
+  "rqNoAsk": "رفض وصول %n؟",
+  "gDenT": "تم رفض الوصول",
+  "gDenH": "لم يمنحك المسؤول صلاحية الوصول. اسأل المسؤول أو استخدم اسماً آخر.",
+  "dupT": "تم الطلب - انتظر المدير",
+  "dupH": "هذا الاسم طلب من قبل. انتظر المدير. إذا تمت الموافقة، اكتب اسمك والرقم السري.",
+  "dupCheck": "🔄 تحقق مرة أخرى",
+  "lkFix": "✏️ تصحيح",
+  "lkApp": "👥 قبول المستخدمين",
+  "admOnly": "للمدير فقط",
+  "canEd": "✅ مسموح لـ",
+  "canAll": "⭐ المدير: يمكنك فعل كل شيء.",
+  "usEdit": "✏️ الاسم، الرقم السري، الحظر",
+  "massRef": "لم يتم الحذف: عدد كبير مرة واحدة. تم الاحتفاظ بالنسخة المحفوظة.",
+  "clBtn": "دفتر النقد",
+  "clBack": "→ رجوع",
+  "shBtn": "📲 مشاركة التطبيق",
+  "shT": "امسح لفتح TMC Sahara Purchases",
+  "shS1": "امسح رمز QR بكاميرا الهاتف، أو افتح الرابط في Chrome (أندرويد) أو Safari (آيفون).",
+  "shS2": "أندرويد: القائمة ⋮ ← تثبيت التطبيق / إضافة إلى الشاشة الرئيسية. آيفون: مشاركة ← إضافة إلى الشاشة الرئيسية.",
+  "shS3": "افتح التطبيق من الشاشة الرئيسية، واكتب اسمك مرة واحدة، وانتظر موافقة المسؤول.",
+  "shCopy": "📋 نسخ الرابط",
+  "shShare": "📤 مشاركة",
+  "shWa": "واتساب",
+  "shCopied": "تم نسخ الرابط",
+  "shMsg": "ثبّت تطبيق TMC Sahara Purchases:",
+  "oPickL": "عرض الطلب",
+  "oPickAll": "كل الطلبات",
+  "oOpenL": "مفتوح",
+  "oDoneL": "منتهٍ",
+  "trEdit": "ترجمات اسم الصنف",
+  "trKey": "الاسم الأساسي (يُحفظ في السجلات)",
+  "trNone": "لا توجد ترجمة بعد",
+  "trMiss": "أصناف مستخدمة بدون ترجمة",
+  "curCfa": "CFA",
+  "curLydBtn": "الدينار الليبي",
+  "lydBal": "رصيد الدينار",
+  "lydRef": "≈ %x CFA (سعر الصرف)",
+  "hoSent2": "أُرسل إليك مبلغ %a",
+  "hoSentCfa": "%x CFA",
+  "hoSentLyd": "%y دينار",
+  "hoDone2": "✅ مقبول: أُضيف %a",
+  "hoGot2": "تم استلام %a · رحلة %t",
+  "hoRetAmt2": "الباقي المطلوب إرجاعه",
+  "hoRetOk2": "↩️ أُرجع الباقي: %a",
+  "hoBad2": "أدخل 0 أو أكثر، وليس أكثر من %x",
+  "hoPickCur": "العملة",
+  "curL": "العملة",
+  "curLYD": "دينار ليبي (د.ل)",
+  "cRetB": "تسجيل كمُعاد",
+  "lydTr": "الدينار الليبي حسب الشهر",
+  "oAdd": "إضافة أصناف",
+  "oAddLine": "سطر آخر",
+  "oAddSave": "إضافة إلى الطلب",
+  "oAddDone": "تمت إضافة %n سطر إلى %o",
+  "wkL": "أسبوع الطلب",
+  "wkClosed": "أُغلق السبت 05:00",
+  "wkCloses": "يُغلق السبت 05:00",
+  "wkReop": "أعاد المسؤول فتحه",
+  "wkNoEdit": "لا يمكن تعديل الأسطر، لكن يمكن الشراء",
+  "wkAsk": "لديك طلب مفتوح لهذا الأسبوع (%o). هل تريد إضافة أصناف إليه؟",
+  "wkReopenB": "🔓 إعادة فتح للطلب",
+  "wkCloseB": "🔒 إغلاق مجدداً",
+  "syncDef": "↺ إعادة الافتراضي",
+  "syncDefAsk": "إعادة رابط المزامنة ورمز الفريق إلى إعدادات TMC الافتراضية؟",
+  "gConnT": "جارٍ الاتصال بفريقك…",
+  "gConnH": "جارٍ جلب قائمة الفريق من الخادم. يلزم الإنترنت في المرة الأولى.",
+  "updT": "🆕 نسخة جديدة جاهزة",
+  "updB": "⬆️ تحديث الآن",
+  "upOk": "محدّث",
+  "upReadyS": "تحديث جاهز",
+  "upBar": "تحديث جاهز · اضغط للتحديث",
+  "upDone": "تم التحديث إلى %v",
+  "upOld": "أقدم من %v",
+  "upUnk": "الإصدار غير معروف",
+  "updGo": "جارٍ التحديث… يرجى الانتظار",
+  "updGo2": "لا تغلق التطبيق. عملك المحفوظ يبقى كما هو.",
+  "sCov": "يغطي",
+  "sGone": "تم شراء «%i» بالكامل وإزالته من قائمة الشراء",
+  "nnB": "✖ غير مطلوب",
+  "nnAsk": "«%i» غير مطلوب؟\nسيُزال من قائمة الشراء.",
+  "nnYes": "✔ نعم، غير مطلوب",
+  "nnNo": "لا، أبقِه",
+  "nnDone": "«%i» غير مطلوب",
+  "lb_nn": "غير مطلوب",
+  "ocB": "❌ إلغاء الطلب",
+  "ocAsk": "إلغاء الطلب %o؟\nستصبح كل بنوده غير مطلوبة.",
+  "ocDone": "تم إلغاء الطلب %o",
+  "acDone": "تم إغلاق الطلب %o: كل شيء تم شراؤه أو غير مطلوب",
+  "rtT": "سعر الصرف",
+  "rtRef": "تحديث السعر",
+  "rtUpd": "آخر تحديث %d (توقيت تشاد)",
+  "rtOff": "غير متصل، آخر سعر من %d (توقيت تشاد)",
+  "rtLoad": "جارٍ تحميل السعر…",
+  "rtNone": "لا يوجد سعر بعد، اتصل بالإنترنت",
+  "rtNote": "السعر الرسمي. قد يختلف سعر السوق الموازي.",
+  "rtMkt": "سعر السوق",
+  "rtOffS": "غير متصل",
+  "rtMktSet": "إدخال سعر السوق",
+  "rtMktEd": "تعديل سعر السوق",
+  "rtMktAsk": "سعر السوق: كم فرنك مقابل 1 دينار ليبي؟ (اتركه فارغًا للحذف)",
+  "slAsk": "إضافة صور الإيصال؟",
+  "slYes": "نعم",
+  "slNo": "لا",
+  "slAddT": "صور الإيصال",
+  "slCam": "التقاط صورة",
+  "slGal": "اختيار من الهاتف",
+  "rpItem": "البند",
+  "rpQty": "الكمية",
+  "rpTot": "المجموع",
+  "rpTotal": "المبلغ",
+  "slSave": "حفظ",
+  "slSaved": "تم حفظ %n صورة",
+  "slView": "إيصالات",
+  "slAdd": "إضافة صور",
+  "slNone": "لا توجد صور",
+  "slWait": "الصورة قيد المزامنة…",
+  "slRmAsk": "حذف هذه الصورة؟",
+  "slCancel": "إلغاء",
+  "tabU": "المستخدمون",
+  "usGoTab": "👥 فتح تبويب المستخدمين",
+  "usQ": "بحث عن المستخدمين…",
+  "usActive": "نشط",
+  "usBlocked": "محظور",
+  "usPending": "قيد الانتظار",
+  "usBlock": "🚫 حظر",
+  "usUnblock": "✅ إلغاء الحظر",
+  "usBlockAsk": "حظر %n؟ سيقفل جهازه عند المزامنة التالية.",
+  "usUnblockAsk": "إلغاء حظر %n؟",
+  "usNoSelf": "لا يمكنك حظر أو حذف نفسك.",
+  "usLastAdminBlk": "لا يمكن حظر أو حذف آخر مسؤول.",
+  "usSeen": "آخر ظهور",
+  "usNever": "أبداً",
+  "usPinYes": "يوجد رمز",
+  "usPinNo": "بدون رمز",
+  "gBlkT": "تم حظر الوصول",
+  "gBlkH": "تم حظر وصولك. تواصل مع المسؤول.",
+  "tkSetT": "🔑 اختر رمز PIN",
+  "ncT": "🔴 غير متصل",
+  "ncH": "لا يستطيع التطبيق الوصول إلى الجدول. عملك محفوظ على هذا الهاتف وسيُرسل عند الاتصال.",
+  "ncLoginH": "يرجى تسجيل الدخول مرة أخرى باسمك ورمز PIN. عملك محفوظ على هذا الهاتف.",
+  "ncCodeH": "رمز الفريق على هذا الهاتف غير مقبول. اطلب رابط انضمام جديد من المسؤول.",
+  "ncOffH": "المزامنة غير مضبوطة على هذا الهاتف.",
+  "ncLogin": "تسجيل الدخول",
+  "ncTry": "🔄 حاول مرة أخرى",
+  "ncOld": "جدول الفريق لم يُحدَّث بعد لتسجيل الدخول بالاسم وPIN. اطلب رابط الانضمام من المسؤول.",
+  "tkNoSetup": "لم يقم المسؤول بإعداد التطبيق بعد.",
+  "tkSetH": "اختر رمز PIN الخاص بك (4–6 أرقام). ستستخدمه لتسجيل الدخول.",
+  "usT": "👥 المستخدمون والصلاحيات",
+  "usAdd": "➕ إضافة مستخدم",
+  "usName": "الاسم",
+  "usPin": "رمز PIN (اختياري، 4–6 أرقام)",
+  "usPinKeep": "اتركه فارغاً للإبقاء على الرمز الحالي",
+  "usPinClear": "إزالة الرمز",
+  "usDel": "حذف المستخدم",
+  "usDelAsk": "حذف %n؟ لن يتمكن من استخدام التطبيق.",
+  "usSave": "حفظ",
+  "usDup": "هذا الاسم موجود مسبقاً",
+  "usLastAdmin": "يجب وجود مسؤول واحد على الأقل برمز PIN",
+  "pm_price": "رؤية الإجماليات وسجل الأسعار",
+  "pm_penter": "إدخال أسعار الوحدة",
+  "pm_rep": "التقارير",
+  "pm_ord": "إنشاء/تعديل الطلبات",
+  "pm_buy": "إدخال المشتريات (للشراء/المشتريات)",
+  "pm_paid": "الضغط على مدفوع",
+  "pm_pedit": "تعديل/حذف البنود المدفوعة",
+  "pm_admin": "مسؤول",
+  "gSetT": "تعيين رمز المسؤول",
+  "gSetH": "أنت المسؤول. اختر رمزاً من 4–6 أرقام. ستحتاجه للدخول كمسؤول على أي جهاز.",
+  "gPin": "الرمز",
+  "gPin2": "أعد إدخال الرمز",
+  "gBad": "استخدم 4–6 أرقام متطابقة",
+  "gPinT": "أدخل رمزك",
+  "gWrong": "رمز خاطئ",
+  "gWaitT": "في انتظار الموافقة",
+  "gWaitH": "تم إرسال طلب باسم «%n» إلى المسؤول. تُفتح الشاشة تلقائياً بعد الموافقة (أو اضغط مزامنة).",
+  "gSync": "🔄 مزامنة / إعادة المحاولة",
+  "gOther": "استخدام اسم آخر",
+  "gGo": "متابعة",
+  "noPin": "بدون رمز",
+  "pinSet": "الرمز مُعيّن",
+  "uMenu": "مسجّل باسم %n.\n\nتغيير المستخدم؟",
+  "lgWelcome": "اكتب اسمك.",
+  "lgName": "اسمك",
+  "lgGo": "متابعة",
+  "lgNeed": "يرجى كتابة اسمك",
+  "lgNote": "بدون كلمة مرور. يُملأ اسمك في طلب بواسطة ودفع بواسطة.",
+  "hi": "👋 مرحباً، %n",
+  "userT": "👤 المستخدم",
+  "userNow": "مسجّل على هذا الجهاز باسم %n",
+  "userChange": "تغيير المستخدم",
+  "userAsk": "تغيير المستخدم على هذا الجهاز؟ تبقى بياناتك.",
+  "howT": "كيف يعمل",
+  "howHide": "تصغير",
+  "howShow": "إظهار المساعدة",
+  "syDotOk": "تمت المزامنة %t",
+  "syDotBusy": "جارٍ المزامنة…",
+  "syDotOff": "غير متصل",
+  "syDotErr": "خطأ في المزامنة",
+  "syRetry": "إعادة المحاولة الآن؟",
+  "pcWarn": "آخر سعر مدفوع %p في %d — تحقق من السعر",
+  "pcBig": "إجمالي البند أكثر من 10 أضعاف المعتاد (%u)",
+  "msT": "📈 الإنفاق الشهري",
+  "msTot": "إجمالي الشهر",
+  "msBat": "الدفعات المدفوعة",
+  "msTop": "أعلى الأصناف إنفاقاً",
+  "msTrend": "آخر 12 شهراً",
+  "fStatL": "الحالة",
+  "stPaid": "مدفوع",
+  "tabH": "🏠 الرئيسية",
+  "hS": "بنود للشراء",
+  "hP": "بنود مفتوحة",
+  "hO": "طلبات مفتوحة",
+  "hR": "مدفوع اليوم",
+  "sDone": "✓ تم — %n بنود، %t",
+  "sDone0": "✓ تم — أدخل الكمية أولاً",
+  "delLine": "حذف البند",
+  "delDone": "تم حذف «%i».",
+  "incomplete": "غير مكتمل",
+  "blankN": "%n بند غير مكتمل",
+  "blankRm": "حذف البنود الفارغة",
+  "blankDone": "تم حذف %n بند فارغ.",
+  "epDel": "حذف البند",
+  "epDelAsk": "حذف «%i» من هذه الدفعة المدفوعة؟",
+  "epDelDone": "تم حذف «%i» — إجمالي الدفعة الجديد %t",
+  "editPaid": "تعديل بند مدفوع",
+  "edited": "معدّل",
+  "epSaved": "تم تحديث «%i» — إجمالي الدفعة الجديد %t",
+  "epSave": "حفظ",
+  "epBad": "أدخل كمية أكبر من 0 وسعراً 0 أو أكثر",
+  "pdT": "📅 المشتريات حسب اليوم",
+  "pdFrom": "من",
+  "pdTo": "إلى",
+  "pdGrand": "إجمالي الفترة",
+  "pdCsv": "تصدير CSV",
+  "pdXlsx": "تصدير Excel",
+  "pdItems": "%n بنود",
+  "pdUnpaid": "لم يُدفع بعد",
+  "pdNone": "لا توجد مشتريات في هذه الفترة",
+  "pdOrd": "الطلب",
+  "pdStore": "المتجر",
+  "pdSub": "إجمالي اليوم",
+  "sRm": "تم شراؤه ✕",
+  "sRmT": "إزالة من القائمة",
+  "sRmd": "تمت إزالة «%i» من القائمة.",
+  "undo": "تراجع",
+  "tabS": "للشراء",
+  "sHelp": "اكتب الكمية المشتراة (اضغط على المتبقي للشراء لملء الكمية كاملة). تُضاف مباشرة إلى المشتريات؛ غيّر الرقم لتعديلها أو امسحه لحذفها. يختفي البند فور شراء الكمية كاملة؛ وإذا اشتريت أقل يبقى مع الكمية المتبقية.",
+  "sFill": "اضغط لملء الكمية المتبقية كاملة",
+  "sAllOrd": "كل الطلبات",
+  "sTick": "تحديد",
+  "sLeft": "المتبقي للشراء",
+  "sBuy": "تم الشراء",
+  "sBulk": "إضافة إلى المشتريات (%n)",
+  "sAdded": "تمت إضافة %n إلى المشتريات ✓",
+  "goS": "🛒 فتح المتبقي للشراء (%n)",
+  "forOrder": "لأجل الطلب",
+  "autoOrd": "تلقائي (الطلب الأقدم أولاً)",
+  "onOrder": "مطلوب: %q %u، متبقٍ للشراء %r",
+  "onOrderDone": "مطلوب: %q %u، تم شراء الكل",
+  "ordered": "المطلوب",
+  "bought": "المشترى",
+  "remaining": "المتبقي",
+  "lb_bought": "تم الشراء ✓",
+  "lb_short": "ناقص",
+  "lb_none": "لم يُشترَ",
+  "lb_cancelled": "ملغى",
+  "lb_closed": "مغلق",
+  "st_closed": "مغلق",
+  "os_complete": "مكتمل",
+  "os_partial": "مشترى جزئياً",
+  "os_none": "لم يُشترَ بعد",
+  "os_cancelled": "ملغى",
+  "pctB": "تم شراء %p%",
+  "closeLine": "إغلاق",
+  "cancelLine": "إلغاء البند",
+  "reopenLine": "إعادة فتح",
+  "closeOrder": "إغلاق الطلب",
+  "cancelOrder": "إلغاء الطلب",
+  "reopenOrder": "إعادة فتح الطلب",
+  "closeAsk": "إغلاق؟ لن تكون الكمية المتبقية مطلوبة بعد الآن.",
+  "cancelAsk": "إلغاء؟ لن يُحتسب كمطلوب بعد الآن.",
+  "outT": "🛒 المتبقي للشراء",
+  "outNone": "لا يوجد شيء متبقٍ للشراء في الطلبات المفتوحة",
+  "outCsv": "تصدير المتبقي CSV",
+  "outFor": "لـ %o",
+  "dscBT": "⛔ حظر وإزالة %n؟",
+  "dscRT": "❌ رفض وإزالة %n؟",
+  "dscOT": "🗑️ إزالة %n؟",
+  "dscH": "يُزال %n من القائمة. لن يعمل رمزه القديم بعد الآن. يمكنه إرسال طلب جديد لاحقاً.",
+  "dscY": "🗑️ نعم، إزالة",
+  "dscN": "↩️ رجوع",
+  "dscOld": "🗑️ إزالة",
+  "dscDone": "تمت إزالة %n.",
+  "dscSelf": "لا يمكنك إزالة نفسك.",
+  "dscLast": "لا يمكنك إزالة آخر مسؤول.",
+  "dscMain": "لا يمكن إزالة المدير الرئيسي أو حظره.",
+  "mainKeep": "المدير الرئيسي يبقى مديراً دائماً ويحتفظ بالاسم الرئيسي. إعادة تعيين الرقم السري مسموحة.",
+  "dscTok": "سجّل الدخول مجدداً برمزك لإزالة الأشخاص.",
+  "goneT": "غير موافق عليه",
+  "goneH": "أزال المسؤول هذا الطلب. يمكنك إرسال طلب جديد.",
+  "again": "📨 إرسال طلب جديد",
+  "loBtn": "🚪 تسجيل الخروج",
+  "loAsk": "تسجيل خروج %n؟\n\nتبقى بيانات الفريق على هذا الهاتف وتستمر المزامنة. يُحفظ نموذجك غير المحفوظ لك وحدك.",
+  "loSync": "جارٍ إرسال تغييراتك أولاً…",
+  "loPend": "⚠️ %n تغيير(ات) لم تُرسل إلى الخادم بعد (بدون اتصال أو خطأ في المزامنة).\n\nتبقى آمنة على هذا الهاتف وستُرسل تلقائياً في المزامنة التالية، أيًّا كان المستخدم.\n\nتسجيل الخروج على أي حال؟",
+  "loDone": "تم تسجيل الخروج. المستخدم التالي: اكتب اسمك.",
+  "mlT": "المشتريات المنسية المسجّلة",
+  "mlNone": "لا توجد مشتريات منسية مسجّلة بعد. بعد حفظ واحدة تظهر هنا مع ↩ إعادة إلى قائمة الشراء (وأيضاً في السجل 🗂️ بعلامة «منسية»).",
+  "mlOpen": "فتح",
+  "oShowDone": "إظهار المكتملة (%n)",
+  "oHideDone": "إخفاء المكتملة",
+  "oNoActive": "لا توجد طلبات نشطة — تم شراء أو إغلاق كل شيء.",
+  "rtBtn": "↩ إعادة إلى قائمة الشراء",
+  "rtAskO": "إعادة «%i» إلى قائمة الشراء؟\n\nيُحذف من المشتريات (ومن مصروف النقد). سيعرض الطلب %o مجدداً %q %u للشراء.",
+  "rtAskN": "إزالة «%i» من المشتريات؟\n\nهذا البند ليس من طلب، لذا يُزال فقط من المشتريات (ومن المصروف). لا يُضاف شيء إلى قائمة الشراء.",
+  "rtDoneO": "↩ «%i» عاد إلى قائمة الشراء.",
+  "rtDoneN": "تمت إزالة «%i» من المشتريات.",
+  "insBtn": "📲 تثبيت التطبيق",
+  "insIos": "اضغط مشاركة ⬆️ ثم إضافة إلى الشاشة الرئيسية ➕",
+  "gLock": "رموز PIN خاطئة كثيرة. حاول مرة أخرى بعد %m دقيقة.",
+  "pwT": "⚠️ %n تغيير لم يُرسل إلى الجدول بعد",
+  "pwOff": "لا يوجد إنترنت — سيتم الإرسال عند الاتصال.",
+  "pwDel": "اضغط 🔄 مزامنة الآن قبل حذف التطبيق أو مسح البيانات، وإلا ستضيع هذه التغييرات.",
+  "pwBtn": "🔄 مزامنة الآن",
+  "tabG": "الإعدادات",
+  "logout": "🚪 تسجيل الخروج",
+  "rpT": "📊 التقارير",
+  "rpToday": "اليوم",
+  "rpMonth": "هذا الشهر",
+  "rpPickD": "اختر التواريخ",
+  "rpGo": "عرض",
+  "rpXls": "📥 إكسل",
+  "rpPrint": "🖨️ طباعة",
+  "rpBack": "⬅ رجوع",
+  "rpDate": "التاريخ",
+  "rpAmt": "المجموع",
+  "rpNone": "لا توجد مشتريات في هذه الفترة.",
+  "rpTotL": "المجموع",
+  "hoSentBlind": "أُرسل إليك نقد – عُدّه",
+  "hoCountT": "عُدّ النقد",
+  "hoCountCfa": "فرنك CFA المعدود",
+  "hoCountLyd": "الدينار المعدود",
+  "hoConfirm": "✅ تأكيد",
+  "hoMis": "المبالغ غير متطابقة – تم إبلاغ المدير",
+  "hoMisFinal": "المبالغ غير متطابقة – تم إبلاغ المدير",
+  "hoNeedNet": "يلزم اتصال للتأكيد، حاول مرة أخرى",
+  "hoTrip": "رحلة %t",
+  "hoFrom": "من %f",
+  "hoRet": "↩️ إرجاع الباقي",
+  "hoRetT": "إرجاع الباقي – رحلة %t",
+  "hoRetAmtCfa": "الباقي المطلوب إرجاعه (CFA)",
+  "hoRetAmtLyd": "الباقي المطلوب إرجاعه (دينار)",
+  "hoSave": "إرسال",
+  "hoCancel": "إلغاء",
+  "hoWait": "الحوالة محفوظة على هذا الهاتف – تُرسل عند المزامنة التالية",
+  "hoAdmMis": "⚠ اختلاف: %f → %to · رحلة %t · أُرسل %a · عُدّ %c"
+});
+Object.assign(T.en,{catL:"Category",catFood:"Food",catWorkshop:"Workshop",catService:"Service",catNeed:"Choose Food, Workshop or Service"});
+Object.assign(T.fr,{catL:"Catégorie",catFood:"Nourriture",catWorkshop:"Atelier",catService:"Service",catNeed:"Choisissez Nourriture, Atelier ou Service"});
+Object.assign(T.af,{catL:"Kategorie",catFood:"Kos",catWorkshop:"Werkswinkel",catService:"Diens",catNeed:"Kies Kos, Werkswinkel of Diens"});
 Object.assign(T.en,{"pm_items":"Manage items (item list)","bkNever":"No backup yet","bkDays":"Last backup: %n days ago"});Object.assign(T.fr,{"pm_items":"Gérer les articles (liste)","bkNever":"Aucune sauvegarde","bkDays":"Dernière sauvegarde : il y a %n jours"});Object.assign(T.af,{"pm_items": "Bestuur items (itemlys)", "bkNever": "Nog geen rugsteun nie", "bkDays": "Laaste rugsteun: %n dae gelede"});Object.assign(T.en,{"pSettle":"old money cleared"});Object.assign(T.fr,{"pSettle":"ancien argent soldé"});Object.assign(T.af,{"pSettle": "ou geld skoongemaak"});Object.assign(T.en,{"pm_cash":"See cash balance","pm_mcash":"Manage cash (give / returned)","cashT":"Cash","cGive":"💵 Cash given","cRet":"↩ Returned","cFloat":"Float","cSpent":"Spent","cRem":"Remaining","cBal":"Balance","cOver":"Over by %x","cBF":"Brought forward","cGiven":"Given","cRetd":"Returned","cAmt":"Amount (FCFA)","cTo":"Given to","cNote":"Note (optional)","cSave":"Save","cBad":"Enter an amount above 0","cRetOld":"Old money will also be cleared (marked returned): %x","cRetAsk":"Mark the balance of %x as returned (handed back)? It will no longer be brought forward.","cGivenT":"%x given to %n","clT":"💵 Cash ledger","clDate":"Date","clType":"Type","clBy":"By / to","clNone":"No cash movements yet","tGive":"Given","tTrip":"Trip paid","tRet":"Returned"});Object.assign(T.fr,{"pm_cash":"Voir le solde de caisse","pm_mcash":"Gérer la caisse (remise / retour)","cashT":"Caisse","cGive":"💵 Argent remis","cRet":"↩ Rendu","cFloat":"Fonds","cSpent":"Dépensé","cRem":"Reste","cBal":"Solde","cOver":"Dépassement de %x","cBF":"Report","cGiven":"Remis","cRetd":"Rendu","cAmt":"Montant (FCFA)","cTo":"Remis à","cNote":"Note (facultatif)","cSave":"Enregistrer","cBad":"Entrez un montant supérieur à 0","cRetOld":"L'ancien argent sera aussi soldé (marqué rendu) : %x","cRetAsk":"Marquer le solde de %x comme rendu ? Il ne sera plus reporté.","cGivenT":"%x remis à %n","clT":"💵 Journal de caisse","clDate":"Date","clType":"Type","clBy":"Par / à","clNone":"Aucun mouvement de caisse","tGive":"Remis","tTrip":"Course payée","tRet":"Rendu"});Object.assign(T.af,{"pm_cash": "Sien kontant oor", "pm_mcash": "Bestuur kontant (gee / terug)", "cashT": "Kontant", "cGive": "💵 Kontant gegee", "cRet": "↩ Teruggegee", "cFloat": "Wisselgeld", "cSpent": "Uitgegee", "cRem": "Oor", "cBal": "Balans", "cOver": "%x te veel", "cBF": "Oorgedra", "cGiven": "Gegee", "cRetd": "Teruggegee", "cAmt": "Bedrag (FCFA)", "cTo": "Gegee aan", "cNote": "Nota (as jy wil)", "cSave": "Stoor", "cBad": "Tik 'n bedrag bo 0", "cRetOld": "Ou geld word ook skoongemaak (as teruggegee gemerk): %x", "cRetAsk": "Merk die balans van %x as teruggegee (terug ingehandig)? Dit word nie meer oorgedra nie.", "cGivenT": "%x gegee aan %n", "clT": "💵 Kontantboek", "clDate": "Datum", "clType": "Soort", "clBy": "Deur / aan", "clNone": "Nog geen kontant beweeg nie", "tGive": "Gegee", "tTrip": "Rit betaal", "tRet": "Teruggegee"});Object.assign(T.en,{"rqT":"Access requests","rqN":"%n access request(s) waiting","rqNew":"New access request from %n","rqOk":"Approve","rqNo":"Reject","rqRej":"rejected","rqNoAsk":"Reject access for %n?","gDenT":"Access denied","gDenH":"The admin has not given you access. Ask the admin, or use a different name."});Object.assign(T.fr,{"rqT":"Demandes d'accès","rqN":"%n demande(s) d'accès en attente","rqNew":"Nouvelle demande d'accès de %n","rqOk":"Approuver","rqNo":"Refuser","rqRej":"refusé","rqNoAsk":"Refuser l'accès à %n ?","gDenT":"Accès refusé","gDenH":"L'administrateur ne vous a pas donné l'accès. Demandez-lui, ou utilisez un autre nom."});Object.assign(T.af,{"rqT": "Versoeke om in te kom", "rqN": "%n versoek(e) wag", "rqNew": "Nuwe versoek van %n", "rqOk": "Keur goed", "rqNo": "Keur af", "rqRej": "afgekeur", "rqNoAsk": "Keur %n af?", "gDenT": "Nie toegelaat nie", "gDenH": "Die Admin het jou nie toegelaat nie. Vra die Admin, of gebruik 'n ander naam."});Object.assign(T.en,{"dupT": "Already asked - wait for Admin", "dupH": "This name already asked once. Wait for the Admin. If you were approved, type your name and PIN to sign in.", "dupCheck": "🔄 Check again", "lkFix": "✏️ Fix", "lkApp": "👥 Approve users", "admOnly": "Admin only", "canEd": "✅ Allowed for", "canAll": "⭐ Admin: can do everything.", "usEdit": "✏️ Name, PIN, block"});
 Object.assign(T.fr,{"dupT": "Déjà demandé - attendez l'Admin", "dupH": "Ce nom a déjà demandé. Attendez l'Admin. Si vous êtes accepté, tapez votre nom et PIN.", "dupCheck": "🔄 Vérifier", "lkFix": "✏️ Corriger", "lkApp": "👥 Approuver", "admOnly": "Admin seulement", "canEd": "✅ Autorisé pour", "canAll": "⭐ Admin : peut tout faire.", "usEdit": "✏️ Nom, PIN, bloquer"});
 Object.assign(T.af,{"dupT": "Klaar gevra - wag vir die Admin", "dupH": "Hierdie naam het klaar gevra. Wag vir die Admin. As jy goedgekeur is, tik jou naam en PIN om in te gaan.", "dupCheck": "🔄 Kyk weer", "lkFix": "✏️ Maak reg", "lkApp": "👥 Keur mense goed", "admOnly": "Net Admin", "canEd": "✅ Mag vir", "canAll": "⭐ Admin: kan alles doen.", "usEdit": "✏️ Naam, PIN, blok"});
@@ -314,17 +907,26 @@ const DEF_CAT=[{"name": "200W Solar", "unit": "pcs", "price": 0}, {"name": "25Kg
 const LJ=(k,d)=>{try{const v=localStorage[k];if(v==null||v==="")return d;const x=JSON.parse(v);return x==null?d:x}catch(e){console.warn("bad "+k);return d}};
 window.ITEM_ALIAS={"plate cut":"Chopping board","square tubbing":"Square Tubing","nidomi":"Indomie"};window.canonName=function(n){var k=String(n==null?"":n).trim().replace(/\s+/g," ").toLowerCase();return window.ITEM_ALIAS[k]||n};
 let cat=LJ("pa_cat",null)||DEF_CAT.map(c=>({...c})),auto=localStorage.pa_auto==="1",cEdit=null;
-let data=LJ("pa_data",[]),lang=(function(){/* pp8: Arabic removed; a saved lang that no longer exists (e.g. "ar") falls back to English */var k=((window.CONFIG&&CONFIG.APP_ID)||"pa")+"_lang",v=localStorage.getItem(k)||localStorage.pa_lang||"en";if(!Object.prototype.hasOwnProperty.call(T,v)){v="en";try{localStorage.setItem(k,"en");localStorage.pa_lang="en"}catch(e){}}return v})(),cur=localStorage.pa_cur||"FCFA",editId=null;
-const t=k=>T[lang][k];
+let data=LJ("pa_data",[]),lang=(function(){/* unknown saved language falls back to English; Arabic (ar) is available again in pp13 */var k=((window.CONFIG&&CONFIG.APP_ID)||"pa")+"_lang",v=localStorage.getItem(k)||localStorage.pa_lang||"en";if(!Object.prototype.hasOwnProperty.call(T,v)){v="en";try{localStorage.setItem(k,"en");localStorage.pa_lang="en"}catch(e){}}return v})(),cur=localStorage.pa_cur||"FCFA",editId=null;
+const t=k=>(T[lang]&&T[lang][k]!=null)?T[lang][k]:(T.en[k]!=null?T.en[k]:k);
 const CUR=e=>(e&&e.cur==="LYD")?"LYD":"FCFA";const ecur=()=>localStorage.pa_ecur==="LYD"?"LYD":"FCFA";const curLbl=c=>c==="LYD"?"LYD":cur;
-const fmtRaw=(n,c)=>c==="LYD"?(Math.round((+n||0)*1000)/1000).toLocaleString("en-US",{minimumFractionDigits:3,maximumFractionDigits:3})+" "+"LYD":Math.round(+n||0).toLocaleString(lang==="af"?"af-ZA":lang)+" "+cur;
+const locDate=()=>lang==="ar"?"ar-TD-u-nu-latn":lang==="af"?"af-ZA":lang==="fr"?"fr-FR":"en-GB";
+const fmtRaw=(n,c)=>c==="LYD"?(Math.round((+n||0)*1000)/1000).toLocaleString("en-US",{minimumFractionDigits:3,maximumFractionDigits:3})+" "+"LYD":Math.round(+n||0).toLocaleString("en-US")+" "+cur;
 const fmt=(n,c)=>window.NOPRICE?"—":fmtRaw(n,c);
 const retTag=()=>' <span class="pdu rett">↩ '+esc(t("retTag"))+"</span>";const shTag=()=>' <span class="pdu shrt">⚠ '+esc(t("shortTag"))+"</span>";const lt=window.lt=e=>{const v=(+(e&&e.qty)||0)*(+(e&&e.price)||0);return e&&CUR(e)==="LYD"?Math.round(v*1000)/1000:Math.round(v)};
 const sumM=(L,f)=>{const o={FCFA:0,LYD:0};(L||[]).forEach(e=>{if(e)o[CUR(e)]+=f?f(e):lt(e)});o.FCFA=Math.round(o.FCFA);o.LYD=Math.round(o.LYD*1000)/1000;return o};
 const fmtM=o=>{if(window.NOPRICE)return"—";const P=[];if(o.FCFA||!o.LYD)P.push(fmtRaw(o.FCFA,"FCFA"));if(o.LYD)P.push(fmtRaw(o.LYD,"LYD"));return P.join(" · ")};
 window.ecurLbl=()=>{try{const c=$("ecurCfa"),l=$("ecurLyd");if(c)c.textContent=t("curCfa")||"CFA";if(l)l.textContent=t("curLydBtn")||"LYD";const mc=$("mCurCfa"),ml=$("mCurLyd");if(mc)mc.textContent=t("curCfa")||"CFA";if(ml)ml.textContent=t("curLydBtn")||"LYD"}catch(e){}};
 window.setEcur=(v,src)=>{v=v==="LYD"?"LYD":"FCFA";const h=$(src||"ecur");if(h)h.value=v;const pick=$(src==="mCur"?"mCurPick":"ecurPick");if(pick)pick.querySelectorAll(".curBig").forEach(b=>b.classList.toggle("on",b.dataset.cur===v));if(!src||src==="ecur"){if(!editId)localStorage.pa_ecur=v}};
-window.bindCurPick=(pickId,hid,cb)=>{const p=$(pickId);if(!p||p._bound)return;p._bound=1;p.querySelectorAll(".curBig").forEach(b=>b.onclick=()=>{setEcur(b.dataset.cur,hid);if(cb)cb()})};window.CUR=CUR;window.fmtM=fmtM;window.sumM=sumM;window.ecur=ecur;
+window.bindCurPick=(pickId,hid,cb)=>{const p=$(pickId);if(!p||p._bound)return;p._bound=1;p.querySelectorAll(".curBig").forEach(b=>b.onclick=()=>{setEcur(b.dataset.cur,hid);if(cb)cb()})};
+const CATS=["Food","Workshop","Service"];
+const catVal=v=>CATS.indexOf(v)>=0?v:"";
+function setCat(v,src){v=catVal(v);const h=$(src||"eCat");if(h)h.value=v;const pick=$(src==="mCat"?"mCatPick":"eCatPick");if(pick){pick.querySelectorAll(".catBig").forEach(b=>{const on=!!v&&b.dataset.cat===v;b.classList.toggle("on",on);b.setAttribute("aria-pressed",on?"true":"false")});pick.classList.remove("catNeed")}const msg=$(src==="mCat"?"mCatMsg":"eCatMsg");if(msg){msg.hidden=true;msg.textContent=""}}
+function catRefuse(src){const pick=$(src==="mCat"?"mCatPick":"eCatPick");if(pick)pick.classList.add("catNeed");const msg=$(src==="mCat"?"mCatMsg":"eCatMsg");if(msg){msg.hidden=false;msg.textContent=t("catNeed")}alert(t("catNeed"))}
+
+function bindCatPick(pickId,hid){const p=$(pickId);if(!p||p._bound)return;p._bound=1;p.querySelectorAll(".catBig").forEach(b=>b.onclick=()=>setCat(b.dataset.cat,hid))}
+window.setCat=setCat;window.catVal=catVal;window.CATS=CATS;
+window.CUR=CUR;window.fmtM=fmtM;window.sumM=sumM;window.ecur=ecur;
 window.fmtC=(n,c)=>fmtRaw(n,c);
 const today=()=>new Date(Date.now()-new Date().getTimezoneOffset()*6e4).toISOString().slice(0,10);
 function save(){if(window.TMC&&TMC.updLock&&TMC.updLock()&&!window._updFlush){data=LJ("pa_data",[]);try{sToast(t("updGo"))}catch(e){}return false}localStorage.pa_data=JSON.stringify(data);checkBackup();if(window.syncMark)syncMark()}
@@ -343,16 +945,16 @@ d.innerHTML=`<div class="card"><h3 style="margin-top:0">🌐 ${esc(t("trEdit"))}
 $("trCa").onclick=()=>d.remove();d.onclick=ev=>{if(ev.target===d)d.remove()};
 $("trSa").onclick=()=>{const k=TNk(name),x={id:k,key:name,en:$("trEn").value.trim(),fr:$("trFr").value.trim(),af:$("trAf").value.trim(),by:localStorage.pa_user||"",at:nowLocal()};const i=trs.findIndex(o=>o&&o.id===k);if(i>=0)trs[i]=x;else trs.push(x);saveTr();d.remove();try{renderCat();render();renderExtra();if($("tabS").style.display!=="none")renderS();renderO()}catch(e){}}};
 function renderCat(){units();$("autosave").checked=auto;const s=[...cat].sort((a,b)=>a.name.localeCompare(b.name));$("clist").innerHTML=s.length?s.map((c,i)=>{const g=trGet(c.name);return `<div class="item"><div style="min-width:0"><b>${esc(c.name)}</b><br><small dir="auto">${g?`🇫🇷 ${esc(g.fr||"—")} · 🇿🇦 ${esc(g.af||"—")}`:`🌐 ${esc(t("trNone"))}`}</small><br><small>${esc(c.unit)} · ${fmt(c.price)}</small></div><div class="act"><button class="sec" type="button" title="${esc(t("trEdit"))}" onclick="trDlg(${JSON.stringify(c.name).replace(/"/g,"&quot;")})">🌐</button><button class="sec" onclick="cedit(${cat.indexOf(c)})">✏️</button><button class="sec" onclick="cdel(${cat.indexOf(c)})">🗑️</button></div></div>`}).join("")+trMissing():`<p>${t("noItems")}</p>`}
-function applyLang(){document.documentElement.lang=lang;document.title=t("title");document.documentElement.dir="ltr";
-document.querySelectorAll("[data-t]").forEach(e=>e.textContent=t(e.dataset.t));$("save").textContent=t(editId?"update":"add");$("cunit").placeholder=t("customPh");$("size").placeholder=t("sizePh");$("lang").value=lang;units();render();renderExtra();renderH();renderR();checkBackup();$("fText").placeholder=t("searchPh");$("sQ").placeholder=t("searchPh");if($("tabS").style.display!=="none")renderS()}
+function fitTabs(){document.querySelectorAll("nav.tabs .tlab").forEach(el=>{el.style.fontSize="";let fs=parseFloat(getComputedStyle(el).fontSize)||12;while(el.scrollWidth>el.clientWidth+0.5&&fs>7){fs=Math.round((fs-0.5)*10)/10;el.style.fontSize=fs+"px"}})}addEventListener("resize",fitTabs);function applyLang(){document.documentElement.lang=lang;document.title=t("title");document.documentElement.dir=lang==="ar"?"rtl":"ltr";try{paintLang()}catch(e){}
+document.querySelectorAll("[data-t]").forEach(e=>e.textContent=t(e.dataset.t));$("save").textContent=t(editId?"update":"add");$("cunit").placeholder=t("customPh");$("size").placeholder=t("sizePh");$("lang").value=lang;units();render();renderExtra();renderH();renderR();checkBackup();$("fText").placeholder=t("searchPh");$("sQ").placeholder=t("searchPh");if($("tabS").style.display!=="none")renderS();try{fitTabs()}catch(e){}}
 function calc(){$("line").textContent=fmt((+$("qty").value||0)*(+$("price").value||0),$("ecur")?$("ecur").value:"FCFA")}
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
-const fdate=d=>new Date(d+"T12:00").toLocaleDateString(lang==="af"?"af-ZA":lang==="fr"?"fr-FR":"en-GB",{day:"numeric",month:"short",year:"numeric"});
+const fdate=d=>new Date(d+"T12:00").toLocaleDateString(locDate(),{day:"numeric",month:"short",year:"numeric"});
 const ftime=e=>e.at&&e.at.slice(11,16)!=="00:00"?" "+(d=>("0"+d.getHours()).slice(-2)+":"+("0"+d.getMinutes()).slice(-2))(new Date(e.at)):"";
 function render(){renderCat();try{if(!window._sSkip&&$("tabS")&&$("tabS").style.display!=="none")setTimeout(()=>{if(!document.querySelector("#sList .sq:focus"))renderS()},0)}catch(_){}try{if($("tabH")&&$("tabH").style.display!=="none")setTimeout(renderH0,0)}catch(_){}try{updBadge()}catch(_){}const d=today(),m=d.slice(0,7);const AE=data.concat(...batches.map(b=>b.entries));
 $("tAll").textContent=fmtM(sumM(AE));$("paidBtn").disabled=!data.length;$("paidBtn").style.opacity=data.length?1:.5;$("tToday").textContent=fmtM(sumM(AE.filter(e=>e.date===d)));$("tMonth").textContent=fmtM(sumM(AE.filter(e=>e.date.startsWith(m))));
 const s=[...data].sort((x,y)=>y.date.localeCompare(x.date)||y.id-x.id);
-const nB=data.filter(isBlank).length;$("list").innerHTML=s.length?(nB?`<div class="blbar"><span>⚠️ ${esc(t("blankN").replace("%n",nB))}</span><button type="button" class="pdel blrm" id="blRm">🗑️ ${esc(t("blankRm"))}</button></div>`:"")+s.map(e=>`<div class="item pe${isBlank(e)?" blank":""}" data-id="${e.id}"><div style="flex:1;min-width:0"><b>${e.name?esc(tn(e.name)):"—"}</b>${isBlank(e)?' <span class="ob ob-none">'+esc(t("incomplete"))+"</span>":""}${e.size?" <small>("+esc(e.size)+")</small>":""}${e.sLine?' <span class="ob ob-short">🛒</span>':""}<br><small>📅 <b>${fdate(e.date)}${ftime(e)}</b></small><div class="pei"><label>${t("qty")}<input class="peq" type="number" inputmode="decimal" min="0" step="any" value="${e.qty}"></label><label>${t("price")}<input class="pep" type="number" inputmode="decimal" min="0" step="any" value="${pMask(e)?"":e.price}"${pMask(e)?" disabled placeholder=\"🔒\"":""}></label><span class="pu">${esc(e.unit)}${CUR(e)==="LYD"?` <b class="lydtag">LYD</b>`:""}</span></div><div class="pwarn pwl" style="display:none"></div><b class="pet">${fmt(lt(e),CUR(e))}</b><button type="button" class="peRet" onclick="retLine(${e.id})">${esc(t("rtBtn"))}</button></div><div class="act"><button class="sec" onclick="edit(${e.id})">✏️</button><button type="button" class="pdel" title="${esc(t("delLine"))}" aria-label="${esc(t("delLine"))}" onclick="del(${e.id})">🗑️</button></div></div>`).join("")+`<div class="petot"><span>${t("total")}</span><b id="peSum">${fmtM(sumM(data))}</b></div>`:"";$("list").style.display=s.length?"":"none"}
+const nB=data.filter(isBlank).length;$("list").innerHTML=s.length?(nB?`<div class="blbar"><span>⚠️ ${esc(t("blankN").replace("%n",nB))}</span><button type="button" class="pdel blrm" id="blRm">🗑️ ${esc(t("blankRm"))}</button></div>`:"")+s.map(e=>`<div class="item pe${isBlank(e)?" blank":""}" data-id="${e.id}"><div style="flex:1;min-width:0"><b>${e.name?esc(tn(e.name)):"—"}</b>${isBlank(e)?' <span class="ob ob-none">'+esc(t("incomplete"))+"</span>":""}${e.cat?' <span class="ob">'+esc(t("cat"+e.cat))+"</span>":""}${e.size?" <small>("+esc(e.size)+")</small>":""}${e.sLine?' <span class="ob ob-short">🛒</span>':""}<br><small>📅 <b>${fdate(e.date)}${ftime(e)}</b></small><div class="pei"><label>${t("qty")}<input class="peq" type="number" inputmode="decimal" min="0" step="any" value="${e.qty}"></label><label>${t("price")}<input class="pep" type="number" inputmode="decimal" min="0" step="any" value="${pMask(e)?"":e.price}"${pMask(e)?" disabled placeholder=\"🔒\"":""}></label><span class="pu">${esc(e.unit)}${CUR(e)==="LYD"?` <b class="lydtag">LYD</b>`:""}</span></div><div class="pwarn pwl" style="display:none"></div><b class="pet">${fmt(lt(e),CUR(e))}</b><button type="button" class="peRet" onclick="retLine(${e.id})">${esc(t("rtBtn"))}</button></div><div class="act"><button class="sec" onclick="edit(${e.id})">✏️</button><button type="button" class="pdel" title="${esc(t("delLine"))}" aria-label="${esc(t("delLine"))}" onclick="del(${e.id})">🗑️</button></div></div>`).join("")+`<div class="petot"><span>${t("total")}</span><b id="peSum">${fmtM(sumM(data))}</b></div>`:"";$("list").style.display=s.length?"":"none"}
 const rowCur=r=>{const e=data.find(x=>String(x.id)===r.dataset.id);return CUR(e)};
 function liveSum(){const o={FCFA:0,LYD:0};document.querySelectorAll("#list .pe").forEach(r=>{o[rowCur(r)]+=(+r.querySelector(".peq").value||0)*(+r.querySelector(".pep").value||0)});return o}
 function peUpd(row){const q=+row.querySelector(".peq").value||0,p=+row.querySelector(".pep").value||0;row.querySelector(".pet").textContent=fmt(q*p,rowCur(row));const S=$("peSum");if(S)S.textContent=fmtM(liveSum())}
@@ -361,7 +963,7 @@ const d=today(),m=d.slice(0,7),AE=data.concat(...batches.map(b=>b.entries));$("t
 $("list").addEventListener("input",ev=>{const r=ev.target.closest(".pe");if(!r||!ev.target.matches(".peq,.pep"))return;peUpd(r);clearTimeout(r._t);r._t=setTimeout(()=>peSave(r),600)});
 $("list").addEventListener("change",ev=>{const r=ev.target.closest(".pe");if(!r||!ev.target.matches(".peq,.pep"))return;clearTimeout(r._t);peSave(r)});
 function creset(){cEdit=null;$("cf").reset();$("ccancel").style.display="none"}
-function reset(){editId=null;window._pmask=false;if($("price"))$("price").placeholder="";if($("pWarn"))$("pWarn").style.display="none";if($("lastHint"))$("lastHint").textContent="";$("f").reset();if($("ecur"))$("ecur").value=ecur();if(window.fillFor)fillFor("");$("cunit").style.display="none";$("cancel").style.display="none";$("save").textContent=t("add");calc()}
+function reset(){editId=null;window._pmask=false;if($("price"))$("price").placeholder="";if($("pWarn"))$("pWarn").style.display="none";if($("lastHint"))$("lastHint").textContent="";$("f").reset();if($("ecur"))$("ecur").value=ecur();if(window.setCat)setCat("");if(window.fillFor)fillFor("");$("cunit").style.display="none";$("cancel").style.display="none";$("save").textContent=t("add");calc()}
 window.cedit=i=>{const c=cat[i];cEdit=c;$("cname").value=c.name;units();$("cunitSel").value=c.unit;$("cprice").value=c.price;$("ccancel").style.display="";scrollTo(0,0)};
 window.cdel=i=>{if(confirm(t("delItem"))){cat.splice(i,1);saveCat();renderCat()}};
 $("cf").onsubmit=ev=>{ev.preventDefault();const n=$("cname").value.trim(),ex=findCat(n);if(ex&&ex!==cEdit){alert(t("exists"));return}
@@ -374,7 +976,7 @@ $("sug").onmousedown=ev=>{const d=ev.target.closest("[data-n]");if(d){ev.prevent
 $("name").onchange=()=>pickItem($("name").value);
 window.edit=id=>{const e=data.find(x=>x.id===id);editId=id;$("name").value=tn(e.name);setEcur(CUR(e));$("qty").value=e.qty;$("size").value=e.size||"";window._pmask=pMask(e);$("price").value=window._pmask?"":e.price;$("price").placeholder=window._pmask?"🔒":"";
 setUnit(e.unit);fillFor(e.forOrder||"");
-$("save").textContent=t("update");$("cancel").style.display="";calc();scrollTo(0,0)};
+if(window.setCat)setCat(e.cat||"");$("save").textContent=t("update");$("cancel").style.display="";calc();scrollTo(0,0)};
 function priceCheck(name,size,price,qty,exId,pc){pc=pc==="LYD"?"LYD":"FCFA";if(window.NOPRICE)return"";const N=x=>String(canonName(x)||"").trim().replace(/\s+/g," ").toLowerCase(),NS=x=>String(x||"").toLowerCase().replace(/\s+/g,"").replace(/,/g,".");const n=N(name);price=+price;if(!n||!(price>0))return"";
 const A=allEntries().filter(e=>N(e.name)===n&&String(e.id)!==String(exId)&&+e.price>0&&CUR(e)===pc);if(!A.length)return"";const S=A.filter(e=>NS(e.size)===NS(size));const B=(S.length?S:A).slice().sort((a,b)=>String(b.at||b.date).localeCompare(String(a.at||a.date)));const L=B[0],lp=+L.price,out=[];
 if(price>=lp*1.3||price<=lp*0.5)out.push(t("pcWarn").replace("%p",fmt(lp,pc)).replace("%d",fdate(String(L.at||L.date).slice(0,10))));
@@ -392,15 +994,24 @@ undoToast(msg,()=>{gone.forEach(([i,e])=>{if(!data.some(x=>String(x.id)===String
 window.del=id=>{const e=data.find(x=>String(x.id)===String(id));if(!e)return;delLines([id],t("delDone").replace("%i",e.name||"—"))};
 document.addEventListener("click",ev=>{if(ev.target.closest("#blRm")){const ids=data.filter(isBlank).map(e=>e.id);delLines(ids,t("blankDone").replace("%n",ids.length))}});
 $("f").onsubmit=ev=>{ev.preventDefault();const unit=$("unit").value==="__c"?($("cunit").value.trim()||"-"):$("unit").value;
+const icat=catVal($("eCat").value);if(!icat){catRefuse("eCat");return}
+
 const old=editId?data.find(x=>x.id===editId):null,at=old?(old.at||old.date+"T00:00:00"):nowLocal();
-const e={id:editId||Date.now(),at,name:tkey($("name").value.trim()),size:$("size").value.trim(),qty:+$("qty").value,unit,price:(window._pmask&&$("price").value===""&&old?+old.price||0:+$("price").value),date:at.slice(0,10),by:(old&&old.by)||localStorage.pa_user||"",cur:$("ecur").value==="LYD"?"LYD":"FCFA"};if(old&&old.sLine&&old.forOrder)e.forOrder=old.forOrder;if(old&&old.order)e.order=old.order;if(old&&old.sLine&&e.forOrder===old.forOrder&&String(old.sLine).split("|")[0]===String(e.forOrder))e.sLine=old.sLine;
+const e={id:editId||Date.now(),at,name:tkey($("name").value.trim()),size:$("size").value.trim(),qty:+$("qty").value,unit,price:(window._pmask&&$("price").value===""&&old?+old.price||0:+$("price").value),date:at.slice(0,10),by:(old&&old.by)||localStorage.pa_user||"",cur:$("ecur").value==="LYD"?"LYD":"FCFA"};e.cat=icat;if(old&&old.sLine&&old.forOrder)e.forOrder=old.forOrder;if(old&&old.order)e.order=old.order;if(old&&old.sLine&&e.forOrder===old.forOrder&&String(old.sLine).split("|")[0]===String(e.forOrder))e.sLine=old.sLine;
 if(editId)data=data.map(x=>x.id===editId?e:x);else data.push(e);save();
 const c=findCat(e.name);if(c){c.price=e.price;c.unit=e.unit;c.size=e.size;saveCat()}else if(e.name&&(auto||confirm(t("askSave").replace("%s",e.name)))){cat.push({name:e.name,unit:e.unit,price:e.price,size:e.size});saveCat()}
 reset();render()};
 $("cancel").onclick=reset;$("qty").oninput=$("price").oninput=calc;
 $("unit").onchange=()=>{$("cunit").style.display=$("unit").value==="__c"?"":"none"};
+const LANGS=[{id:"en",short:"EN",name:"English"},{id:"fr",short:"FR",name:"Français"},{id:"af",short:"AF",name:"Afrikaans"},{id:"ar",short:"ع",name:"العربية"}];
+function langShort(){return (LANGS.find(x=>x.id===lang)||LANGS[0]).short}
+function paintLang(){const b=$("langBtn");if(b)b.textContent=langShort();document.querySelectorAll(".langBig").forEach(x=>x.classList.toggle("on",x.dataset.lang===lang));const s=$("lang");if(s)s.value=lang;const d=$("langDlg");if(d){const h3=d.querySelector("h3");if(h3)h3.textContent="🌐 "+(lang==="ar"?"اللغة":lang==="fr"?"Langue":lang==="af"?"Taal":"Language")}}
+function pickLang(v){if(!Object.prototype.hasOwnProperty.call(T,v))v="en";const s=$("lang");if(s){s.value=v;s.dispatchEvent(new Event("change"))}const d=$("langDlg");if(d)d.style.display="none"}
+window.paintLang=paintLang;window.pickLang=pickLang;window.LANGS=LANGS;
+if($("langBtn"))$("langBtn").onclick=()=>{const d=$("langDlg");if(!d)return;d.style.display=d.style.display==="none"||!d.style.display?"":"none";paintLang()};
+if($("langDlg"))$("langDlg").addEventListener("click",ev=>{if(ev.target.id==="langDlg"){$("langDlg").style.display="none";return}const b=ev.target.closest(".langBig");if(b)pickLang(b.dataset.lang)});
 $("lang").onchange=()=>{lang=$("lang").value;if(!Object.prototype.hasOwnProperty.call(T,lang))lang="en";localStorage.pa_lang=lang;try{localStorage.setItem(((window.CONFIG&&CONFIG.APP_ID)||"pa")+"_lang",lang)}catch(e){}applyLang()};
-ecurLbl();setEcur(ecur());bindCurPick("ecurPick","ecur",()=>{calc();try{formPW();lastFill()}catch(_){}try{updBulk()}catch(_){}});bindCurPick("mCurPick","mCur",()=>{});$("cur").value=cur;$("cur").oninput=()=>{cur=$("cur").value.trim()||"FCFA";localStorage.pa_cur=cur;render();calc()};
+ecurLbl();setEcur(ecur());bindCurPick("ecurPick","ecur",()=>{calc();try{formPW();lastFill()}catch(_){}try{updBulk()}catch(_){}});bindCurPick("mCurPick","mCur",()=>{});bindCatPick("eCatPick","eCat");bindCatPick("mCatPick","mCat");$("cur").value=cur;$("cur").oninput=()=>{cur=$("cur").value.trim()||"FCFA";localStorage.pa_cur=cur;render();calc()};
 $("csv").onclick=()=>{const q=v=>`"${String(v).replace(/"/g,'""')}"`;const rows=[["Date","Time","Item","Size","Qty","Unit","Unit price","Total","Currency"]].concat(data.map(e=>[e.date,(e.at||"").slice(11,16),e.name,e.size||"",e.qty,e.unit,e.price,lt(e),curLbl(CUR(e))]));
 const b=new Blob(["\ufeff"+rows.map(r=>r.map(q).join(",")).join("\r\n")],{type:"text/csv"});const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="purchases-"+today()+".csv";a.click();markExport()};
 
@@ -433,13 +1044,13 @@ const col=f.name.toLowerCase().endsWith(".csv")&&rows.every(r=>r.length<2)?0:1;l
 let body=rows.slice(1);const v=r=>String(r[col]??"").trim();const gap=body.findIndex(r=>!v(r));if(/info/i.test(nm)&&gap>0&&body.slice(gap).some(v))body=body.slice(gap);body.forEach(r=>{const s=fixName(String(r[col]??"").replace(/\s+/g," ").trim());if(s&&s.toLowerCase()!=="trap"&&!findCat(s)){cat.push({name:s,unit:"pcs",price:0});n++}});
 saveCat();renderCat();alert(n?t("impDone").replace("%n",n):t("impNone"))}catch(e){alert(t("impFail"))}};
 $("resetCat").onclick=()=>{if(confirm(t("resetAsk"))){cat=DEF_CAT.map(c=>({...c}));saveCat();renderCat()}};
-const TRD={"200w solar": {"en": "200W Solar panel", "fr": "Panneau solaire 200 W", "af": "200W-sonpaneel"}, "25kg bag": {"en": "25Kg Bag", "fr": "Sac de 25 kg", "af": "25kg-sak"}, "adass": {"en": "Lentils (Adass)", "fr": "Lentilles (adass)", "af": "Lensies (Adass)"}, "addass": {"en": "Lentils (Adass)", "fr": "Lentilles (adass)", "af": "Lensies (Adass)"}, "angle iron": {"en": "Angle Iron", "fr": "Cornière", "af": "Hoekyster"}, "antifreeze": {"en": "Antifreeze", "fr": "Antigel", "af": "Antivries"}, "apple": {"en": "Apple", "fr": "Pomme", "af": "Appel"}, "axe": {"en": "Axe", "fr": "Hache", "af": "Byl"}, "banana": {"en": "Banana", "fr": "Banane", "af": "Piesang"}, "battery": {"en": "Battery", "fr": "Batterie", "af": "Battery"}, "bean": {"en": "Beans", "fr": "Haricots", "af": "Boontjies"}, "blanket": {"en": "Blanket", "fr": "Couverture", "af": "Kombers"}, "bolt": {"en": "Bolt", "fr": "Boulon", "af": "Bout"}, "bolt repair": {"en": "Bolt Repair", "fr": "Réparation de boulon", "af": "Bout herstel"}, "bread": {"en": "Bread", "fr": "Pain", "af": "Brood"}, "broom": {"en": "Broom", "fr": "Balai", "af": "Besem"}, "hand broom": {"en": "Hand Broom", "fr": "Balayette", "af": "Handbesem"}, "buckets": {"en": "Buckets", "fr": "Seaux", "af": "Emmers"}, "cable": {"en": "Cable", "fr": "Câble", "af": "Kabel"}, "carrots": {"en": "Carrots", "fr": "Carottes", "af": "Wortels"}, "carpet": {"en": "Carpet", "fr": "Tapis", "af": "Mat"}, "cement": {"en": "Cement", "fr": "Ciment", "af": "Sement"}, "charcoal": {"en": "Charcoal", "fr": "Charbon de bois", "af": "Houtskool"}, "chalcoal": {"en": "Charcoal", "fr": "Charbon de bois", "af": "Houtskool"}, "charmout": {"en": "Dried meat (Charmout)", "fr": "Viande séchée (charmout)", "af": "Droë vleis (Charmout)"}, "charmoute": {"en": "Dried meat (Charmout)", "fr": "Viande séchée (charmout)", "af": "Droë vleis (Charmout)"}, "cheese": {"en": "Cheese", "fr": "Fromage", "af": "Kaas"}, "cheddar cheese": {"en": "Cheddar Cheese", "fr": "Fromage cheddar", "af": "Cheddarkaas"}, "chicken": {"en": "Chicken", "fr": "Poulet", "af": "Hoender"}, "frozen chicken": {"en": "Frozen Chicken", "fr": "Poulet congelé", "af": "Bevrore hoender"}, "chilli": {"en": "Chilli", "fr": "Piment", "af": "Rissie"}, "chill": {"en": "Chilli", "fr": "Piment", "af": "Rissie"}, "chocolate": {"en": "Chocolate", "fr": "Chocolat", "af": "Sjokolade"}, "clamp": {"en": "Clamp", "fr": "Serre-joint", "af": "Klamp"}, "coffee": {"en": "Coffee", "fr": "Café", "af": "Koffie"}, "cooler box": {"en": "Cooler Box", "fr": "Glacière", "af": "Koelboks"}, "cruiser labour": {"en": "Cruiser Labour", "fr": "Main-d'œuvre Land Cruiser", "af": "Cruiser arbeid"}, "cruiser shock bush": {"en": "Cruiser Shock Bush", "fr": "Silentbloc d'amortisseur Land Cruiser", "af": "Cruiser skokbus"}, "cucumber": {"en": "Cucumber", "fr": "Concombre", "af": "Komkommer"}, "damurgue": {"en": "Damirgue (millet porridge)", "fr": "Damirgué (bouillie de mil)", "af": "Damirgue (manna-pap)"}, "damirgué": {"en": "Damirgue (millet porridge)", "fr": "Damirgué (bouillie de mil)", "af": "Damirgue (manna-pap)"}, "dates": {"en": "Dates", "fr": "Dattes", "af": "Dadels"}, "diesel": {"en": "Diesel", "fr": "Gasoil", "af": "Diesel"}, "diesel pipe": {"en": "Diesel Pipe", "fr": "Tuyau de gasoil", "af": "Dieselpyp"}, "diesel pump": {"en": "Diesel Pump", "fr": "Pompe à gasoil", "af": "Dieselpomp"}, "disposable razor": {"en": "Disposable Razor", "fr": "Rasoir jetable", "af": "Weggooi-skeermes"}, "dishwashing liquid": {"en": "Dishwashing Liquid", "fr": "Liquide vaisselle", "af": "Opwasmiddel"}, "dish soap": {"en": "Dish Soap", "fr": "Liquide vaisselle", "af": "Opwasseep"}, "duvet": {"en": "Duvet", "fr": "Couette", "af": "Duvet"}, "eating plate": {"en": "Eating Plate", "fr": "Assiette", "af": "Eetbord"}, "plat eat": {"en": "Eating plate", "fr": "Assiette", "af": "Eetbord"}, "eating spoon": {"en": "Eating Spoon", "fr": "Cuillère de table", "af": "Eetlepel"}, "spoon": {"en": "Spoon", "fr": "Cuillère", "af": "Lepel"}, "cooking spoon": {"en": "Cooking Spoon", "fr": "Louche", "af": "Kooklepel"}, "egg": {"en": "Eggs", "fr": "Œufs", "af": "Eiers"}, "flask": {"en": "Flask", "fr": "Thermos", "af": "Fles"}, "flat rope": {"en": "Flat Rope", "fr": "Sangle", "af": "Plat tou"}, "flour": {"en": "Flour", "fr": "Farine", "af": "Meel"}, "garlic": {"en": "Garlic", "fr": "Ail", "af": "Knoffel"}, "gas": {"en": "Gas", "fr": "Gaz", "af": "Gas"}, "gas cooker": {"en": "Gas Cooker", "fr": "Réchaud à gaz", "af": "Gasstoof"}, "gas regulator": {"en": "Gas Regulator", "fr": "Détendeur de gaz", "af": "Gasreguleerder"}, "regulator": {"en": "Regulator", "fr": "Détendeur", "af": "Reguleerder"}, "gen oil": {"en": "Generator oil", "fr": "Huile moteur groupe", "af": "Kragopwekker-olie"}, "generator": {"en": "Generator", "fr": "Groupe électrogène", "af": "Kragopwekker"}, "ginger": {"en": "Ginger", "fr": "Gingembre", "af": "Gemmer"}, "grease nipple": {"en": "Grease Nipple", "fr": "Graisseur", "af": "Ghriesnippel"}, "hammer tips": {"en": "Hammer Tips", "fr": "Burins de marteau-piqueur", "af": "Hamerpunte"}, "hob": {"en": "Hob", "fr": "Plaque de cuisson", "af": "Kookplaat"}, "insulation tape": {"en": "Insulation Tape", "fr": "Ruban isolant", "af": "Isoleerband"}, "iphone charger": {"en": "iPhone Charger", "fr": "Chargeur iPhone", "af": "iPhone-laaier"}, "ibr roof sheet": {"en": "IBR Roof Sheet", "fr": "Tôle de toiture IBR", "af": "IBR-dakplaat"}, "jack hammer": {"en": "Jack Hammer", "fr": "Marteau-piqueur", "af": "Klopboor"}, "juice 1,8kg": {"en": "Juice 1,8kg", "fr": "Jus 1,8 kg", "af": "Sap 1,8kg"}, "juice 1l": {"en": "Juice 1L", "fr": "Jus 1 L", "af": "Sap 1L"}, "juice sachet": {"en": "Juice Sachet", "fr": "Jus en sachet", "af": "Sap-sakkie"}, "kamon": {"en": "Cumin", "fr": "Cumin", "af": "Komyn"}, "knife": {"en": "Knife", "fr": "Couteau", "af": "Mes"}, "korkom": {"en": "Turmeric", "fr": "Curcuma", "af": "Borrie"}, "kourkoum": {"en": "Turmeric", "fr": "Curcuma", "af": "Borrie"}, "kospara": {"en": "Coriander", "fr": "Coriandre", "af": "Koljander"}, "cusbarra": {"en": "Coriander", "fr": "Coriandre", "af": "Koljander"}, "lamp": {"en": "Lamp", "fr": "Lampe", "af": "Lamp"}, "lamp holder": {"en": "Lamp Holder", "fr": "Douille", "af": "Lamphouer"}, "lemon": {"en": "Lemon", "fr": "Citron", "af": "Suurlemoen"}, "lighter": {"en": "Lighter", "fr": "Briquet", "af": "Aansteker"}, "macaroni": {"en": "Macaroni", "fr": "Macaronis", "af": "Macaroni"}, "maggi": {"en": "Maggi cubes", "fr": "Bouillon Maggi", "af": "Maggi-blokkies"}, "maggie": {"en": "Maggi cubes", "fr": "Bouillon Maggi", "af": "Maggi-blokkies"}, "malta drink": {"en": "Malta Drink", "fr": "Boisson maltée", "af": "Malta-drankie"}, "mirinda apple": {"en": "Mirinda Apple", "fr": "Mirinda pomme", "af": "Mirinda Appel"}, "mirinda orange": {"en": "Mirinda Orange", "fr": "Mirinda orange", "af": "Mirinda Lemoen"}, "mayonnaise": {"en": "Mayonnaise", "fr": "Mayonnaise", "af": "Mayonnaise"}, "medication": {"en": "Medication", "fr": "Médicaments", "af": "Medisyne"}, "milk": {"en": "Milk", "fr": "Lait", "af": "Melk"}, "powdered milk": {"en": "Powdered Milk", "fr": "Lait en poudre", "af": "Melkpoeier"}, "mosque carpet": {"en": "Mosque Carpet", "fr": "Tapis de mosquée", "af": "Moskee-mat"}, "natron": {"en": "Natron", "fr": "Natron", "af": "Natron"}, "needle": {"en": "Needle", "fr": "Aiguille", "af": "Naald"}, "nidomi": {"en": "Indomie noodles", "fr": "Nouilles Indomie", "af": "Indomie-noedels"}, "indomie": {"en": "Indomie noodles", "fr": "Nouilles Indomie", "af": "Indomie-noedels"}, "note book": {"en": "Notebook", "fr": "Cahier", "af": "Notaboek"}, "nutella": {"en": "Nutella", "fr": "Nutella", "af": "Nutella"}, "oil": {"en": "Oil", "fr": "Huile", "af": "Olie"}, "okra": {"en": "Okra", "fr": "Gombo", "af": "Okra"}, "omo": {"en": "Omo washing powder", "fr": "Lessive Omo", "af": "Omo-waspoeier"}, "onions": {"en": "Onions", "fr": "Oignons", "af": "Uie"}, "orange": {"en": "Orange", "fr": "Orange", "af": "Lemoen"}, "oscillating fan": {"en": "Oscillating Fan", "fr": "Ventilateur oscillant", "af": "Draaiwaaier"}, "padlock": {"en": "Padlock", "fr": "Cadenas", "af": "Hangslot"}, "pants": {"en": "Pants", "fr": "Pantalon", "af": "Broek"}, "peanut": {"en": "Peanuts", "fr": "Arachides", "af": "Grondboontjies"}, "pepper": {"en": "Pepper", "fr": "Poivre", "af": "Peper"}, "pepsi": {"en": "Pepsi", "fr": "Pepsi", "af": "Pepsi"}, "petrol": {"en": "Petrol", "fr": "Essence", "af": "Petrol"}, "pipe": {"en": "Pipe", "fr": "Tuyau", "af": "Pyp"}, "plug": {"en": "Plug", "fr": "Prise", "af": "Prop"}, "pot": {"en": "Pot", "fr": "Marmite", "af": "Pot"}, "pot 25cm": {"en": "Pot 25cm", "fr": "Marmite 25 cm", "af": "Pot 25cm"}, "potato": {"en": "Potatoes", "fr": "Pommes de terre", "af": "Aartappels"}, "power strip 4": {"en": "Power Strip 4", "fr": "Multiprise 4 prises", "af": "Kragstrook 4"}, "power strip 5": {"en": "Power Strip 5", "fr": "Multiprise 5 prises", "af": "Kragstrook 5"}, "power strip w": {"en": "Power Strip W", "fr": "Multiprise murale", "af": "Kragstrook W"}, "pringles": {"en": "Pringles", "fr": "Pringles", "af": "Pringles"}, "rice": {"en": "Rice", "fr": "Riz", "af": "Rys"}, "plate cut": {"en": "Chopping board", "fr": "Planche à découper", "af": "Snyplank"}, "chopping board": {"en": "Chopping board", "fr": "Planche à découper", "af": "Snyplank"}, "salt": {"en": "Salt", "fr": "Sel", "af": "Sout"}, "savon": {"en": "Soap", "fr": "Savon", "af": "Seep"}, "soap": {"en": "Soap", "fr": "Savon", "af": "Seep"}, "seven up": {"en": "Seven Up", "fr": "7 Up", "af": "Seven Up"}, "scrap steel": {"en": "Scrap Steel", "fr": "Ferraille", "af": "Skrootstaal"}, "sheep": {"en": "Sheep", "fr": "Mouton", "af": "Skaap"}, "slops": {"en": "Slippers", "fr": "Sandales", "af": "Pantoffels"}, "spaghetti": {"en": "Spaghetti", "fr": "Spaghettis", "af": "Spaghetti"}, "steel sheet": {"en": "Steel Sheet", "fr": "Tôle d'acier", "af": "Staalplaat"}, "strawberry jam": {"en": "Strawberry Jam", "fr": "Confiture de fraises", "af": "Aarbeikonfyt"}, "stretcher": {"en": "Stretcher", "fr": "Brancard", "af": "Draagbaar"}, "sugar": {"en": "Sugar", "fr": "Sucre", "af": "Suiker"}, "square tubing": {"en": "Square Tubing", "fr": "Tube carré", "af": "Vierkantpyp"}, "square tubbing": {"en": "Square tubing", "fr": "Tube carré", "af": "Vierkantpyp"}, "tarp": {"en": "Tarp", "fr": "Bâche", "af": "Seil"}, "tarp 2 x 3": {"en": "Tarp 2 x 3", "fr": "Bâche 2 x 3", "af": "Seil 2 x 3"}, "tarp 3 x 4": {"en": "Tarp 3 x 4", "fr": "Bâche 3 x 4", "af": "Seil 3 x 4"}, "tea": {"en": "Tea", "fr": "Thé", "af": "Tee"}, "tea cup": {"en": "Tea Cup", "fr": "Tasse à thé", "af": "Teekoppie"}, "tea glass": {"en": "Tea Glass", "fr": "Verre à thé", "af": "Teeglas"}, "tea pot": {"en": "Tea Pot", "fr": "Théière", "af": "Teepot"}, "tek screw": {"en": "Tek Screw", "fr": "Vis autoperceuse", "af": "Tekskroef"}, "tomato": {"en": "Tomatoes", "fr": "Tomates", "af": "Tamaties"}, "tomato puree": {"en": "Tomato Puree", "fr": "Concentré de tomate", "af": "Tamatiepuree"}, "tomato sauce": {"en": "Tomato Sauce", "fr": "Sauce tomate", "af": "Tamatiesous"}, "katchup": {"en": "Ketchup", "fr": "Ketchup", "af": "Ketchup"}, "torch": {"en": "Torch", "fr": "Lampe torche", "af": "Flits"}, "tuna": {"en": "Tuna", "fr": "Thon", "af": "Tuna"}, "watch": {"en": "Watch", "fr": "Montre", "af": "Horlosie"}, "water": {"en": "Water", "fr": "Eau", "af": "Water"}, "water 500ml": {"en": "Water 500ml", "fr": "Eau 500 ml", "af": "Water 500ml"}, "water pump": {"en": "Water Pump", "fr": "Pompe à eau", "af": "Waterpomp"}, "watermelon": {"en": "Watermelon", "fr": "Pastèque", "af": "Waatlemoen"}, "welding rods": {"en": "Welding Rods", "fr": "Baguettes de soudure", "af": "Sweisstawe"}, "wheel repair": {"en": "Wheel Repair", "fr": "Réparation de roue", "af": "Wiel herstel"}, "yarn": {"en": "Yarn", "fr": "Fil", "af": "Garing"}, "yeast": {"en": "Yeast", "fr": "Levure", "af": "Gis"}, "snickers": {"en": "Snickers", "fr": "Snickers", "af": "Snickers"}, "custard": {"en": "Custard", "fr": "Crème anglaise (poudre)", "af": "Vla"}, "beef": {"en": "Beef", "fr": "Bœuf", "af": "Beesvleis"}, "goat meat": {"en": "Goat Meat", "fr": "Viande de chèvre", "af": "Bokvleis"}, "mutton": {"en": "Mutton", "fr": "Viande de mouton", "af": "Skaapvleis"}, "fish": {"en": "Fish", "fr": "Poisson", "af": "Vis"}, "dried fish": {"en": "Dried Fish", "fr": "Poisson séché", "af": "Droë vis"}, "sardines": {"en": "Sardines", "fr": "Sardines", "af": "Sardiens"}, "corned beef": {"en": "Corned Beef", "fr": "Corned-beef", "af": "Corned beef"}, "beans (canned)": {"en": "Beans (canned)", "fr": "Haricots en conserve", "af": "Boontjies (blik)"}, "millet": {"en": "Millet", "fr": "Mil", "af": "Manna"}, "sorghum": {"en": "Sorghum", "fr": "Sorgho", "af": "Sorghum"}, "maize": {"en": "Maize", "fr": "Maïs", "af": "Mielies"}, "couscous": {"en": "Couscous", "fr": "Couscous", "af": "Couscous"}, "semolina": {"en": "Semolina", "fr": "Semoule", "af": "Semolina"}, "oats": {"en": "Oats", "fr": "Flocons d'avoine", "af": "Hawermout"}, "vegetable oil": {"en": "Vegetable Oil", "fr": "Huile végétale", "af": "Kookolie"}, "butter": {"en": "Butter", "fr": "Beurre", "af": "Botter"}, "margarine": {"en": "Margarine", "fr": "Margarine", "af": "Margarien"}, "honey": {"en": "Honey", "fr": "Miel", "af": "Heuning"}, "vinegar": {"en": "Vinegar", "fr": "Vinaigre", "af": "Asyn"}, "cabbage": {"en": "Cabbage", "fr": "Chou", "af": "Kool"}, "lettuce": {"en": "Lettuce", "fr": "Laitue", "af": "Blaarslaai"}, "eggplant": {"en": "Eggplant", "fr": "Aubergine", "af": "Eiervrug"}, "green pepper": {"en": "Green Pepper", "fr": "Poivron", "af": "Groen soetrissie"}, "sweet potato": {"en": "Sweet Potato", "fr": "Patate douce", "af": "Patat"}, "pumpkin": {"en": "Pumpkin", "fr": "Courge", "af": "Pampoen"}, "mango": {"en": "Mango", "fr": "Mangue", "af": "Mango"}, "guava": {"en": "Guava", "fr": "Goyave", "af": "Koejawel"}, "pineapple": {"en": "Pineapple", "fr": "Ananas", "af": "Pynappel"}, "hibiscus": {"en": "Hibiscus", "fr": "Bissap (hibiscus)", "af": "Hibiskus"}, "cinnamon": {"en": "Cinnamon", "fr": "Cannelle", "af": "Kaneel"}, "cloves": {"en": "Cloves", "fr": "Clous de girofle", "af": "Naeltjies"}, "black pepper": {"en": "Black Pepper", "fr": "Poivre noir", "af": "Swartpeper"}, "paprika": {"en": "Paprika", "fr": "Paprika", "af": "Paprika"}, "bay leaves": {"en": "Bay Leaves", "fr": "Feuilles de laurier", "af": "Lourierblare"}, "mint": {"en": "Mint", "fr": "Menthe", "af": "Kruisement"}, "sesame": {"en": "Sesame", "fr": "Sésame", "af": "Sesam"}, "biscuits": {"en": "Biscuits", "fr": "Biscuits", "af": "Koekies"}, "juice": {"en": "Juice", "fr": "Jus", "af": "Sap"}, "soft drinks": {"en": "Soft Drinks", "fr": "Boissons gazeuses", "af": "Koeldrank"}, "mineral water": {"en": "Mineral Water", "fr": "Eau minérale", "af": "Mineraalwater"}, "coca-cola": {"en": "Coca-Cola", "fr": "Coca-Cola", "af": "Coca-Cola"}, "fanta": {"en": "Fanta", "fr": "Fanta", "af": "Fanta"}, "toilet paper": {"en": "Toilet Paper", "fr": "Papier toilette", "af": "Toiletpapier"}, "bleach": {"en": "Bleach", "fr": "Eau de Javel", "af": "Bleikmiddel"}, "washing powder": {"en": "Washing Powder", "fr": "Lessive en poudre", "af": "Waspoeier"}, "sponge": {"en": "Sponge", "fr": "Éponge", "af": "Spons"}, "garbage bags": {"en": "Garbage Bags", "fr": "Sacs poubelle", "af": "Vullissakke"}, "insecticide": {"en": "Insecticide", "fr": "Insecticide", "af": "Insekgif"}, "mosquito net": {"en": "Mosquito Net", "fr": "Moustiquaire", "af": "Muskietnet"}, "matches": {"en": "Matches", "fr": "Allumettes", "af": "Vuurhoutjies"}, "candles": {"en": "Candles", "fr": "Bougies", "af": "Kerse"}, "batteries aa": {"en": "Batteries AA", "fr": "Piles AA", "af": "Batterye AA"}, "toothpaste": {"en": "Toothpaste", "fr": "Dentifrice", "af": "Tandepasta"}, "toothbrush": {"en": "Toothbrush", "fr": "Brosse à dents", "af": "Tandeborsel"}, "towel": {"en": "Towel", "fr": "Serviette", "af": "Handdoek"}, "mattress": {"en": "Mattress", "fr": "Matelas", "af": "Matras"}, "pillow": {"en": "Pillow", "fr": "Oreiller", "af": "Kussing"}, "jerrycan": {"en": "Jerrycan", "fr": "Bidon", "af": "Jerrykan"}, "kettle": {"en": "Kettle", "fr": "Bouilloire", "af": "Ketel"}, "frying pan": {"en": "Frying Pan", "fr": "Poêle", "af": "Braaipan"}, "cup": {"en": "Cup", "fr": "Tasse", "af": "Koppie"}, "bowl": {"en": "Bowl", "fr": "Bol", "af": "Bak"}, "fork": {"en": "Fork", "fr": "Fourchette", "af": "Vurk"}, "cooking gas": {"en": "Cooking Gas", "fr": "Gaz de cuisine", "af": "Kookgas"}, "nails": {"en": "Nails", "fr": "Clous", "af": "Spykers"}, "screws": {"en": "Screws", "fr": "Vis", "af": "Skroewe"}, "wire": {"en": "Wire", "fr": "Fil de fer", "af": "Draad"}, "rope": {"en": "Rope", "fr": "Corde", "af": "Tou"}, "paint": {"en": "Paint", "fr": "Peinture", "af": "Verf"}, "gloves": {"en": "Gloves", "fr": "Gants", "af": "Handskoene"}, "grease": {"en": "Grease", "fr": "Graisse", "af": "Ghries"}, "engine oil": {"en": "Engine Oil", "fr": "Huile moteur", "af": "Enjinolie"}, "tyre": {"en": "Tyre", "fr": "Pneu", "af": "Band"}, "fuel filter": {"en": "Fuel Filter", "fr": "Filtre à gasoil", "af": "Brandstoffilter"}, "shovel": {"en": "Shovel", "fr": "Pelle", "af": "Graaf"}, "wheelbarrow": {"en": "Wheelbarrow", "fr": "Brouette", "af": "Kruiwa"}, "padlock key": {"en": "Padlock Key", "fr": "Clé de cadenas", "af": "Hangslot-sleutel"}};
+const TRD={"200w solar": {"en": "200W Solar panel", "fr": "Panneau solaire 200 W", "af": "200W-sonpaneel", "ar": "لوح شمسي 200 واط"}, "25kg bag": {"en": "25Kg Bag", "fr": "Sac de 25 kg", "af": "25kg-sak", "ar": "كيس 25 كغ"}, "adass": {"en": "Lentils (Adass)", "fr": "Lentilles (adass)", "af": "Lensies (Adass)", "ar": "عدس"}, "addass": {"en": "Lentils (Adass)", "fr": "Lentilles (adass)", "af": "Lensies (Adass)", "ar": "عدس"}, "angle iron": {"en": "Angle Iron", "fr": "Cornière", "af": "Hoekyster", "ar": "زاوية حديد"}, "antifreeze": {"en": "Antifreeze", "fr": "Antigel", "af": "Antivries", "ar": "مانع التجمد"}, "apple": {"en": "Apple", "fr": "Pomme", "af": "Appel", "ar": "تفاح"}, "axe": {"en": "Axe", "fr": "Hache", "af": "Byl", "ar": "فأس"}, "banana": {"en": "Banana", "fr": "Banane", "af": "Piesang", "ar": "موز"}, "battery": {"en": "Battery", "fr": "Batterie", "af": "Battery", "ar": "بطارية"}, "bean": {"en": "Beans", "fr": "Haricots", "af": "Boontjies", "ar": "فاصوليا"}, "blanket": {"en": "Blanket", "fr": "Couverture", "af": "Kombers", "ar": "بطانية"}, "bolt": {"en": "Bolt", "fr": "Boulon", "af": "Bout", "ar": "برغي"}, "bolt repair": {"en": "Bolt Repair", "fr": "Réparation de boulon", "af": "Bout herstel", "ar": "إصلاح برغي"}, "bread": {"en": "Bread", "fr": "Pain", "af": "Brood", "ar": "خبز"}, "broom": {"en": "Broom", "fr": "Balai", "af": "Besem", "ar": "مكنسة"}, "hand broom": {"en": "Hand Broom", "fr": "Balayette", "af": "Handbesem", "ar": "مكنسة يدوية"}, "buckets": {"en": "Buckets", "fr": "Seaux", "af": "Emmers", "ar": "دلاء"}, "cable": {"en": "Cable", "fr": "Câble", "af": "Kabel", "ar": "كابل"}, "carrots": {"en": "Carrots", "fr": "Carottes", "af": "Wortels", "ar": "جزر"}, "carpet": {"en": "Carpet", "fr": "Tapis", "af": "Mat", "ar": "سجادة"}, "cement": {"en": "Cement", "fr": "Ciment", "af": "Sement", "ar": "إسمنت"}, "charcoal": {"en": "Charcoal", "fr": "Charbon de bois", "af": "Houtskool", "ar": "فحم"}, "chalcoal": {"en": "Charcoal", "fr": "Charbon de bois", "af": "Houtskool", "ar": "فحم"}, "charmout": {"en": "Dried meat (Charmout)", "fr": "Viande séchée (charmout)", "af": "Droë vleis (Charmout)", "ar": "شرموط"}, "charmoute": {"en": "Dried meat (Charmout)", "fr": "Viande séchée (charmout)", "af": "Droë vleis (Charmout)", "ar": "شرموط"}, "cheese": {"en": "Cheese", "fr": "Fromage", "af": "Kaas", "ar": "جبن"}, "cheddar cheese": {"en": "Cheddar Cheese", "fr": "Fromage cheddar", "af": "Cheddarkaas", "ar": "جبن شيدر"}, "chicken": {"en": "Chicken", "fr": "Poulet", "af": "Hoender", "ar": "دجاج"}, "frozen chicken": {"en": "Frozen Chicken", "fr": "Poulet congelé", "af": "Bevrore hoender", "ar": "دجاج مجمد"}, "chilli": {"en": "Chilli", "fr": "Piment", "af": "Rissie", "ar": "فلفل حار"}, "chill": {"en": "Chilli", "fr": "Piment", "af": "Rissie", "ar": "فلفل حار"}, "chocolate": {"en": "Chocolate", "fr": "Chocolat", "af": "Sjokolade", "ar": "شوكولاتة"}, "clamp": {"en": "Clamp", "fr": "Serre-joint", "af": "Klamp", "ar": "مشبك"}, "coffee": {"en": "Coffee", "fr": "Café", "af": "Koffie", "ar": "قهوة"}, "cooler box": {"en": "Cooler Box", "fr": "Glacière", "af": "Koelboks", "ar": "صندوق تبريد"}, "cruiser labour": {"en": "Cruiser Labour", "fr": "Main-d'œuvre Land Cruiser", "af": "Cruiser arbeid", "ar": "أجرة عمل لاندكروزر"}, "cruiser shock bush": {"en": "Cruiser Shock Bush", "fr": "Silentbloc d'amortisseur Land Cruiser", "af": "Cruiser skokbus", "ar": "جلبة مساعد لاندكروزر"}, "cucumber": {"en": "Cucumber", "fr": "Concombre", "af": "Komkommer", "ar": "خيار"}, "damurgue": {"en": "Damirgue (millet porridge)", "fr": "Damirgué (bouillie de mil)", "af": "Damirgue (manna-pap)", "ar": "دامرقة"}, "damirgué": {"en": "Damirgue (millet porridge)", "fr": "Damirgué (bouillie de mil)", "af": "Damirgue (manna-pap)", "ar": "دامرقة"}, "dates": {"en": "Dates", "fr": "Dattes", "af": "Dadels", "ar": "تمر"}, "diesel": {"en": "Diesel", "fr": "Gasoil", "af": "Diesel", "ar": "ديزل"}, "diesel pipe": {"en": "Diesel Pipe", "fr": "Tuyau de gasoil", "af": "Dieselpyp", "ar": "خرطوم ديزل"}, "diesel pump": {"en": "Diesel Pump", "fr": "Pompe à gasoil", "af": "Dieselpomp", "ar": "مضخة ديزل"}, "disposable razor": {"en": "Disposable Razor", "fr": "Rasoir jetable", "af": "Weggooi-skeermes", "ar": "شفرة حلاقة"}, "dishwashing liquid": {"en": "Dishwashing Liquid", "fr": "Liquide vaisselle", "af": "Opwasmiddel", "ar": "سائل غسيل الصحون"}, "dish soap": {"en": "Dish Soap", "fr": "Liquide vaisselle", "af": "Opwasseep", "ar": "سائل غسيل الصحون"}, "duvet": {"en": "Duvet", "fr": "Couette", "af": "Duvet", "ar": "لحاف"}, "eating plate": {"en": "Eating Plate", "fr": "Assiette", "af": "Eetbord", "ar": "صحن أكل"}, "plat eat": {"en": "Eating plate", "fr": "Assiette", "af": "Eetbord", "ar": "صحن أكل"}, "eating spoon": {"en": "Eating Spoon", "fr": "Cuillère de table", "af": "Eetlepel", "ar": "ملعقة أكل"}, "spoon": {"en": "Spoon", "fr": "Cuillère", "af": "Lepel", "ar": "ملعقة"}, "cooking spoon": {"en": "Cooking Spoon", "fr": "Louche", "af": "Kooklepel", "ar": "ملعقة طبخ"}, "egg": {"en": "Eggs", "fr": "Œufs", "af": "Eiers", "ar": "بيض"}, "flask": {"en": "Flask", "fr": "Thermos", "af": "Fles", "ar": "ترمس"}, "flat rope": {"en": "Flat Rope", "fr": "Sangle", "af": "Plat tou", "ar": "حبل مسطح"}, "flour": {"en": "Flour", "fr": "Farine", "af": "Meel", "ar": "دقيق"}, "garlic": {"en": "Garlic", "fr": "Ail", "af": "Knoffel", "ar": "ثوم"}, "gas": {"en": "Gas", "fr": "Gaz", "af": "Gas", "ar": "غاز"}, "gas cooker": {"en": "Gas Cooker", "fr": "Réchaud à gaz", "af": "Gasstoof", "ar": "موقد غاز"}, "gas regulator": {"en": "Gas Regulator", "fr": "Détendeur de gaz", "af": "Gasreguleerder", "ar": "منظم غاز"}, "regulator": {"en": "Regulator", "fr": "Détendeur", "af": "Reguleerder", "ar": "منظم"}, "gen oil": {"en": "Generator oil", "fr": "Huile moteur groupe", "af": "Kragopwekker-olie", "ar": "زيت المولد"}, "generator": {"en": "Generator", "fr": "Groupe électrogène", "af": "Kragopwekker", "ar": "مولد كهرباء"}, "ginger": {"en": "Ginger", "fr": "Gingembre", "af": "Gemmer", "ar": "زنجبيل"}, "grease nipple": {"en": "Grease Nipple", "fr": "Graisseur", "af": "Ghriesnippel", "ar": "حلمة تشحيم"}, "hammer tips": {"en": "Hammer Tips", "fr": "Burins de marteau-piqueur", "af": "Hamerpunte", "ar": "رؤوس مطرقة"}, "hob": {"en": "Hob", "fr": "Plaque de cuisson", "af": "Kookplaat", "ar": "موقد"}, "insulation tape": {"en": "Insulation Tape", "fr": "Ruban isolant", "af": "Isoleerband", "ar": "شريط عازل"}, "iphone charger": {"en": "iPhone Charger", "fr": "Chargeur iPhone", "af": "iPhone-laaier", "ar": "شاحن آيفون"}, "ibr roof sheet": {"en": "IBR Roof Sheet", "fr": "Tôle de toiture IBR", "af": "IBR-dakplaat", "ar": "صفيح سقف IBR"}, "jack hammer": {"en": "Jack Hammer", "fr": "Marteau-piqueur", "af": "Klopboor", "ar": "مطرقة هيدروليكية"}, "juice 1,8kg": {"en": "Juice 1,8kg", "fr": "Jus 1,8 kg", "af": "Sap 1,8kg", "ar": "عصير 1.8 كغ"}, "juice 1l": {"en": "Juice 1L", "fr": "Jus 1 L", "af": "Sap 1L", "ar": "عصير 1 لتر"}, "juice sachet": {"en": "Juice Sachet", "fr": "Jus en sachet", "af": "Sap-sakkie", "ar": "عصير أكياس"}, "kamon": {"en": "Cumin", "fr": "Cumin", "af": "Komyn", "ar": "كمون"}, "knife": {"en": "Knife", "fr": "Couteau", "af": "Mes", "ar": "سكين"}, "korkom": {"en": "Turmeric", "fr": "Curcuma", "af": "Borrie", "ar": "كركم"}, "kourkoum": {"en": "Turmeric", "fr": "Curcuma", "af": "Borrie", "ar": "كركم"}, "kospara": {"en": "Coriander", "fr": "Coriandre", "af": "Koljander", "ar": "كزبرة"}, "cusbarra": {"en": "Coriander", "fr": "Coriandre", "af": "Koljander", "ar": "كزبرة"}, "lamp": {"en": "Lamp", "fr": "Lampe", "af": "Lamp", "ar": "مصباح"}, "lamp holder": {"en": "Lamp Holder", "fr": "Douille", "af": "Lamphouer", "ar": "قاعدة مصباح"}, "lemon": {"en": "Lemon", "fr": "Citron", "af": "Suurlemoen", "ar": "ليمون"}, "lighter": {"en": "Lighter", "fr": "Briquet", "af": "Aansteker", "ar": "ولاعة"}, "macaroni": {"en": "Macaroni", "fr": "Macaronis", "af": "Macaroni", "ar": "مكرونة"}, "maggi": {"en": "Maggi cubes", "fr": "Bouillon Maggi", "af": "Maggi-blokkies", "ar": "مرقة ماجي"}, "maggie": {"en": "Maggi cubes", "fr": "Bouillon Maggi", "af": "Maggi-blokkies", "ar": "مرقة ماجي"}, "malta drink": {"en": "Malta Drink", "fr": "Boisson maltée", "af": "Malta-drankie", "ar": "مشروب الشعير"}, "mirinda apple": {"en": "Mirinda Apple", "fr": "Mirinda pomme", "af": "Mirinda Appel", "ar": "ميرندا تفاح"}, "mirinda orange": {"en": "Mirinda Orange", "fr": "Mirinda orange", "af": "Mirinda Lemoen", "ar": "ميرندا برتقال"}, "mayonnaise": {"en": "Mayonnaise", "fr": "Mayonnaise", "af": "Mayonnaise", "ar": "مايونيز"}, "medication": {"en": "Medication", "fr": "Médicaments", "af": "Medisyne", "ar": "أدوية"}, "milk": {"en": "Milk", "fr": "Lait", "af": "Melk", "ar": "حليب"}, "powdered milk": {"en": "Powdered Milk", "fr": "Lait en poudre", "af": "Melkpoeier", "ar": "حليب بودرة"}, "mosque carpet": {"en": "Mosque Carpet", "fr": "Tapis de mosquée", "af": "Moskee-mat", "ar": "سجاد مسجد"}, "natron": {"en": "Natron", "fr": "Natron", "af": "Natron", "ar": "عطرون"}, "needle": {"en": "Needle", "fr": "Aiguille", "af": "Naald", "ar": "إبرة"}, "nidomi": {"en": "Indomie noodles", "fr": "Nouilles Indomie", "af": "Indomie-noedels", "ar": "إندومي"}, "indomie": {"en": "Indomie noodles", "fr": "Nouilles Indomie", "af": "Indomie-noedels", "ar": "إندومي"}, "note book": {"en": "Notebook", "fr": "Cahier", "af": "Notaboek", "ar": "دفتر"}, "nutella": {"en": "Nutella", "fr": "Nutella", "af": "Nutella", "ar": "نوتيلا"}, "oil": {"en": "Oil", "fr": "Huile", "af": "Olie", "ar": "زيت"}, "okra": {"en": "Okra", "fr": "Gombo", "af": "Okra", "ar": "بامية"}, "omo": {"en": "Omo washing powder", "fr": "Lessive Omo", "af": "Omo-waspoeier", "ar": "مسحوق أومو"}, "onions": {"en": "Onions", "fr": "Oignons", "af": "Uie", "ar": "بصل"}, "orange": {"en": "Orange", "fr": "Orange", "af": "Lemoen", "ar": "برتقال"}, "oscillating fan": {"en": "Oscillating Fan", "fr": "Ventilateur oscillant", "af": "Draaiwaaier", "ar": "مروحة دوارة"}, "padlock": {"en": "Padlock", "fr": "Cadenas", "af": "Hangslot", "ar": "قفل"}, "pants": {"en": "Pants", "fr": "Pantalon", "af": "Broek", "ar": "بنطلون"}, "peanut": {"en": "Peanuts", "fr": "Arachides", "af": "Grondboontjies", "ar": "فول سوداني"}, "pepper": {"en": "Pepper", "fr": "Poivre", "af": "Peper", "ar": "فلفل أسود"}, "pepsi": {"en": "Pepsi", "fr": "Pepsi", "af": "Pepsi", "ar": "بيبسي"}, "petrol": {"en": "Petrol", "fr": "Essence", "af": "Petrol", "ar": "بنزين"}, "pipe": {"en": "Pipe", "fr": "Tuyau", "af": "Pyp", "ar": "أنبوب"}, "plug": {"en": "Plug", "fr": "Prise", "af": "Prop", "ar": "قابس"}, "pot": {"en": "Pot", "fr": "Marmite", "af": "Pot", "ar": "قدر"}, "pot 25cm": {"en": "Pot 25cm", "fr": "Marmite 25 cm", "af": "Pot 25cm", "ar": "قدر 25 سم"}, "potato": {"en": "Potatoes", "fr": "Pommes de terre", "af": "Aartappels", "ar": "بطاطس"}, "power strip 4": {"en": "Power Strip 4", "fr": "Multiprise 4 prises", "af": "Kragstrook 4", "ar": "مشترك كهرباء 4 مخارج"}, "power strip 5": {"en": "Power Strip 5", "fr": "Multiprise 5 prises", "af": "Kragstrook 5", "ar": "مشترك كهرباء 5 مخارج"}, "power strip w": {"en": "Power Strip W", "fr": "Multiprise murale", "af": "Kragstrook W", "ar": "مشترك كهرباء جداري"}, "pringles": {"en": "Pringles", "fr": "Pringles", "af": "Pringles", "ar": "برينغلز"}, "rice": {"en": "Rice", "fr": "Riz", "af": "Rys", "ar": "أرز"}, "plate cut": {"en": "Chopping board", "fr": "Planche à découper", "af": "Snyplank", "ar": "لوح تقطيع"}, "chopping board": {"en": "Chopping board", "fr": "Planche à découper", "af": "Snyplank", "ar": "لوح تقطيع"}, "salt": {"en": "Salt", "fr": "Sel", "af": "Sout", "ar": "ملح"}, "savon": {"en": "Soap", "fr": "Savon", "af": "Seep", "ar": "صابون"}, "soap": {"en": "Soap", "fr": "Savon", "af": "Seep", "ar": "صابون"}, "seven up": {"en": "Seven Up", "fr": "7 Up", "af": "Seven Up", "ar": "سفن أب"}, "scrap steel": {"en": "Scrap Steel", "fr": "Ferraille", "af": "Skrootstaal", "ar": "خردة حديد"}, "sheep": {"en": "Sheep", "fr": "Mouton", "af": "Skaap", "ar": "خروف"}, "slops": {"en": "Slippers", "fr": "Sandales", "af": "Pantoffels", "ar": "شبشب"}, "spaghetti": {"en": "Spaghetti", "fr": "Spaghettis", "af": "Spaghetti", "ar": "سباغيتي"}, "steel sheet": {"en": "Steel Sheet", "fr": "Tôle d'acier", "af": "Staalplaat", "ar": "لوح فولاذ"}, "strawberry jam": {"en": "Strawberry Jam", "fr": "Confiture de fraises", "af": "Aarbeikonfyt", "ar": "مربى الفراولة"}, "stretcher": {"en": "Stretcher", "fr": "Brancard", "af": "Draagbaar", "ar": "نقالة"}, "sugar": {"en": "Sugar", "fr": "Sucre", "af": "Suiker", "ar": "سكر"}, "square tubing": {"en": "Square Tubing", "fr": "Tube carré", "af": "Vierkantpyp", "ar": "أنبوب مربع"}, "square tubbing": {"en": "Square tubing", "fr": "Tube carré", "af": "Vierkantpyp", "ar": "أنبوب مربع"}, "tarp": {"en": "Tarp", "fr": "Bâche", "af": "Seil", "ar": "مشمع"}, "tarp 2 x 3": {"en": "Tarp 2 x 3", "fr": "Bâche 2 x 3", "af": "Seil 2 x 3", "ar": "مشمع 2×3"}, "tarp 3 x 4": {"en": "Tarp 3 x 4", "fr": "Bâche 3 x 4", "af": "Seil 3 x 4", "ar": "مشمع 3×4"}, "tea": {"en": "Tea", "fr": "Thé", "af": "Tee", "ar": "شاي"}, "tea cup": {"en": "Tea Cup", "fr": "Tasse à thé", "af": "Teekoppie", "ar": "فنجان شاي"}, "tea glass": {"en": "Tea Glass", "fr": "Verre à thé", "af": "Teeglas", "ar": "كاسة شاي"}, "tea pot": {"en": "Tea Pot", "fr": "Théière", "af": "Teepot", "ar": "إبريق شاي"}, "tek screw": {"en": "Tek Screw", "fr": "Vis autoperceuse", "af": "Tekskroef", "ar": "برغي ذاتي الحفر"}, "tomato": {"en": "Tomatoes", "fr": "Tomates", "af": "Tamaties", "ar": "طماطم"}, "tomato puree": {"en": "Tomato Puree", "fr": "Concentré de tomate", "af": "Tamatiepuree", "ar": "معجون طماطم"}, "tomato sauce": {"en": "Tomato Sauce", "fr": "Sauce tomate", "af": "Tamatiesous", "ar": "صلصة طماطم"}, "katchup": {"en": "Ketchup", "fr": "Ketchup", "af": "Ketchup", "ar": "كاتشب"}, "torch": {"en": "Torch", "fr": "Lampe torche", "af": "Flits", "ar": "كشاف"}, "tuna": {"en": "Tuna", "fr": "Thon", "af": "Tuna", "ar": "تونة"}, "watch": {"en": "Watch", "fr": "Montre", "af": "Horlosie", "ar": "ساعة"}, "water": {"en": "Water", "fr": "Eau", "af": "Water", "ar": "ماء"}, "water 500ml": {"en": "Water 500ml", "fr": "Eau 500 ml", "af": "Water 500ml", "ar": "ماء 500 مل"}, "water pump": {"en": "Water Pump", "fr": "Pompe à eau", "af": "Waterpomp", "ar": "مضخة ماء"}, "watermelon": {"en": "Watermelon", "fr": "Pastèque", "af": "Waatlemoen", "ar": "بطيخ"}, "welding rods": {"en": "Welding Rods", "fr": "Baguettes de soudure", "af": "Sweisstawe", "ar": "أسلاك لحام"}, "wheel repair": {"en": "Wheel Repair", "fr": "Réparation de roue", "af": "Wiel herstel", "ar": "إصلاح عجلة"}, "yarn": {"en": "Yarn", "fr": "Fil", "af": "Garing", "ar": "خيط"}, "yeast": {"en": "Yeast", "fr": "Levure", "af": "Gis", "ar": "خميرة"}, "snickers": {"en": "Snickers", "fr": "Snickers", "af": "Snickers", "ar": "سنيكرز"}, "custard": {"en": "Custard", "fr": "Crème anglaise (poudre)", "af": "Vla", "ar": "كاسترد"}, "beef": {"en": "Beef", "fr": "Bœuf", "af": "Beesvleis", "ar": "لحم بقر"}, "goat meat": {"en": "Goat Meat", "fr": "Viande de chèvre", "af": "Bokvleis", "ar": "لحم ماعز"}, "mutton": {"en": "Mutton", "fr": "Viande de mouton", "af": "Skaapvleis", "ar": "لحم ضأن"}, "fish": {"en": "Fish", "fr": "Poisson", "af": "Vis", "ar": "سمك"}, "dried fish": {"en": "Dried Fish", "fr": "Poisson séché", "af": "Droë vis", "ar": "سمك مجفف"}, "sardines": {"en": "Sardines", "fr": "Sardines", "af": "Sardiens", "ar": "سردين"}, "corned beef": {"en": "Corned Beef", "fr": "Corned-beef", "af": "Corned beef", "ar": "لحم بقري معلب"}, "beans (canned)": {"en": "Beans (canned)", "fr": "Haricots en conserve", "af": "Boontjies (blik)", "ar": "فاصوليا معلبة"}, "millet": {"en": "Millet", "fr": "Mil", "af": "Manna", "ar": "دخن"}, "sorghum": {"en": "Sorghum", "fr": "Sorgho", "af": "Sorghum", "ar": "ذرة رفيعة"}, "maize": {"en": "Maize", "fr": "Maïs", "af": "Mielies", "ar": "ذرة"}, "couscous": {"en": "Couscous", "fr": "Couscous", "af": "Couscous", "ar": "كسكس"}, "semolina": {"en": "Semolina", "fr": "Semoule", "af": "Semolina", "ar": "سميد"}, "oats": {"en": "Oats", "fr": "Flocons d'avoine", "af": "Hawermout", "ar": "شوفان"}, "vegetable oil": {"en": "Vegetable Oil", "fr": "Huile végétale", "af": "Kookolie", "ar": "زيت نباتي"}, "butter": {"en": "Butter", "fr": "Beurre", "af": "Botter", "ar": "زبدة"}, "margarine": {"en": "Margarine", "fr": "Margarine", "af": "Margarien", "ar": "سمن نباتي"}, "honey": {"en": "Honey", "fr": "Miel", "af": "Heuning", "ar": "عسل"}, "vinegar": {"en": "Vinegar", "fr": "Vinaigre", "af": "Asyn", "ar": "خل"}, "cabbage": {"en": "Cabbage", "fr": "Chou", "af": "Kool", "ar": "ملفوف"}, "lettuce": {"en": "Lettuce", "fr": "Laitue", "af": "Blaarslaai", "ar": "خس"}, "eggplant": {"en": "Eggplant", "fr": "Aubergine", "af": "Eiervrug", "ar": "باذنجان"}, "green pepper": {"en": "Green Pepper", "fr": "Poivron", "af": "Groen soetrissie", "ar": "فلفل أخضر"}, "sweet potato": {"en": "Sweet Potato", "fr": "Patate douce", "af": "Patat", "ar": "بطاطا حلوة"}, "pumpkin": {"en": "Pumpkin", "fr": "Courge", "af": "Pampoen", "ar": "قرع"}, "mango": {"en": "Mango", "fr": "Mangue", "af": "Mango", "ar": "مانجو"}, "guava": {"en": "Guava", "fr": "Goyave", "af": "Koejawel", "ar": "جوافة"}, "pineapple": {"en": "Pineapple", "fr": "Ananas", "af": "Pynappel", "ar": "أناناس"}, "hibiscus": {"en": "Hibiscus", "fr": "Bissap (hibiscus)", "af": "Hibiskus", "ar": "كركديه"}, "cinnamon": {"en": "Cinnamon", "fr": "Cannelle", "af": "Kaneel", "ar": "قرفة"}, "cloves": {"en": "Cloves", "fr": "Clous de girofle", "af": "Naeltjies", "ar": "قرنفل"}, "black pepper": {"en": "Black Pepper", "fr": "Poivre noir", "af": "Swartpeper", "ar": "فلفل أسود"}, "paprika": {"en": "Paprika", "fr": "Paprika", "af": "Paprika", "ar": "بابريكا"}, "bay leaves": {"en": "Bay Leaves", "fr": "Feuilles de laurier", "af": "Lourierblare", "ar": "ورق غار"}, "mint": {"en": "Mint", "fr": "Menthe", "af": "Kruisement", "ar": "نعناع"}, "sesame": {"en": "Sesame", "fr": "Sésame", "af": "Sesam", "ar": "سمسم"}, "biscuits": {"en": "Biscuits", "fr": "Biscuits", "af": "Koekies", "ar": "بسكويت"}, "juice": {"en": "Juice", "fr": "Jus", "af": "Sap", "ar": "عصير"}, "soft drinks": {"en": "Soft Drinks", "fr": "Boissons gazeuses", "af": "Koeldrank", "ar": "مشروبات غازية"}, "mineral water": {"en": "Mineral Water", "fr": "Eau minérale", "af": "Mineraalwater", "ar": "مياه معدنية"}, "coca-cola": {"en": "Coca-Cola", "fr": "Coca-Cola", "af": "Coca-Cola", "ar": "كوكاكولا"}, "fanta": {"en": "Fanta", "fr": "Fanta", "af": "Fanta", "ar": "فانتا"}, "toilet paper": {"en": "Toilet Paper", "fr": "Papier toilette", "af": "Toiletpapier", "ar": "ورق تواليت"}, "bleach": {"en": "Bleach", "fr": "Eau de Javel", "af": "Bleikmiddel", "ar": "مبيض (كلور)"}, "washing powder": {"en": "Washing Powder", "fr": "Lessive en poudre", "af": "Waspoeier", "ar": "مسحوق غسيل"}, "sponge": {"en": "Sponge", "fr": "Éponge", "af": "Spons", "ar": "إسفنجة"}, "garbage bags": {"en": "Garbage Bags", "fr": "Sacs poubelle", "af": "Vullissakke", "ar": "أكياس قمامة"}, "insecticide": {"en": "Insecticide", "fr": "Insecticide", "af": "Insekgif", "ar": "مبيد حشرات"}, "mosquito net": {"en": "Mosquito Net", "fr": "Moustiquaire", "af": "Muskietnet", "ar": "ناموسية"}, "matches": {"en": "Matches", "fr": "Allumettes", "af": "Vuurhoutjies", "ar": "كبريت"}, "candles": {"en": "Candles", "fr": "Bougies", "af": "Kerse", "ar": "شموع"}, "batteries aa": {"en": "Batteries AA", "fr": "Piles AA", "af": "Batterye AA", "ar": "بطاريات AA"}, "toothpaste": {"en": "Toothpaste", "fr": "Dentifrice", "af": "Tandepasta", "ar": "معجون أسنان"}, "toothbrush": {"en": "Toothbrush", "fr": "Brosse à dents", "af": "Tandeborsel", "ar": "فرشاة أسنان"}, "towel": {"en": "Towel", "fr": "Serviette", "af": "Handdoek", "ar": "منشفة"}, "mattress": {"en": "Mattress", "fr": "Matelas", "af": "Matras", "ar": "مرتبة"}, "pillow": {"en": "Pillow", "fr": "Oreiller", "af": "Kussing", "ar": "وسادة"}, "jerrycan": {"en": "Jerrycan", "fr": "Bidon", "af": "Jerrykan", "ar": "جركن"}, "kettle": {"en": "Kettle", "fr": "Bouilloire", "af": "Ketel", "ar": "غلاية"}, "frying pan": {"en": "Frying Pan", "fr": "Poêle", "af": "Braaipan", "ar": "مقلاة"}, "cup": {"en": "Cup", "fr": "Tasse", "af": "Koppie", "ar": "كوب"}, "bowl": {"en": "Bowl", "fr": "Bol", "af": "Bak", "ar": "وعاء"}, "fork": {"en": "Fork", "fr": "Fourchette", "af": "Vurk", "ar": "شوكة"}, "cooking gas": {"en": "Cooking Gas", "fr": "Gaz de cuisine", "af": "Kookgas", "ar": "غاز طبخ"}, "nails": {"en": "Nails", "fr": "Clous", "af": "Spykers", "ar": "مسامير"}, "screws": {"en": "Screws", "fr": "Vis", "af": "Skroewe", "ar": "براغي"}, "wire": {"en": "Wire", "fr": "Fil de fer", "af": "Draad", "ar": "سلك"}, "rope": {"en": "Rope", "fr": "Corde", "af": "Tou", "ar": "حبل"}, "paint": {"en": "Paint", "fr": "Peinture", "af": "Verf", "ar": "طلاء"}, "gloves": {"en": "Gloves", "fr": "Gants", "af": "Handskoene", "ar": "قفازات"}, "grease": {"en": "Grease", "fr": "Graisse", "af": "Ghries", "ar": "شحم"}, "engine oil": {"en": "Engine Oil", "fr": "Huile moteur", "af": "Enjinolie", "ar": "زيت محرك"}, "tyre": {"en": "Tyre", "fr": "Pneu", "af": "Band", "ar": "إطار"}, "fuel filter": {"en": "Fuel Filter", "fr": "Filtre à gasoil", "af": "Brandstoffilter", "ar": "فلتر وقود"}, "shovel": {"en": "Shovel", "fr": "Pelle", "af": "Graaf", "ar": "مجرفة"}, "wheelbarrow": {"en": "Wheelbarrow", "fr": "Brouette", "af": "Kruiwa", "ar": "عربة يدوية"}, "padlock key": {"en": "Padlock Key", "fr": "Clé de cadenas", "af": "Hangslot-sleutel", "ar": "مفتاح قفل"}};
 const TNk=n=>String(n||"").toLowerCase().replace(/\s+/g," ").trim();
 let trs=LJ("pa_tr",[]);const saveTr=()=>{localStorage.pa_tr=JSON.stringify(trs);if(window.syncMark)syncMark()};
-function trGet(n){const k=TNk(n);const o=trs.find(x=>x&&x.id===k);const d=TRD[k];if(!o&&!d)return null;return {en:(o&&o.en)||(d&&d.en)||"",fr:(o&&o.fr)||(d&&d.fr)||"",af:(o&&o.af)||(d&&d.af)||""}}
+function trGet(n){const k=TNk(n);const o=trs.find(x=>x&&x.id===k);const d=TRD[k];if(!o&&!d)return null;return {en:(o&&o.en)||(d&&d.en)||"",fr:(o&&o.fr)||(d&&d.fr)||"",af:(o&&o.af)||(d&&d.af)||"",ar:(o&&o.ar)||(d&&d.ar)||""}}
 function tn(n){if(!n)return n;const g=trGet(n);return (g&&g[lang])||n}
 window.tn=tn;
-function trAll(n){const g=trGet(n),cn=String(canonName(n)).toLowerCase(),al=Object.keys(window.ITEM_ALIAS).filter(k=>String(ITEM_ALIAS[k]).toLowerCase()===cn);return (g?[n,g.en,g.fr,g.af].filter(Boolean):[n]).concat(al)}
+function trAll(n){const g=trGet(n),cn=String(canonName(n)).toLowerCase(),al=Object.keys(window.ITEM_ALIAS).filter(k=>String(ITEM_ALIAS[k]).toLowerCase()===cn);return (g?[n,g.en,g.fr,g.af,g.ar].filter(Boolean):[n]).concat(al)}
 function trHay(n){return trAll(n).join(" | ").toLowerCase()}
 function tkey(sv){sv=canonName(sv);const q=TNk(sv);if(!q)return String(sv||"").trim();const c=cat.find(c=>TNk(c.name)===q);if(c)return c.name;
 const keys=[...cat.map(c=>c.name),...new Set([...data,...(typeof batches!=="undefined"?batches.flatMap(b=>b.entries||[]):[])].map(e=>e&&e.name).filter(Boolean))];
@@ -450,7 +1061,7 @@ return String(sv).trim()}
 window.tkey=tkey;
 let batches=LJ("pa_batches",[]),curB=null;let users=LJ("pa_users",[]);let cash=LJ("pa_cash",[]);const saveC=()=>{localStorage.pa_cash=JSON.stringify(cash);if(window.syncMark)syncMark()};const saveU=()=>{localStorage.pa_users=JSON.stringify(users);if(window.syncMark)syncMark()};
 const saveB=()=>{try{window.cashRecalc&&cashRecalc()}catch(e){console.error(e)}localStorage.pa_batches=JSON.stringify(batches);if(window.syncMark)syncMark()};
-const fdt=s=>new Date(s).toLocaleString(lang==="af"?"af-ZA":lang==="fr"?"fr-FR":"en-GB",{day:"numeric",month:"short",year:"numeric",hour:"2-digit",minute:"2-digit"});
+const fdt=s=>new Date(s).toLocaleString(locDate(),{day:"numeric",month:"short",year:"numeric",hour:"2-digit",minute:"2-digit"});
 const nowLocal=()=>{const d=new Date();return new Date(d-d.getTimezoneOffset()*6e4).toISOString().slice(0,19)};
 function showHist(v){$("hist").style.display=v?"block":"none";$("mainv").style.display=v?"none":"block";$("mgr").style.display="none";if(v){curB=null;renderH()}scrollTo(0,0)}
 $("paidBtn").onclick=()=>{$("paidForm").style.display="block";$("pNote").value="";if(!$("pBy").value)$("pBy").value=localStorage.pa_user||"";$("pBy").focus()};
@@ -555,9 +1166,9 @@ window.spCheck=async function(){var K=spKnown(),asked={},ch=0;for(var i=0;i<data
 /* ---- v65 missed purchase (admin) ---- */
 let missB=null;
 function missUI(){const a=!!(window.PERM||{}).admin;const x=$("missBtn");if(x)x.style.display=a?"":"none";if(!a&&$("missForm"))$("missForm").style.display="none"}
-function missOpen(b){if(!(window.PERM||{}).admin)return;if(b&&!canFix()){fixOnlyMsg();return}missB=b||null;const e=b?b.entries[0]:null;$("mDate").max=today();$("mDate").value=e?e.date:today();$("mItem").value=e?tn(e.name):"";$("mSize").value=e?(e.size||""):"";$("mQty").value=e?e.qty:"";$("mUnit").value=e?e.unit:"pcs";$("mPrice").value=e?e.price:"";setEcur(e?CUR(e):ecur(),"mCur");$("mBy").value=b?(b.paidBy||""):(localStorage.pa_user||"");$("mNote").value=b?(b.note||""):"";if(b){curB=null;showHist(0)}$("paidForm").style.display="none";$("missForm").style.display="block";$("missForm").scrollIntoView({block:"start"})}
-function missSave(){const d=$("mDate").value||today(),nm=$("mItem").value.trim(),q=+$("mQty").value,p=+$("mPrice").value,c=$("mCur").value==="LYD"?"LYD":"FCFA";if(!nm||!(q>0)||!(p>=0)||$("mPrice").value===""){alert(t("missBad"));return}if(d>today()){alert(t("missFuture"));return}
-const at=d===today()?nowLocal():d+"T12:00:00";const old=missB;const id=old?old.entries[0].id:Date.now();const e={id:id,name:tkey(nm),qty:q,unit:$("mUnit").value.trim()||"pcs",size:$("mSize").value.trim(),price:p,cur:c,date:d,at:at,missed:1};const TM=sumM([e]);
+function missOpen(b){if(!(window.PERM||{}).admin)return;if(b&&!canFix()){fixOnlyMsg();return}missB=b||null;const e=b?b.entries[0]:null;$("mDate").max=today();$("mDate").value=e?e.date:today();$("mItem").value=e?tn(e.name):"";$("mSize").value=e?(e.size||""):"";$("mQty").value=e?e.qty:"";$("mUnit").value=e?e.unit:"pcs";$("mPrice").value=e?e.price:"";setEcur(e?CUR(e):ecur(),"mCur");$("mBy").value=b?(b.paidBy||""):(localStorage.pa_user||"");$("mNote").value=b?(b.note||""):"";if(window.setCat)setCat(e&&e.cat||"","mCat");if(b){curB=null;showHist(0)}$("paidForm").style.display="none";$("missForm").style.display="block";$("missForm").scrollIntoView({block:"start"})}
+function missSave(){const d=$("mDate").value||today(),nm=$("mItem").value.trim(),q=+$("mQty").value,p=+$("mPrice").value,c=$("mCur").value==="LYD"?"LYD":"FCFA";if(!nm||!(q>0)||!(p>=0)||$("mPrice").value===""){alert(t("missBad"));return}const mcat=catVal($("mCat").value);if(!mcat){catRefuse("mCat");return}if(d>today()){alert(t("missFuture"));return}
+const at=d===today()?nowLocal():d+"T12:00:00";const old=missB;const id=old?old.entries[0].id:Date.now();const e={id:id,name:tkey(nm),qty:q,unit:$("mUnit").value.trim()||"pcs",size:$("mSize").value.trim(),price:p,cur:c,date:d,at:at,missed:1,cat:mcat};const TM=sumM([e]);
 const bid=old?old.id:Date.now()+1;const b={id:bid,paidAt:at,paidBy:$("mBy").value.trim(),note:$("mNote").value.trim(),missed:1,entries:[e],count:1,total:TM.FCFA};if(TM.LYD)b.totalL=TM.LYD;
 const CB=batches.filter(x=>x&&x.cash&&x!==old).sort((x,y)=>String(x.paidAt).localeCompare(String(y.paidAt)));
 if(old&&old.cash)b.cash=Object.assign({},old.cash);
@@ -589,7 +1200,7 @@ $("bkFile").onchange=async ev=>{const f=ev.target.files[0];ev.target.value="";if
 rMerge(j.localStorage);if(j.slips&&window.slipLoad){try{await slipLoad(j.slips)}catch(e){}}localStorage.pa_lastExport=Date.now();alert(t("restoreDone"));location.reload()}catch(e){alert(t("restoreFail"))}};
 /* ---- search & summary ---- */
 const allEntries=()=>data.map(e=>({...e,name:canonName(e.name),store:"",paid:0})).concat(...batches.map(b=>b.entries.map(e=>({...e,name:canonName(e.name),store:b.store||"",paidBy:b.paidBy||"",paid:1}))));
-const fmonth=m=>new Date(m+"-15T12:00").toLocaleDateString(lang==="af"?"af-ZA":lang==="fr"?"fr-FR":"en-GB",{month:"short",year:"numeric"});
+const fmonth=m=>new Date(m+"-15T12:00").toLocaleDateString(locDate(),{month:"short",year:"numeric"});
 function renderSearch(){const A=allEntries(),sv=$("fStore").value,mv=$("fMonth").value;
 $("fStore").innerHTML=`<option value="*">${t("fAll")}</option><option value="__open">${t("openList")}</option>`+`<option value="__paid">${t("stPaid")}</option>`;$("fStore").value=sv||"*";if($("fStore").selectedIndex<0)$("fStore").value="*";
 $("fMonth").innerHTML=`<option value="*">${t("fAll")}</option>`+[...new Set(A.map(e=>e.date.slice(0,7)))].sort().reverse().map(m=>`<option value="${m}">${fmonth(m)}</option>`).join("");$("fMonth").value=mv||"*";if($("fMonth").selectedIndex<0)$("fMonth").value="*";
@@ -601,7 +1212,7 @@ $("fTot").textContent=fmtM(sumM(r));$("fCount").textContent=r.length}
 function bars(rows){if(!rows.some(r=>r[1]))return`<p>${t("noData")}</p>`;const W=360,H=190,pad=26,mx=Math.max(...rows.map(r=>r[1]))||1,bw=(W-10)/rows.length;
 return `<svg viewBox="0 0 ${W} ${H+pad+16}" width="100%">`+rows.map((r,i)=>{const h=r[1]/mx*H,x=5+i*bw,y=16+H-h;return `<rect x="${x+bw*.15}" y="${y}" width="${bw*.7}" height="${h}" rx="3" fill="#15803d"><title>${esc(r[0])}: ${fmt(r[1])}</title></rect>`+(r[1]?`<text x="${x+bw/2}" y="${y-3}" font-size="9" text-anchor="middle" fill="#334155">${short(r[1])}</text>`:"")+`<text x="${x+bw/2}" y="${16+H+14}" font-size="9" text-anchor="middle" fill="#475569">${esc(r[0])}</text>`}).join("")+`<line x1="0" y1="${16+H}" x2="${W}" y2="${16+H}" stroke="#cbd5e1"/></svg>`}
 const short=n=>n>=1e6?(n/1e6).toFixed(1).replace(/\.0$/,"")+"M":n>=1e3?Math.round(n/1e3)+"k":String(Math.round(n));
-function renderSum(){const A=allEntries(),loc=lang==="af"?"af-ZA":lang==="fr"?"fr-FR":"en-GB";
+function renderSum(){const A=allEntries(),loc=locDate();
 const months=[];const d=new Date();for(let i=11;i>=0;i--){const x=new Date(d.getFullYear(),d.getMonth()-i,15);months.push(x.getFullYear()+"-"+String(x.getMonth()+1).padStart(2,"0"))}
 $("sMonth").innerHTML=bars(months.map(m=>[new Date(m+"-15T12:00").toLocaleDateString(loc,{month:"short"}),A.filter(e=>e.date.startsWith(m)&&CUR(e)==="FCFA").reduce((a,e)=>a+lt(e),0)]));
 const eMs=e=>{const x=Date.parse(String(e.at||(e.date+"T12:00:00")).slice(0,19)+"+01:00");return isNaN(x)?Date.parse(e.date+"T12:00:00+01:00"):x};const cw=wkStartOf(nowMs()),weeks=[];for(let i=7;i>=0;i--)weeks.push(cw-i*WK);
@@ -635,10 +1246,10 @@ $("msXlsx").onclick=async()=>{try{await loadX()}catch(e){alert(t("impFail"));ret
 function renderR(){if($("tabR").style.display==="none")return;renderSearch();renderSum();renderPD();renderMS()}
 let orders=LJ("pa_orders",[]),oEdit=null,oPrev=null;
 const saveO=()=>{localStorage.pa_orders=JSON.stringify(orders);if(window.syncMark)syncMark()};
-const ST=["pending","received","closed","cancelled"];
+const ST=["pending","closed","cancelled"]; /* pp13: Received goods status removed — GRV does arrival now */
 const oTot=o=>{const c=typeof cur==="string"?cur:"FCFA";return o.lines.reduce((s,l)=>s+lt(Object.assign({cur:c},l)),0)};
 const isOD=o=>o.status==="pending"&&o.expected&&o.expected<today();
-function renderH0(){try{$("hHello").textContent=localStorage.pa_user?t("hi").replace("%n",localStorage.pa_user):"";$("hHello").style.display=localStorage.pa_user?"":"none";$("hDate").textContent=new Date().toLocaleDateString(lang==="af"?"af-ZA":lang==="fr"?"fr-FR":"en-GB",{weekday:"long",day:"numeric",month:"long",year:"numeric"});const AL=tmcAlloc(orders,allEntries());$("hcS").textContent=window.sGroupN?sGroupN(AL):AL.list.filter(r=>r.need>0).length;$("hsS").textContent=t("hS");
+function renderH0(){try{$("hHello").textContent=localStorage.pa_user?t("hi").replace("%n",localStorage.pa_user):"";$("hHello").style.display=localStorage.pa_user?"":"none";$("hDate").textContent=new Date().toLocaleDateString(locDate(),{weekday:"long",day:"numeric",month:"long",year:"numeric"});const AL=tmcAlloc(orders,allEntries());$("hcS").textContent=window.sGroupN?sGroupN(AL):AL.list.filter(r=>r.need>0).length;$("hsS").textContent=t("hS");
 $("hcP").textContent=data.length;$("hsP").textContent=window.NOPRICE?t("hP"):t("hP")+" · "+fmtM(sumM(data));$("hcO").textContent=orders.filter(o=>!o.status||o.status==="pending").length;$("hsO").textContent=t("hO");
 const d=today();$("hcR").textContent=fmtM(sumM(batches.filter(b=>String(b.paidAt||"").slice(0,10)===d).flatMap(b=>b.entries||[])));$("hsR").textContent=t("hR");const st=$("syStat");$("hSync").textContent=st&&st.textContent?"☁️ "+st.textContent:"";$("hSync").style.display=$("hSync").textContent?"":"none";if(window.syncStatus)syncStatus();if(window.permsNotify)permsNotify()}catch(e){console.error(e)}}
 document.querySelectorAll(".htile").forEach(b=>b.onclick=()=>showTab(b.dataset.go));
@@ -660,7 +1271,7 @@ function wkStartOf(ms){const t=new Date(ms+TZO);const dow=t.getUTCDay();let d=Da
 function oCreated(o){if(o.createdMs)return +o.createdMs;if(+o.id>1e12&&+o.id<4e12)return +o.id;const p=o.placed||"";return p?Date.parse(p+"T12:00:00+01:00"):nowMs()}
 function oWk(o){if(o.wk){const x=Date.parse(o.wk+"T05:00:00+01:00");if(x)return x}return wkStartOf(oCreated(o))}
 function oClosed(o){return !o.ordOpen&&nowMs()>=oWk(o)+WK}
-const wkFmt=ms=>new Date(ms+TZO).toLocaleDateString(lang==="af"?"af-ZA":lang==="fr"?"fr-FR":"en-GB",{weekday:"short",day:"numeric",month:"short",timeZone:"UTC"});
+const wkFmt=ms=>new Date(ms+TZO).toLocaleDateString(locDate(),{weekday:"short",day:"numeric",month:"short",timeZone:"UTC"});
 function oWkHtml(o){const st=oWk(o),end=st+WK,cl=oClosed(o),cur=!cl&&nowMs()>=st;let left=end-nowMs();const dd=Math.floor(left/864e5),hh=Math.floor(left%864e5/36e5),mm=Math.floor(left%36e5/6e4);
 return `<div class="owk${cl?" cl":""}">🗓️ ${esc(t("wkL"))}: ${esc(wkFmt(st))} → ${esc(wkFmt(end))} 05:00 · ${cl?"🔒 "+esc(t("wkClosed")):o.ordOpen&&nowMs()>=end?"🔓 "+esc(t("wkReop")):cur?"⏳ "+esc(t("wkCloses"))+" · "+(dd?dd+"d ":"")+hh+"h"+(dd?"":" "+mm+"m"):""}</div>`}
 function myWeekOrder(){const me=String(localStorage.pa_user||"").toLowerCase().replace(/\s+/g,""),ws=wkStartOf(nowMs());return orders.find(o=>(o.status||"pending")==="pending"&&!oClosed(o)&&oWk(o)===ws&&String(o.reqBy||"").toLowerCase().replace(/\s+/g,"")===me&&me)}
@@ -673,25 +1284,24 @@ $("oFilter").onchange=renderO;$("oPick").onchange=()=>{localStorage.pa_oPick=$("
 $("of").onsubmit=ev=>{ev.preventDefault();const lines=oLinesGet();if(!lines.length){alert(t("needLine"));return}
 const o={id:oEdit?oEdit.id:Date.now(),no:$("oNo").value.trim(),sup:$("oSup").value.trim(),reqBy:$("oReq").value.trim(),placed:$("oPlaced").value,expected:$("oExp").value,status:$("oStatus").value,notes:$("oNotes").value.trim(),lines};if(!oEdit){o.createdMs=nowMs();o.wk=new Date(wkStartOf(o.createdMs)+TZO).toISOString().slice(0,10)}if(o.status!=="pending")o.closedAt=oEdit&&oEdit.closedAt&&oPrev===o.status?oEdit.closedAt:nowLocal();else if(oEdit)delete oEdit.closedAt;
 if(oEdit)Object.assign(oEdit,o);else orders.push(o);saveO();
-if(o.status==="received"&&oPrev!=="received"&&confirm(t("logAsk"))){let k=0;
-lines.forEach(l=>{data.push({id:Date.now()+(k++),name:l.name,size:l.size,qty:l.qty,unit:l.unit,price:l.price,date:today(),at:nowLocal(),order:o.no})});save();render();alert(t("logged").replace("%n",k))}
+/* pp13: removed Order-received → log items as purchases (GRV does arrival) */
 renderO();oShow(0)};
 function renderO(){const f=$("oFilter").value||"all";let AL=tmcAlloc(orders,allEntries());if(nnAuto(AL))AL=tmcAlloc(orders,allEntries());
 $("reqList").innerHTML=[...new Set(orders.map(o=>o.reqBy).filter(Boolean))].sort().map(n=>`<option value="${esc(n)}">`).join("");$("supList").innerHTML=[...new Set(orders.map(o=>o.sup).filter(Boolean))].sort().map(n=>`<option value="${esc(n)}">`).join("");
 const NEED={};AL.list.forEach(r=>{if(r.need>0)NEED[String(r.o.id)]=1});const oAct2=o=>(o.status||"pending")==="pending"&&(NEED[String(o.id)]||(!oClosed(o)&&!(o.lines||[]).length));const PS=$("oPick"),pv=localStorage.pa_oPick||"all";const srt=orders.filter(o=>localStorage.pa_oDone==="1"||oAct2(o)||String(o.id)===pv).sort((a,b)=>String(b.placed||"").localeCompare(String(a.placed||""))||b.id-a.id);PS.innerHTML=`<option value="all">${esc(t("oPickAll"))}</option>`+srt.map(o=>`<option value="${o.id}">${esc(o.no)} · ${fdate(o.placed)}${o.reqBy?" · "+esc(o.reqBy):""} · ${(o.status||"pending")==="pending"?"🟢 "+esc(t("oOpenL")):"✔ "+esc(t("oDoneL"))}</option>`).join("");const pk=orders.some(o=>String(o.id)===pv)?pv:"all";PS.value=pk;$("oFilter").closest(".card").querySelectorAll('[data-t="status"],#oFilter').forEach(x=>x.style.display=pk==="all"?"":"none");
 const hideDone=pk==="all"&&f==="all"&&localStorage.pa_oDone!=="1";const nDone=orders.filter(o=>!oAct2(o)).length;
 const s=orders.filter(o=>pk!=="all"?String(o.id)===pk:(f==="all"?(!hideDone||oAct2(o)):(f==="overdue"?isOD(o):o.status===f))).sort((a,b)=>((a.status||"pending")==="pending"?0:1)-((b.status||"pending")==="pending"?0:1)||String(a.placed||"").localeCompare(String(b.placed||""))||a.id-b.id);
-$("oItems").innerHTML=s.length?s.map(o=>`<div class="item ${isOD(o)?"od":""}" data-id="${o.id}"><div><b>${esc(o.no)}</b>${o.short?shTag():""}${o.ret?retTag():""}<span class="badge b-${o.status}">${t("st_"+o.status)}</span>${isOD(o)?`<span class="badge b-overdue">${t("overdue")}</span>`:""}<br><small>${o.sup?"🏪 "+esc(o.sup)+" · ":""}${o.reqBy?"🙋 "+esc(o.reqBy)+" · ":""}📅 ${fdate(o.placed)}${o.expected?" → 🚚 "+fdate(o.expected):""}</small><br><small>📦 ${o.lines.length} · ${esc(t("lines"))}</small>${(o.status||"pending")==="pending"?oWkHtml(o):""}${oProg(o,AL)}</div><b style="white-space:nowrap">${fmt(oTot(o))}</b></div>`).join("")+`<div class="tot" style="margin-top:8px"><span>${t("total")}</span><b>${fmt(s.reduce((a,o)=>a+oTot(o),0))}</b></div>`:`<p>${t(hideDone&&nDone?"oNoActive":"noOrders")}</p>`;if(pk==="all"&&f==="all"&&nDone)$("oItems").insertAdjacentHTML("beforeend",`<button type="button" class="sec mini" id="oDoneT" style="width:100%;margin-top:8px">${hideDone?"✔ "+esc(t("oShowDone")).replace("%n",nDone):"🙈 "+esc(t("oHideDone"))}</button>`);renderOut(AL)}
+$("oItems").innerHTML=s.length?s.map(o=>`<div class="item ocard ${isOD(o)?"od":""}" data-id="${o.id}"><div class="obody"><b>${esc(o.no)}</b>${o.short?shTag():""}${o.ret?retTag():""}<span class="badge b-${o.status}">${t("st_"+o.status)}</span>${isOD(o)?`<span class="badge b-overdue">${t("overdue")}</span>`:""}<br><small>${o.sup?"🏪 "+esc(o.sup)+" · ":""}${o.reqBy?"🙋 "+esc(o.reqBy)+" · ":""}📅 ${fdate(o.placed)}${o.expected?" → 🚚 "+fdate(o.expected):""}</small><br><small>📦 ${o.lines.length} · ${esc(t("lines"))}</small>${(o.status||"pending")==="pending"?oWkHtml(o):""}<div class="oamt">${fmt(oTot(o))}</div>${oProg(o,AL)}</div></div>`).join("")+`<div class="tot" style="margin-top:8px"><span>${t("total")}</span><b>${fmt(s.reduce((a,o)=>a+oTot(o),0))}</b></div>`:`<p>${t(hideDone&&nDone?"oNoActive":"noOrders")}</p>`;if(pk==="all"&&f==="all"&&nDone)$("oItems").insertAdjacentHTML("beforeend",`<button type="button" class="sec mini" id="oDoneT" style="width:100%;margin-top:8px">${hideDone?"✔ "+esc(t("oShowDone")).replace("%n",nDone):"🙈 "+esc(t("oHideDone"))}</button>`);renderOut(AL)}
 $("oItems").onclick=ev=>{if(ev.target.id==="oDoneT"){localStorage.pa_oDone=localStorage.pa_oDone==="1"?"0":"1";renderO();return}const ac=ev.target.closest("[data-act]");if(ac){ev.stopPropagation();oAct(ac.dataset.act,ac.dataset.o,ac.dataset.i);return}const d=ev.target.closest("[data-id]");if(d)oOpen(orders.find(o=>o.id==d.dataset.id))};
 function renderExtra(){$("catList").innerHTML=cat.map(c=>{const v=tn(c.name);return `<option value="${esc(v)}">${v!==c.name?esc(c.name):""}</option>`}).join("");$("unitList").innerHTML=UNITS.map(u=>`<option value="${u}">`).join("");
 const fv=$("oFilter").value||"all";$("oFilter").innerHTML=["all",...ST,"overdue"].map(s=>`<option value="${s}">${t(s==="all"?"fAll":s==="overdue"?"overdue":"st_"+s)}</option>`).join("");$("oFilter").value=fv;
-const sv=$("oStatus").value||"pending";$("oStatus").innerHTML=ST.map(s=>`<option value="${s}">${t("st_"+s)}</option>`).join("");$("oStatus").value=sv;
+const sv=$("oStatus").value||"pending";const STUI=sv==="received"&&ST.indexOf("received")<0?ST.concat("received"):ST;$("oStatus").innerHTML=STUI.map(s=>`<option value="${s}">${t("st_"+s)}</option>`).join("");$("oStatus").value=sv;
 renderO();if($("oForm").style.display!=="none")[...$("oLines").children].forEach(d=>{const q=s=>d.querySelector(s);q(".lName").placeholder=t("item");q(".lSize").placeholder=t("size");q(".lQty").placeholder=t("qty");q(".lUnit").placeholder=t("unit");q(".lPrice").placeholder=t("price")}),oCalc()}
 $("oCsv").onclick=()=>{const q=v=>`"${String(v??"").replace(/"/g,'""')}"`;const rows=[["Order number","Supplier","Status","Date placed","Expected delivery","Item","Size","Qty","Unit","Unit price","Line total","Order total","Currency","Notes","Requested by","Bought","Left","Line status"]];const AL=tmcAlloc(orders,allEntries());
 orders.forEach(o=>o.lines.forEach((l,i)=>{const r=AL.lines[o.id+"|"+i]||{};rows.push([o.no,o.sup,o.status,o.placed,o.expected,l.name,l.size,l.qty,l.unit,l.price,lt(Object.assign({cur:cur},l)),oTot(o),cur,o.notes,o.reqBy||"",r.b||0,r.rem||0,l.st||r.st||""])}));
 const b=new Blob(["\ufeff"+rows.map(r=>r.map(q).join(",")).join("\r\n")],{type:"text/csv"});const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="orders-"+today()+".csv";a.click();markExport()};
 applyLang();reset();
-(function(){var APP=window.APP_VER=101,REG=null,READY=false,LATEST=+localStorage.pa_latest||APP,_rl=false,CHK=0;
+(function(){var APP=window.APP_VER=102,REG=null,READY=false,LATEST=+localStorage.pa_latest||APP,_rl=false,CHK=0;
 /* ---------------- Auto-update (pp10, from TMC Base VER 11) ----------------
    When a new version is found the app saves open work, locks saves (save()/delLines() refuse), shows a full-screen
    "Updating… please wait", activates the new worker and reloads. Offline / check fails: nothing happens, retry next open.
@@ -752,8 +1362,8 @@ function updPin(){if($("pinBtn"))$("pinBtn").style.display="none";return;const n
 if($("pinBtn"))$("pinBtn").onclick=()=>{const n=$("name").value.trim();if(!n)return;pins=pins.includes(n)?pins.filter(x=>x!==n):pins.concat(n);savePins();renderFav()};
 function lastOf(n,sz,c){c=c||ecur();const A=allEntries().filter(e=>e.name.toLowerCase()===String(canonName(n)).toLowerCase()&&CUR(e)===c);const s=sz?A.filter(e=>(e.size||"")===sz):[];const B=(s.length?s:A).sort((a,b)=>(b.at||b.date).localeCompare(a.at||a.date)||(+b.id||0)-(+a.id||0));return B[0]}
 function lastFill(){const n=$("name").value.trim();let h="";if(n&&!editId&&!(window.NOPRICE&&!window.NOPENTER)){const e=lastOf(n,$("size").value.trim());if(e){$("price").value=e.price;setUnit(e.unit);if(!$("size").value&&e.size)$("size").value=e.size;h=t("lastP").replace("%p",fmt(e.price,CUR(e))+" / "+e.unit).replace("%d",fdate(e.date));calc()}}$("lastHint").textContent=h;updPin()}
-function chooseItem(n){if(findCat(n))pickItem(n);else{$("name").value=n;$("sug").style.display="none"}lastFill();$("qty").focus()}
-const _pick=pickItem;pickItem=function(n){_pick(n);lastFill()};
+function chooseItem(n){if(findCat(n))pickItem(n);else{$("name").value=n;$("sug").style.display="none"}lastFill();if(!editId&&window.setCat)setCat("");$("qty").focus()}
+const _pick=pickItem;pickItem=function(n){_pick(n);lastFill();if(!editId&&window.setCat)setCat("")};
 $("size").addEventListener("change",lastFill);$("name").addEventListener("input",()=>{$("lastHint").textContent="";updPin()});
 const _render=render;render=function(){_render();renderFav()};
 $("mrMonth").value=today().slice(0,7);
@@ -775,10 +1385,10 @@ function nq(n){return Math.round((+n||0)*1000)/1000}
 function oProg(o,AL){const S=AL.orders[o.id]||{pct:0,st:"none"};const pend=o.status==="pending";
 let h=`<div style="margin-top:4px">${lbl(S.st,"os_"+S.st)} <small>${t("pctB").replace("%p",S.pct)}</small></div>`+(S.st==="cancelled"?"":`<div class="pbar"><div style="width:${S.pct}%"></div></div>`);
 h+=o.lines.map((l,i)=>{const r=AL.lines[o.id+"|"+i];if(!r)return"";const b=l.st==="cancelled"?lbl("cancelled",l.nn?"lb_nn":"lb_cancelled"):lbl(r.st,"lb_"+r.st)+(l.st==="closed"?lbl("closed","lb_closed"):"");
-const btn=(a,k)=>`<button type="button" class="sec mini" data-act="${a}" data-o="${o.id}" data-i="${i}">${esc(t(k))}</button>`;
+const btn=(a,k)=>`<button type="button" class="sec ocbtn" data-act="${a}" data-o="${o.id}" data-i="${i}">${esc(t(k))}</button>`;
 return `<div class="oln"><b>${esc(tn(l.name))}</b>${l.size?" <small>("+esc(l.size)+")</small>":""} ${b}<br><small>${t("ordered")}: ${nq(r.q)} ${esc(l.unit||"")} · ${t("bought")}: ${nq(r.b)} · ${t("remaining")}: ${nq(r.rem)}</small>${pend?"<br>"+(l.st?(l.nn&&!nnOK()?"":btn("lre","reopenLine")):(r.st!=="bought"?btn("lclose","closeLine"):"")+(nnOK()?"":btn("lcan","cancelLine"))):""}${l.nn?`<br><small class="nnI">✖ ${esc(t("lb_nn"))}${l.nnBy?" · 🙋 "+esc(l.nnBy):""}${l.nnAt?" · 🕒 "+esc(String(l.nnAt).replace("T"," ").slice(0,16)):""}</small>`:""}${pend&&!l.st&&r.st!=="bought"&&nnOK()?`<button type="button" class="nnB" data-act="lnn" data-o="${o.id}" data-i="${i}">${esc(t("nnB"))}</button>`:""}</div>`}).join("");
-const ob=(a,k)=>`<button type="button" class="sec mini" data-act="${a}" data-o="${o.id}">${esc(t(k))}</button>`;
-h+=`<div>${pend&&!oClosed(o)&&oOwn(o)?`<button type="button" class="mini oaddb" data-act="oadd" data-o="${o.id}">➕ ${esc(t("oAdd"))}</button>`:""}${pend&&oClosed(o)&&window.PERM&&window.PERM.admin?ob("owre","wkReopenB"):""}${pend&&o.ordOpen&&nowMs()>=oWk(o)+WK&&window.PERM&&window.PERM.admin?ob("owcl","wkCloseB"):""}${pend?ob("oclose","closeOrder")+(nnOK()?"":ob("ocan","cancelOrder")):ob("ore","reopenOrder")}</div>${pend&&nnOK()&&!(AL.orders[o.id]||{}).b&&(o.lines||[]).some(l=>l.st!=="cancelled")?`<button type="button" class="nnB ocB" data-act="onn" data-o="${o.id}">${esc(t("ocB"))}</button>`:""}${o.cancelBy?`<small class="nnI">❌ ${esc(t("st_cancelled"))} · 🙋 ${esc(o.cancelBy)} · 🕒 ${esc(String(o.cancelAt||"").replace("T"," ").slice(0,16))}</small>`:""}`;return h}
+const ob=(a,k)=>`<button type="button" class="sec ocbtn" data-act="${a}" data-o="${o.id}">${esc(t(k))}</button>`;
+h+=`<div class="obtns">${pend&&!oClosed(o)&&oOwn(o)?`<button type="button" class="ocbtn oaddb" data-act="oadd" data-o="${o.id}">➕ ${esc(t("oAdd"))}</button>`:""}${pend&&oClosed(o)&&window.PERM&&window.PERM.admin?ob("owre","wkReopenB"):""}${pend&&o.ordOpen&&nowMs()>=oWk(o)+WK&&window.PERM&&window.PERM.admin?ob("owcl","wkCloseB"):""}${pend?ob("oclose","closeOrder")+(nnOK()?"":ob("ocan","cancelOrder")):ob("ore","reopenOrder")}</div>${pend&&nnOK()&&!(AL.orders[o.id]||{}).b&&(o.lines||[]).some(l=>l.st!=="cancelled")?`<button type="button" class="nnB ocB" data-act="onn" data-o="${o.id}">${esc(t("ocB"))}</button>`:""}${o.cancelBy?`<small class="nnI">❌ ${esc(t("st_cancelled"))} · 🙋 ${esc(o.cancelBy)} · 🕒 ${esc(String(o.cancelAt||"").replace("T"," ").slice(0,16))}</small>`:""}`;return h}
 // v81: "Not needed" (Admin only: the app has an Admin role)
 function nnOK(){return !!(window.PERM&&window.PERM.admin)}
 function nnWho(){return String(localStorage.pa_user||"").trim()}
@@ -822,17 +1432,19 @@ function sGroupN(AL){const S={};AL.list.forEach(r=>{if(r.need>0)S[r.gk||(r.o.id+
 function sNeed(AL,k){const r=AL.lines[k];if(!r)return null;if($("sOrd").value||!r.gk)return{need:r.need,b:r.b};let m=0,b=0;AL.list.forEach(x=>{if(x.gk===r.gk&&x.need>0&&x.need>=m){if(x.need>m||!b)b=x.b;m=x.need}});return{need:m,b:m>0?b:r.b}}
 function sMerge(R){const M=new Map();R.forEach(r=>{const g=r.gk||(r.o.id+"|"+r.i);if(!M.has(g))M.set(g,[]);M.get(g).push(r)});const out=[];M.forEach(A=>{let rep=A[0];A.forEach(x=>{if(x.need>rep.need)rep=x});out.push(A.length>1?Object.assign({},rep,{rem:rep.need,cov:A}):rep)});return out}
 function sOpen(){const m={};data.forEach(e=>{if(e.sLine)m[e.sLine]=(m[e.sLine]||0)+(+e.qty||0)});return m}
-function renderS(){if(window._sSkip){updBulk();return}const KEEP={};document.querySelectorAll("#sList .sln").forEach(d=>{if(d._t)KEEP[d.dataset.k]=d.querySelector(".sq").value});const OP=sOpen(),AL=tmcAlloc(orders,allEntries());updBadge(AL);const q=$("sQ").value.trim().toLowerCase(),fo=localStorage.pa_sPick||"";
+function renderS(){if(window._sSkip){updBulk();return}const KEEP={};document.querySelectorAll("#sList .sln").forEach(d=>{if(d._t)KEEP[d.dataset.k]=d.querySelector(".sq").value});const OP=sOpen(),OP_CAT={};data.forEach(e=>{if(e.sLine&&e.cat)OP_CAT[e.sLine]=e.cat});const AL=tmcAlloc(orders,allEntries());updBadge(AL);const q=$("sQ").value.trim().toLowerCase(),fo=localStorage.pa_sPick||"";
 const R=AL.list.filter(r=>r.need>0);const os=[...new Map(R.map(r=>[String(r.o.id),r.o])).values()];
 $("sOrd").innerHTML=`<option value="">${esc(t("sAllOrd"))}</option>`+os.map(o=>`<option value="${o.id}">${esc(o.no)} · ${fdate(o.placed)}${o.reqBy?" · "+esc(o.reqBy):""} · ${(o.status||"pending")==="pending"?"🟢 "+esc(t("oOpenL")):"✔ "+esc(t("oDoneL"))}</option>`).join("");$("sOrd").value=os.some(o=>String(o.id)===fo)?fo:"";
 const R2=$("sOrd").value?R:sMerge(R);const F=R2.filter(r=>(!$("sOrd").value||String(r.o.id)===$("sOrd").value)&&(!q||(trHay(r.l.name)+" "+(r.l.size||"")+" "+(r.cov||[r]).map(x=>x.o.no+" "+(x.o.reqBy||"")).join(" ")).toLowerCase().includes(q)));
 const G=new Map();F.forEach(r=>{const k=String(r.o.id);if(!G.has(k))G.set(k,[]);G.get(k).push(r)});
-$("sList").innerHTML=F.length?[...G.values()].map(L=>{const o=L[0].o;return `<div class="card${o.short?" shcard":""}"><b>📦 ${esc(o.no)}</b>${o.short?shTag():""}${o.ret?retTag():""} <small>${o.reqBy?"🙋 "+esc(o.reqBy)+" · ":""}${o.sup?"🏪 "+esc(o.sup)+" · ":""}📅 ${fdate(o.placed)}</small>`+L.map(r=>{const k=r.o.id+"|"+r.i,p=sPrice(r.l);return `<div class="sln" data-k="${k}"><div class="si"><b>${esc(tn(r.l.name))}</b>${r.l.size?" <small>("+esc(r.l.size)+")</small>":""}${(r.cov||[r]).some(x=>x.o&&x.o.short)?shTag():""}<br><small>${(r.cov||[r]).filter(x=>x.o&&x.o.short&&x.o.notes).map(x=>'<span class="shnote">'+(x.o.shDate?"📅 "+fdate(x.o.shDate)+(x.o.driver?" · 🚚 "+esc(x.o.driver):""):esc(x.o.notes))+"</span><br>").join("")}<span class="sr" role="button" title="${esc(t("sFill"))}">${t("sLeft")}: <b>${nq(r.rem)} ${esc(r.l.unit||"")}</b></span>${p&&!window.NOPRICE?" · "+fmt(p):""}<span class="sbt">${r.st==="short"?" · "+t("bought")+": "+nq(r.b):""}</span>${r.cov?`<br><span class="scov">🔗 ${esc(t("sCov"))}: ${r.cov.map(x=>esc(x.o.no)+(x.o.reqBy?" ("+esc(x.o.reqBy)+" "+nq(x.need)+")":" ("+nq(x.need)+")")).join(", ")}</span>`:""}</small></div><button type="button" class="srm" title="${esc(t("sRmT"))}">${esc(t("sRm"))}</button><input type="number" class="sq" inputmode="decimal" min="0" step="any" placeholder="${esc(t("qty"))}" value="${OP[k]?nq(OP[k]):""}"></div>`}).join("")+`</div>`}).join(""):`<div class="card"><p>${t(R.length?"noResults":"outNone")}</p></div>`;
+$("sList").innerHTML=F.length?[...G.values()].map(L=>{const o=L[0].o;return `<div class="card${o.short?" shcard":""}"><b>📦 ${esc(o.no)}</b>${o.short?shTag():""}${o.ret?retTag():""} <small>${o.reqBy?"🙋 "+esc(o.reqBy)+" · ":""}${o.sup?"🏪 "+esc(o.sup)+" · ":""}📅 ${fdate(o.placed)}</small>`+L.map(r=>{const k=r.o.id+"|"+r.i,p=sPrice(r.l);return `<div class="sln" data-k="${k}"><div class="si"><b>${esc(tn(r.l.name))}</b>${r.l.size?" <small>("+esc(r.l.size)+")</small>":""}${(r.cov||[r]).some(x=>x.o&&x.o.short)?shTag():""}<br><small>${(r.cov||[r]).filter(x=>x.o&&x.o.short&&x.o.notes).map(x=>'<span class="shnote">'+(x.o.shDate?"📅 "+fdate(x.o.shDate)+(x.o.driver?" · 🚚 "+esc(x.o.driver):""):esc(x.o.notes))+"</span><br>").join("")}<span class="sr" role="button" title="${esc(t("sFill"))}">${t("sLeft")}: <b>${nq(r.rem)} ${esc(r.l.unit||"")}</b></span>${p&&!window.NOPRICE?" · "+fmt(p):""}<span class="sbt">${r.st==="short"?" · "+t("bought")+": "+nq(r.b):""}</span>${r.cov?`<br><span class="scov">🔗 ${esc(t("sCov"))}: ${r.cov.map(x=>esc(x.o.no)+(x.o.reqBy?" ("+esc(x.o.reqBy)+" "+nq(x.need)+")":" ("+nq(x.need)+")")).join(", ")}</span>`:""}</small></div><div class="catPick sCat">${CATS.map(c=>`<button type="button" class="catBig${(OP_CAT[k]||"")===c?" on":""}" data-cat="${c}">${esc(t("cat"+c))}</button>`).join("")}</div><button type="button" class="srm" title="${esc(t("sRmT"))}">${esc(t("sRm"))}</button><input type="number" class="sq" inputmode="decimal" min="0" step="any" placeholder="${esc(t("qty"))}" value="${OP[k]?nq(OP[k]):""}"></div>`}).join("")+`</div>`}).join(""):`<div class="card"><p>${t(R.length?"noResults":"outNone")}</p></div>`;
 for(const k in KEEP){const d=document.querySelector(`#sList .sln[data-k="${k}"]`);if(d){d.querySelector(".sq").value=KEEP[k];sDeb(d)}}$("sBar").style.display=R.length?"":"none";updBulk()}
 function sLive(d){const k=d.dataset.k,v=d.querySelector(".sq").value,q=+v;const AL=tmcAlloc(orders,allEntries()),r=AL.lines[k];const i=data.findIndex(e=>e.sLine===k);
+const on=d.querySelector(".sCat .catBig.on");const scat=catVal(on&&on.dataset.cat||"");
 if(!(q>0)){if(i<0)return sAfter(d,k);data=data.filter(e=>e.sLine!==k)}
-else if(i>=0){if(+data[i].qty===q)return sAfter(d,k);data[i].qty=q;data.filter((e,j)=>j!==i&&e.sLine===k).forEach(e=>e.qty=0);data=data.filter(e=>!(e.sLine===k&&!(+e.qty>0)))}
-else{if(!r)return;const l=r.l,at=nowLocal();data.push({id:Date.now(),at,name:l.name,size:l.size||"",qty:q,unit:l.unit||"pcs",price:sPrice(l),date:at.slice(0,10),forOrder:String(r.o.id),sLine:k,by:localStorage.pa_user||"",cur:ecur()})}
+else{if(!scat){const pk=d.querySelector(".sCat");if(pk)pk.classList.add("catNeed");return}
+if(i>=0){if(+data[i].qty===q&&data[i].cat===scat)return sAfter(d,k);data[i].qty=q;data[i].cat=scat;data.filter((e,j)=>j!==i&&e.sLine===k).forEach(e=>e.qty=0);data=data.filter(e=>!(e.sLine===k&&!(+e.qty>0)))}
+else{if(!r)return;const l=r.l,at=nowLocal();data.push({id:Date.now(),at,name:l.name,size:l.size||"",qty:q,unit:l.unit||"pcs",price:sPrice(l),date:at.slice(0,10),forOrder:String(r.o.id),sLine:k,by:localStorage.pa_user||"",cur:ecur(),cat:scat})}}
 if(editId&&!data.some(e=>e.id===editId))reset();window._sSkip=$("tabS").style.display!=="none";try{save();render()}finally{window._sSkip=false}sAfter(d,k)}
 function sRm(d){if(!d||d._gone||!d.parentNode)return;d._gone=1;const c=d.closest(".card");try{d.remove()}catch(e){}if(c&&c.parentNode&&!c.querySelector(".sln"))try{c.remove()}catch(e){}}
 function sAfter(d,k){const AL=tmcAlloc(orders,allEntries()),r=AL.lines[k],g=sNeed(AL,k);updBadge(AL);if(!r||!(g.need>0)){if(d&&d.isConnected){sRm(d)}if(r)try{sToast("✅ "+t("sGone").replace("%i",tn(r.l.name)))}catch(e){}}
@@ -843,16 +1455,16 @@ let d=$("pToast");if(!d){d=document.createElement("div");d.id="pToast";document.
 function sDeb(d){clearTimeout(d._t);d._t=setTimeout(()=>{d._t=null;sLive(d)},350)}
 document.addEventListener("change",ev=>{const d=ev.target.closest&&ev.target.closest("#sList .sln");if(d&&!d._gone&&ev.target.matches(".sq")){clearTimeout(d._t);d._t=null;sLive(d)}},true);
 function updBulk(){let n=0,tot=0;const AL=tmcAlloc(orders,allEntries());document.querySelectorAll("#sList .sln").forEach(d=>{const q=+d.querySelector(".sq").value;d.classList.toggle("has",q>0);if(q>0){n++;const r=AL.lines[d.dataset.k];if(r)tot+=q*sPrice(r.l)}});const b=$("sDone");if(b){b.disabled=!n;b.textContent=n?(window.NOPRICE?t("sDone").replace(/[,]\s*%t/,""):t("sDone").replace("%t",fmt(tot,ecur()))).replace("%n",n):t("sDone0")}const nv=document.querySelector("nav.tabs");if(nv)document.documentElement.style.setProperty("--tabh",nv.offsetHeight+"px")}
-$("sDone").onclick=()=>{const ks=[];document.querySelectorAll("#sList .sln").forEach(d=>{if(+d.querySelector(".sq").value>0){ks.push(d.dataset.k);if(d._t){clearTimeout(d._t);d._t=null;sLive(d)}}});if(!ks.length)return;showTab("P");scrollTo(0,0);
+$("sDone").onclick=()=>{const ks=[];let miss=0;document.querySelectorAll("#sList .sln").forEach(d=>{if(+d.querySelector(".sq").value>0){const on=d.querySelector(".sCat .catBig.on");if(!catVal(on&&on.dataset.cat||"")){miss++;const pk=d.querySelector(".sCat");if(pk)pk.classList.add("catNeed");return}ks.push(d.dataset.k);if(d._t){clearTimeout(d._t);d._t=null;sLive(d)}}});if(miss){alert(t("catNeed"));return}if(!ks.length)return;showTab("P");scrollTo(0,0);
 setTimeout(()=>{const ids=data.filter(e=>ks.includes(e.sLine)).map(e=>String(e.id));let first=null;document.querySelectorAll("#list .pe").forEach(r=>{if(ids.includes(r.dataset.id)){r.classList.remove("justadd");void r.offsetWidth;r.classList.add("justadd");first=first||r}})},60)};
 function sToast(m){let d=$("pToast");if(!d){d=document.createElement("div");d.id="pToast";document.body.appendChild(d)}d.textContent=m;d.style.display="";clearTimeout(d._t);d._t=setTimeout(()=>d.style.display="none",2600)}
 function sAdd(divs){const AL=tmcAlloc(orders,allEntries());const at=nowLocal();let n=0,base=Date.now();
 divs.forEach(d=>{const r=AL.lines[d.dataset.k],q=+d.querySelector(".sq").value;if(!r||!(q>0))return;const l=r.l;
-data.push({id:base+n,at,name:l.name,size:l.size||"",qty:q,unit:l.unit||"pcs",price:sPrice(l),date:at.slice(0,10),forOrder:String(r.o.id),by:localStorage.pa_user||""});n++});
+const on=d.querySelector(".sCat .catBig.on"),scat=catVal(on&&on.dataset.cat||"");if(!scat){const pk=d.querySelector(".sCat");if(pk)pk.classList.add("catNeed");return}data.push({id:base+n,at,name:l.name,size:l.size||"",qty:q,unit:l.unit||"pcs",price:sPrice(l),date:at.slice(0,10),forOrder:String(r.o.id),by:localStorage.pa_user||"",cat:scat});n++});
 if(!n)return;save();render();renderS();sToast(t("sAdded").replace("%n",n))}
 $("sList").addEventListener("change",ev=>{const d=ev.target.closest(".sln");if(d){updBulk();clearTimeout(d._t);sLive(d)}});
 $("sList").addEventListener("input",ev=>{const d=ev.target.closest(".sln");if(d&&ev.target.classList.contains("sq")){updBulk();sDeb(d)}});
-$("sList").addEventListener("click",ev=>{const rm=ev.target.closest(".srm");if(rm){sRemove(rm.closest(".sln").dataset.k);return}const sr=ev.target.closest(".sr");if(sr){const d=sr.closest(".sln"),AL_=tmcAlloc(orders,allEntries()),r=AL_.lines[d.dataset.k];if(r){d.querySelector(".sq").value=nq((sOpen()[d.dataset.k]||0)+sNeed(AL_,d.dataset.k).need);updBulk();sDeb(d)}return}});
+$("sList").addEventListener("click",ev=>{const cb=ev.target.closest(".sCat .catBig");if(cb){const d=cb.closest(".sln");d.querySelectorAll(".sCat .catBig").forEach(b=>b.classList.toggle("on",b===cb));const pk=d.querySelector(".sCat");if(pk)pk.classList.remove("catNeed");if(+d.querySelector(".sq").value>0)sLive(d);return}const rm=ev.target.closest(".srm");if(rm){sRemove(rm.closest(".sln").dataset.k);return}const sr=ev.target.closest(".sr");if(sr){const d=sr.closest(".sln"),AL_=tmcAlloc(orders,allEntries()),r=AL_.lines[d.dataset.k];if(r){d.querySelector(".sq").value=nq((sOpen()[d.dataset.k]||0)+sNeed(AL_,d.dataset.k).need);updBulk();sDeb(d)}return}});
 $("sQ").oninput=renderS;$("sOrd").onchange=()=>{localStorage.pa_sPick=$("sOrd").value;renderS()};$("goS").onclick=()=>showTab("S");
 $("outCsv").onclick=()=>dl(outRows(),"outstanding-"+today()+".csv");
 function curEntries(){return allEntries().filter(e=>!(editId&&e.id===editId&&!e.paid))}
@@ -896,7 +1508,7 @@ persist();if(ch)syncSoon();status()};
 let tmr,errN=0,nextOk=0,sySt="ok",retryT;function syncSoon(ms){if(!on())return;clearTimeout(tmr);tmr=setTimeout(()=>syncNow(),ms==null?800:ms)}
 function autoSync(){if(!on()||document.visibilityState==="hidden"||Date.now()<nextOk)return;syncNow()}
 function dot(full){const d=$("syDot");if(!d)return;if(!on()){d.style.display="none";return}d.style.display="";const l=+localStorage.pa_sylast||0,hm=l?new Date(l).toTimeString().slice(0,5):"";if(!navigator.onLine&&sySt!=="busy")sySt="offline";
-const M={ok:["sy-ok",l?t("syDotOk").replace("%t",hm):t("syncNever")],busy:["sy-busy",t("syDotBusy")],offline:["sy-off",t("syDotOff")],err:["sy-err",t("syDotErr")]};const m=M[sySt]||M.ok;/* base VER 8: light + 24-hour HH:MM of the last good sync; red when offline or failing */const dk=sySt==="busy"?"busy":sySt==="err"||sySt==="offline"||!navigator.onLine?"err":l?"ok":"",dd=l?new Date(l):null;d.className="hS";d.innerHTML='<span id="sDot" class="dot '+dk+'"></span><span id="sTime" class="sTime">'+esc(!dd?"—":dd.toDateString()===new Date().toDateString()?hm:dd.toLocaleDateString(lang==="fr"?"fr-FR":lang==="af"?"af-ZA":"en-GB",{day:"numeric",month:"short"})+" "+hm)+"</span>";d.setAttribute("aria-label",m[1]);d.title=full||"";const h=$("hSync");if(h&&$("tabG").style.display!=="none"){h.className="card hsync "+m[0];h.textContent="☁️ "+m[1]+(full&&full!==m[1]?" — "+full:"");h.style.display=""}}
+const M={ok:["sy-ok",l?t("syDotOk").replace("%t",hm):t("syncNever")],busy:["sy-busy",t("syDotBusy")],offline:["sy-off",t("syDotOff")],err:["sy-err",t("syDotErr")]};const m=M[sySt]||M.ok;/* base VER 8: light + 24-hour HH:MM of the last good sync; red when offline or failing */const dk=sySt==="busy"?"busy":sySt==="err"||sySt==="offline"||!navigator.onLine?"err":l?"ok":"",dd=l?new Date(l):null;d.className="hS";d.innerHTML='<span id="sDot" class="dot '+dk+'"></span><span id="sTime" class="sTime">'+esc(!dd?"—":dd.toDateString()===new Date().toDateString()?hm:dd.toLocaleDateString(locDate(),{day:"numeric",month:"short"})+" "+hm)+"</span>";d.setAttribute("aria-label",m[1]);d.title=full||"";const h=$("hSync");if(h&&$("tabG").style.display!=="none"){h.className="card hsync "+m[0];h.textContent="☁️ "+m[1]+(full&&full!==m[1]?" — "+full:"");h.style.display=""}}
 function status(msg){const el=$("syStat");if(!el)return;const n=Object.keys(dirty).length;let s;
 if(!on())s=t("syncOff");else{sySt=msg===t("syncBusy")?"busy":msg===t("syncOffline")?"offline":msg&&msg.indexOf(t("syncErr").split("%e")[0])===0?"err":"ok";const l=+localStorage.pa_sylast||0;s=msg||(l?t("syncLast").replace("%d",fdt(l)):t("syncNever"));if(n)s+=" · "+t("syncPend").replace("%n",n)}el.textContent=s;dot(s)}
 window.syncStatus=status;
@@ -991,8 +1603,8 @@ oCalc();$$("plClose").onclick()};
 </script><script>(function(){const st=()=>{try{return JSON.parse(localStorage.pa_helpMin||"{}")}catch(e){return{}}};document.querySelectorAll(".hbox").forEach(b=>{const k=b.dataset.hk;b.classList.toggle("min",!!st()[k]);const bt=b.querySelector(".hbar");const upd=()=>{const m=b.classList.contains("min");bt.setAttribute("aria-expanded",String(!m));bt.title=t(m?"howShow":"howHide")};upd();bt.onclick=()=>{b.classList.toggle("min");const S=st();S[k]=b.classList.contains("min")?1:0;localStorage.pa_helpMin=JSON.stringify(S);upd()}})})();</script><script>(function(){
 function names(){const c={};const add=n=>{n=String(n||"").trim();if(n)c[n]=(c[n]||0)+1};(orders||[]).forEach(o=>add(o.reqBy));(batches||[]).forEach(b=>add(b.paidBy));return Object.keys(c).sort((a,b)=>c[b]-c[a]||a.localeCompare(b))}
 window.showLogin=()=>show();function show(){if($("login"))return;if($("gate"))$("gate").remove();const N=names(),d=document.createElement("div");d.id="login";d.className="full tmcS";d.style.cssText="--tmcS-c:#0f766e;--tmcS-cd:#115e59";
-d.innerHTML=`<div class="signin"><div class="card"><img class="tmcS-logo" src="icons/icon-192.png?v=pp10" width="84" height="84" alt=""><h2 class="tmcS-t">${esc(t("title"))}</h2><select id="lgLang" class="tmcS-lang" aria-label="Language"><option value="en">🌐 English</option><option value="fr">🌐 Français</option><option value="af">🌐 Afrikaans</option></select><input id="lgName" class="tmcS-name" list="lgList" autocomplete="name" maxlength="60" spellcheck="true" placeholder="${esc(({en:"Type your name",fr:"Écrivez votre nom",af:"Tik jou naam"})[lang]||"Type your name")}" value="${esc(N[0]||"")}"><datalist id="lgList">${N.map(n=>`<option value="${esc(n)}">`).join("")}</datalist><small id="lgErr" class="tmcS-err" style="display:none">${esc(t("lgNeed"))}</small><button type="button" id="lgGo" class="tmcS-go">${esc(t("lgGo"))}</button></div><div id="ncW" class="ncW ncBox" role="alert" style="display:none"></div></div>`;
-var _on=document.querySelector("body>#ncW");if(_on)_on.remove();document.body.appendChild(d);try{window.paintNc&&paintNc()}catch(e){}$("lgLang").value=lang;$("lgLang").onchange=()=>{$("lang").value=$("lgLang").value;$("lang").dispatchEvent(new Event("change"));const v=$("lgName").value;d.remove();show();$("lgName").value=v};
+d.innerHTML=`<div class="signin"><div class="card"><img class="tmcS-logo" src="icons/icon-192.png?v=pp10" width="84" height="84" alt=""><h2 class="tmcS-t">${esc(t("title"))}</h2><div class="langPick" id="lgLangPick"><button type="button" class="langBig" data-lang="en">English</button><button type="button" class="langBig" data-lang="fr">Français</button><button type="button" class="langBig" data-lang="af">Afrikaans</button><button type="button" class="langBig" data-lang="ar">العربية</button></div><input id="lgName" class="tmcS-name" list="lgList" autocomplete="name" maxlength="60" spellcheck="true" placeholder="${esc(({en:"Type your name",fr:"Écrivez votre nom",af:"Tik jou naam",ar:"اكتب اسمك"})[lang]||"Type your name")}" value="${esc(N[0]||"")}"><datalist id="lgList">${N.map(n=>`<option value="${esc(n)}">`).join("")}</datalist><small id="lgErr" class="tmcS-err" style="display:none">${esc(t("lgNeed"))}</small><button type="button" id="lgGo" class="tmcS-go">${esc(t("lgGo"))}</button></div><div id="ncW" class="ncW ncBox" role="alert" style="display:none"></div></div>`;
+var _on=document.querySelector("body>#ncW");if(_on)_on.remove();document.body.appendChild(d);try{window.paintNc&&paintNc()}catch(e){}paintLang();document.querySelectorAll("#lgLangPick .langBig").forEach(b=>b.onclick=()=>{pickLang(b.dataset.lang);const v=$("lgName")&&$("lgName").value;d.remove();show();if($("lgName")&&v)$("lgName").value=v});
 const go=()=>{const n=$("lgName").value.trim().replace(/\s+/g," ");if(!n){$("lgErr").style.display="block";$("lgName").focus();return}var nm=n;try{var kn=(users||[]).filter(function(x){return x&&x.name&&NK(x.name)===NK(n)});var ka=kn.filter(function(x){return !x.status||x.status==="active"});var k1=ka.length>1?null:(ka[0]||kn[0]);if(k1)nm=String(k1.name)}catch(e){}localStorage.pa_user=nm;localStorage.removeItem("pa_uok");localStorage.removeItem("pa_reqseen");d.remove();try{window.paintNc&&paintNc()}catch(e){}upd();try{window.permsRefresh&&permsRefresh()}catch(e){}try{if(window.renderH0)renderH0()}catch(e){}try{if(window.syncNow&&localStorage.pa_syurl)syncNow()}catch(e){}};
 $("lgGo").onclick=go;$("lgName").onkeydown=e=>{if(e.key==="Enter")go()};setTimeout(()=>$("lgName").focus(),50)}
 function upd(){const u=localStorage.pa_user;$("uNow").textContent=u?t("userNow").replace("%n",u):"";}
@@ -1264,8 +1876,8 @@ document.addEventListener("click",ev=>{const b=ev.target.closest("[data-slip]");
 (function(){var EL=function(){return document.getElementById("hRate")};
 function J(k){try{return JSON.parse(localStorage[k]||"null")}catch(e){return null}}
 var st={busy:0,err:0},MK=J("pa_rmkt");
-function nf(n,d){try{return n.toLocaleString(lang==="af"?"af-ZA":lang==="fr"?"fr-FR":"en-GB",{minimumFractionDigits:d,maximumFractionDigits:d})}catch(e){return n.toFixed(d)}}
-function td(ms){var d=new Date(ms);try{return d.toLocaleString(lang==="af"?"af-ZA":lang==="fr"?"fr-FR":"en-GB",{timeZone:"Africa/Ndjamena",day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})}catch(e){var x=new Date(ms+36e5);return x.toISOString().slice(0,16).replace("T"," ")}}
+function nf(n,d){try{return n.toLocaleString(locDate(),{minimumFractionDigits:d,maximumFractionDigits:d})}catch(e){return n.toFixed(d)}}
+function td(ms){var d=new Date(ms);try{return d.toLocaleString(locDate(),{timeZone:"Africa/Ndjamena",day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})}catch(e){var x=new Date(ms+36e5);return x.toISOString().slice(0,16).replace("T"," ")}}
 function getJ(u){return new Promise(function(ok,no){if(!window.fetch)return no(0);var c=window.AbortController?new AbortController():null,tm=setTimeout(function(){c&&c.abort();no(0)},10000);fetch(u,{cache:"no-store",signal:c?c.signal:undefined}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){clearTimeout(tm);ok(j)}).catch(function(e){clearTimeout(tm);no(e)})})}
 var SRC=[["open.er-api.com","https://open.er-api.com/v6/latest/LYD",function(j){return j&&j.result==="success"&&j.rates&&+j.rates.XAF?{v:+j.rates.XAF,upd:(j.time_last_update_unix||0)*1000}:null}],
 ["currency-api (jsDelivr)","https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/lyd.json",function(j){return j&&j.lyd&&+j.lyd.xaf?{v:+j.lyd.xaf,upd:Date.parse(j.date+"T00:00:00Z")||0}:null}],
@@ -1275,7 +1887,7 @@ window.rateRefresh=refresh;
 window.rateRecs=function(){return MK&&MK.v?[{id:"mkt",rec:MK}]:[]};
 window.rateApply=function(r){if(r.del){MK=null;localStorage.removeItem("pa_rmkt");draw();return null}var d=r.data;if(typeof d==="string"){try{d=JSON.parse(d)}catch(e){return null}}if(!d||!+d.v)return null;MK={v:+d.v,at:d.at||"",by:d.by||""};localStorage.pa_rmkt=JSON.stringify(MK);draw();return MK};
 function setMkt(){var v=prompt(t("rtMktAsk"),MK?String(MK.v):"");if(v==null)return;v=parseFloat(String(v).replace(/\s/g,"").replace(",","."));if(v>0){MK={v:v,at:nowLocal(),by:localStorage.pa_user||""};localStorage.pa_rmkt=JSON.stringify(MK)}else{MK=null;localStorage.removeItem("pa_rmkt")}if(window.syncMark)syncMark();if(window.syncNow)try{syncNow()}catch(e){}draw()}
-var XP=0;function tds(ms){try{return new Date(ms).toLocaleString(lang==="af"?"af-ZA":lang==="fr"?"fr-FR":"en-GB",{timeZone:"Africa/Ndjamena",day:"numeric",month:"numeric",hour:"2-digit",minute:"2-digit",hour12:false})}catch(e){return new Date(ms+36e5).toISOString().slice(5,16).replace("T"," ")}}function hm(ms){try{return new Date(ms).toLocaleTimeString(lang==="af"?"af-ZA":lang==="fr"?"fr-FR":"en-GB",{timeZone:"Africa/Ndjamena",hour:"2-digit",minute:"2-digit",hour12:false})}catch(e){return new Date(ms+36e5).toISOString().slice(11,16)}}
+var XP=0;function tds(ms){try{return new Date(ms).toLocaleString(locDate(),{timeZone:"Africa/Ndjamena",day:"numeric",month:"numeric",hour:"2-digit",minute:"2-digit",hour12:false})}catch(e){return new Date(ms+36e5).toISOString().slice(5,16).replace("T"," ")}}function hm(ms){try{return new Date(ms).toLocaleTimeString(locDate(),{timeZone:"Africa/Ndjamena",hour:"2-digit",minute:"2-digit",hour12:false})}catch(e){return new Date(ms+36e5).toISOString().slice(11,16)}}
 function draw(){var e=EL();if(!e)return;var R=J("pa_rate"),P=J("pa_ratePrev"),off=st.err||!navigator.onLine,line,x="";
 if(R&&R.v){var ch="";if(P&&P.v&&!off){var dp=(R.v-P.v)/P.v*100;ch=' <span class="rtch '+(dp>=0?"up":"dn")+'">'+(dp>=0?"▲":"▼")+'<span class="pct">'+nf(Math.abs(dp),1)+"%</span></span>"}
 line='<span dir="ltr">1 LYD = <b>'+nf(R.v,2)+'</b> FCFA</span>'+ch+' <span class="rtt'+(off?" rtoff":"")+'">'+(off?"📴 "+esc(t("rtOffS"))+" · ":"· ")+(Date.now()-R.at>72e6?tds(R.at):hm(R.at))+(off?'<span class="rtcv">'+(XP?"▴":"▾")+"</span>":"")+"</span>";
@@ -1367,8 +1979,8 @@ d.querySelector(".pwT").textContent=t("pwT").replace("%n",n);d.querySelector(".p
 window.pendWarn=pw;setInterval(pw,2000);addEventListener("online",pw);addEventListener("offline",pw);pw();})();</script><script>/* v82 WhatsApp invoice + contacts */(function(){
 var W={en:{waT:"📱 WhatsApp contacts",waHelp:"People who get the invoice on WhatsApp. Write the number with the country code, e.g. +235 66 12 34 56.",waName:"Name",waPhone:"WhatsApp number (+country code)",waAdd:"➕ Add contact",waNone:"No contacts yet.",waDel:"Remove",waDelAsk:"Remove %n from WhatsApp contacts?",waBadPh:"Write the number with + and the country code, e.g. +235 66 12 34 56",waBadNm:"Write a name",waDup:"This number is already in the list",waInv:"🧾 Invoice",waSend:"📤 Send on WhatsApp",waClose:"Close",waPick:"Send to who?",waOther:"💬 Choose in WhatsApp",waBack:"◀ Back",waResend:"Send invoice on WhatsApp",waDate:"Date",waBy:"Paid by",waOrd:"Order",waTot:"TOTAL",waItems:"items",waMis:"missed purchase"},
 fr:{waT:"📱 Contacts WhatsApp",waHelp:"Personnes qui reçoivent la facture sur WhatsApp. Écrivez le numéro avec l'indicatif du pays, ex. +235 66 12 34 56.",waName:"Nom",waPhone:"Numéro WhatsApp (+indicatif)",waAdd:"➕ Ajouter un contact",waNone:"Aucun contact pour l'instant.",waDel:"Retirer",waDelAsk:"Retirer %n des contacts WhatsApp ?",waBadPh:"Écrivez le numéro avec + et l'indicatif, ex. +235 66 12 34 56",waBadNm:"Écrivez un nom",waDup:"Ce numéro est déjà dans la liste",waInv:"🧾 Facture",waSend:"📤 Envoyer sur WhatsApp",waClose:"Fermer",waPick:"Envoyer à qui ?",waOther:"💬 Choisir dans WhatsApp",waBack:"◀ Retour",waResend:"Envoyer la facture sur WhatsApp",waDate:"Date",waBy:"Payé par",waOrd:"Commande",waTot:"TOTAL",waItems:"articles",waMis:"achat oublié"},
-af:{"waT": "📱 WhatsApp-kontakte", "waHelp": "Mense wat die faktuur op WhatsApp kry. Skryf die nommer met die landkode, bv. +235 66 12 34 56.", "waName": "Naam", "waPhone": "WhatsApp-nommer (+landkode)", "waAdd": "➕ Voeg kontak by", "waNone": "Nog geen kontakte nie.", "waDel": "Haal weg", "waDelAsk": "Haal %n uit die WhatsApp-kontakte?", "waBadPh": "Skryf die nommer met + en die landkode, bv. +235 66 12 34 56", "waBadNm": "Skryf 'n naam", "waDup": "Hierdie nommer is klaar in die lys", "waInv": "🧾 Faktuur", "waSend": "📤 Stuur op WhatsApp", "waClose": "Maak toe", "waPick": "Stuur aan wie?", "waOther": "💬 Kies in WhatsApp", "waBack": "◀ Terug", "waResend": "Stuur faktuur op WhatsApp", "waDate": "Datum", "waBy": "Betaal deur", "waOrd": "Bestelling", "waTot": "TOTAAL", "waItems": "items", "waMis": "vergete aankoop"}};
-["en","fr","af"].forEach(function(l){Object.assign(T[l],W[l])});
+af:{"waT": "📱 WhatsApp-kontakte", "waHelp": "Mense wat die faktuur op WhatsApp kry. Skryf die nommer met die landkode, bv. +235 66 12 34 56.", "waName": "Naam", "waPhone": "WhatsApp-nommer (+landkode)", "waAdd": "➕ Voeg kontak by", "waNone": "Nog geen kontakte nie.", "waDel": "Haal weg", "waDelAsk": "Haal %n uit die WhatsApp-kontakte?", "waBadPh": "Skryf die nommer met + en die landkode, bv. +235 66 12 34 56", "waBadNm": "Skryf 'n naam", "waDup": "Hierdie nommer is klaar in die lys", "waInv": "🧾 Faktuur", "waSend": "📤 Stuur op WhatsApp", "waClose": "Maak toe", "waPick": "Stuur aan wie?", "waOther": "💬 Kies in WhatsApp", "waBack": "◀ Terug", "waResend": "Stuur faktuur op WhatsApp", "waDate": "Datum", "waBy": "Betaal deur", "waOrd": "Bestelling", "waTot": "TOTAAL", "waItems": "items", "waMis": "vergete aankoop"},ar:{"waT":"📱 جهات اتصال واتساب","waHelp":"الأشخاص الذين يستلمون الفاتورة على واتساب. اكتب الرقم مع رمز الدولة، مثل ‎+235 66 12 34 56‎.","waName":"الاسم","waPhone":"رقم واتساب (+رمز الدولة)","waAdd":"➕ إضافة جهة اتصال","waNone":"لا توجد جهات اتصال بعد.","waDel":"حذف","waDelAsk":"حذف %n من جهات اتصال واتساب؟","waBadPh":"اكتب الرقم مع + ورمز الدولة، مثل ‎+235 66 12 34 56‎","waBadNm":"اكتب اسماً","waDup":"هذا الرقم موجود في القائمة","waInv":"🧾 فاتورة","waSend":"📤 إرسال على واتساب","waClose":"إغلاق","waPick":"إرسال إلى من؟","waOther":"💬 اختر في واتساب","waBack":"◀ رجوع","waResend":"إرسال الفاتورة على واتساب","waDate":"التاريخ","waBy":"دفع بواسطة","waOrd":"الطلب","waTot":"المجموع","waItems":"أصناف","waMis":"مشتريات منسية"}};
+["en","fr","af","ar"].forEach(function(l){if(W[l])Object.assign(T[l],W[l])});
 var C=[];try{C=JSON.parse(localStorage.pa_wac||"[]")||[]}catch(e){C=[]}
 function saveC(){localStorage.pa_wac=JSON.stringify(C);if(window.syncMark)syncMark();draw()}
 function digits(p){return String(p||"").replace(/[^0-9]/g,"")}
@@ -1412,8 +2024,8 @@ function init(){var a=$("waAddB");if(a)a.onclick=addC;draw()}if(document.readySt
 <script>/* v83 purchase numbers + pots text */(function(){
 var W={en:{pCur:"This money",pGiven:"Given",pOld:"Old money",pShort:"short",pLeft:"left",pPots:"Money given (each on its own)",pPot:"Given on",pRes:"Result",pnoT:"No.",pnoGap:"Missing numbers"},
 fr:{pCur:"Cet argent",pGiven:"Donné",pOld:"Ancien argent",pShort:"manque",pLeft:"reste",pPots:"Argent donné (chacun à part)",pPot:"Donné le",pRes:"Résultat",pnoT:"N°",pnoGap:"Numéros manquants"},
-af:{"pCur": "Hierdie geld", "pGiven": "Gegee", "pOld": "Ou geld", "pShort": "kort", "pLeft": "oor", "pPots": "Geld gegee (elk apart)", "pPot": "Gegee op", "pRes": "Uitslag", "pnoT": "Nr.", "pnoGap": "Nommers wat ontbreek"}};
-["en","fr","af"].forEach(function(l){Object.assign(T[l],W[l])});
+af:{"pCur": "Hierdie geld", "pGiven": "Gegee", "pOld": "Ou geld", "pShort": "kort", "pLeft": "oor", "pPots": "Geld gegee (elk apart)", "pPot": "Gegee op", "pRes": "Uitslag", "pnoT": "Nr.", "pnoGap": "Nommers wat ontbreek"},ar:{"pCur":"هذا المال","pGiven":"المُعطى","pOld":"مال قديم","pShort":"ناقص","pLeft":"متبقٍ","pPots":"المال المُعطى (كل مبلغ وحده)","pPot":"أُعطي في","pRes":"النتيجة","pnoT":"رقم","pnoGap":"أرقام ناقصة"}};
+["en","fr","af","ar"].forEach(function(l){if(W[l])Object.assign(T[l],W[l])});
 function code(n){var w=String(n||"").trim().split(/\s+/).map(function(x){return x.replace(/[^0-9A-Za-z\u00C0-\u024F\u0600-\u06FF]/g,"")}).filter(Boolean);var c=w.length>1?w[0].charAt(0)+w[w.length-1].charAt(0):(w[0]||"U").slice(0,2);return (c.toUpperCase()||"U")}
 window.pnoCode=code;
 var RX=/^P-([^-]+)-(\d+)$/;
